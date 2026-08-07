@@ -1,12 +1,6 @@
 #ifndef _MACHINES_H_
 #define _MACHINES_H_
 
-
-
-
-
-
-
 // disable e.g. if roms are missing
 //#define ENABLE_1942
 #define ENABLE_ALIBABA
