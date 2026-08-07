@@ -1,6 +1,6 @@
 ![Galagino Plus screenshot](images/galaginoplus.png)
 
-# Galagino Plus with 43 games and the ability to save the highest scores of each game !
+# A new Galagino with 43 games and the ability to save the highest scores of each game !
 
 The main new feature of this version, besides the new games added, is the permanent saving of high scores and player names.
 
