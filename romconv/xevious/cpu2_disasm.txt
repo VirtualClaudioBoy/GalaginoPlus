@@ -1,0 +1,6671 @@
+0000: c3 65 01     JP 0x0165
+0003: 12           LD (DE),A
+0004: 42           LD B,D
+0005: 21 00 00     LD HL,0
+0008: 87           ADD A,A
+0009: d2 58 00     JP nc,0x0058
+000c: 25           DEC H
+000d: c3 58 00     JP 0x0058
+0010: a7           AND A
+0011: f2 58 00     JP p,0x0058
+0014: 25           DEC H
+0015: c3 58 00     JP 0x0058
+0018: a7           AND A
+0019: f0           RET p
+001a: ed 44        NEG
+001c: c9           RET
+001d: 33           INC SP
+001e: 33           INC SP
+001f: c9           RET
+0020: eb           EX DE,HL
+0021: cd 05 00     CALL 0x0005
+0024: 29           ADD HL,HL
+0025: 19           ADD HL,DE
+0026: c9           RET
+0027: ff           RST 0x38
+0028: eb           EX DE,HL
+0029: cd 05 00     CALL 0x0005
+002c: 29           ADD HL,HL
+002d: 29           ADD HL,HL
+002e: 19           ADD HL,DE
+002f: c9           RET
+0030: e1           POP HL
+0031: dd 75 00     LD (IX),L
+0034: dd 74 01     LD (IX+1),H
+0037: c9           RET
+0038: 3a 03 80     LD A,(0x8003)
+003b: a7           AND A
+003c: 3e 03        LD A,3
+003e: 28 04        JR z,0x0044
+0040: 25           DEC H
+0041: 25           DEC H
+0042: 3e 19        LD A,0x19
+0044: 85           ADD A,L
+0045: e6 3f        AND 0x3f
+0047: 6f           LD L,A
+0048: 3e 03        LD A,3
+004a: 84           ADD A,H
+004b: 0f           RRCA
+004c: 0f           RRCA
+004d: 67           LD H,A
+004e: e6 c0        AND 0xc0
+0050: b5           OR L
+0051: 6f           LD L,A
+0052: 7c           LD A,H
+0053: e6 07        AND 7
+0055: 81           ADD A,C
+0056: 67           LD H,A
+0057: c9           RET
+0058: 85           ADD A,L
+0059: 6f           LD L,A
+005a: d0           RET nc
+005b: 24           INC H
+005c: c9           RET
+005d: 0e 12        LD C,0x12
+005f: 1b           DEC DE
+0060: 1b           DEC DE
+0061: 22 24 16     LD (0x1624),HL
+0064: 18 1e        JR 0x0084
+0066: ed 45        RETN
+0068: 11 17 93     LD DE,0x9317
+006b: 21 16 93     LD HL,0x9316
+006e: 01 13 00     LD BC,0x13
+0071: ed b8        LDDR
+0073: dd 21 60 01  LD IX,0x160
+0077: 1e 00        LD E,0
+0079: 01 04 05     LD BC,0x504
+007c: dd 7e 00     LD A,(IX)
+007f: dd 23        INC IX
+0081: 6f           LD L,A
+0082: 26 20        LD H,0x20
+0084: 7e           LD A,(HL)
+0085: 7b           LD A,E
+0086: 81           ADD A,C
+0087: 5f           LD E,A
+0088: 7e           LD A,(HL)
+0089: 12           LD (DE),A
+008a: 10 f0        DJNZ 0x007c
+008c: 06 05        LD B,5
+008e: 21 04 93     LD HL,0x9304
+0091: 7e           LD A,(HL)
+0092: 2c           INC L
+0093: b6           OR (HL)
+0094: 2c           INC L
+0095: 2f           CPL
+0096: a6           AND (HL)
+0097: 2c           INC L
+0098: a6           AND (HL)
+0099: 2c           INC L
+009a: e6 0f        AND 15
+009c: 20 04        JR nz,0x00a2
+009e: 10 f1        DJNZ 0x0091
+00a0: 18 40        JR 0x00e2
+00a2: 05           DEC B
+00a3: 28 4f        JR z,0x00f4
+00a5: 05           DEC B
+00a6: cb 20        SLA B
+00a8: cb 20        SLA B
+00aa: 0f           RRCA
+00ab: 38 03        JR c,0x00b0
+00ad: 04           INC B
+00ae: 18 fa        JR 0x00aa
+00b0: 3a 00 93     LD A,(0x9300)
+00b3: cb 3f        SRL A
+00b5: 5f           LD E,A
+00b6: cb 11        RL C
+00b8: c6 01        ADD A,1
+00ba: 6f           LD L,A
+00bb: 26 93        LD H,0x93
+00bd: 7e           LD A,(HL)
+00be: cb 41        BIT 0,C
+00c0: 28 04        JR z,0x00c6
+00c2: 07           RLCA
+00c3: 07           RLCA
+00c4: 07           RLCA
+00c5: 07           RLCA
+00c6: e6 f0        AND 0xf0
+00c8: b0           OR B
+00c9: cb 41        BIT 0,C
+00cb: 28 04        JR z,0x00d1
+00cd: 07           RLCA
+00ce: 07           RLCA
+00cf: 07           RLCA
+00d0: 07           RLCA
+00d1: 77           LD (HL),A
+00d2: 3a 00 93     LD A,(0x9300)
+00d5: a7           AND A
+00d6: 20 02        JR nz,0x00da
+00d8: 3e 02        LD A,2
+00da: 3d           DEC A
+00db: 32 00 93     LD (0x9300),A
+00de: 7b           LD A,E
+00df: a7           AND A
+00e0: 28 09        JR z,0x00eb
+00e2: 2a 02 93     LD HL,(0x9302)
+00e5: 7e           LD A,(HL)
+00e6: 32 01 93     LD (0x9301),A
+00e9: 18 42        JR 0x012d
+00eb: 2a 02 93     LD HL,(0x9302)
+00ee: 3a 01 93     LD A,(0x9301)
+00f1: 77           LD (HL),A
+00f2: 18 39        JR 0x012d
+00f4: 4f           LD C,A
+00f5: 21 00 93     LD HL,0x9300
+00f8: cb 41        BIT 0,C
+00fa: 20 2d        JR nz,0x0129
+00fc: 7e           LD A,(HL)
+00fd: cb 3f        SRL A
+00ff: 28 13        JR z,0x0114
+0101: cb 59        BIT 3,C
+0103: 20 0c        JR nz,0x0111
+0105: 7e           LD A,(HL)
+0106: fe 05        CP 5
+0108: 30 03        JR nc,0x010d
+010a: 34           INC (HL)
+010b: 18 d5        JR 0x00e2
+010d: 36 05        LD (HL),5
+010f: 18 d1        JR 0x00e2
+0111: 35           DEC (HL)
+0112: 18 ce        JR 0x00e2
+0114: 2a 02 93     LD HL,(0x9302)
+0117: cb 59        BIT 3,C
+0119: 20 03        JR nz,0x011e
+011b: 2b           DEC HL
+011c: 18 01        JR 0x011f
+011e: 23           INC HL
+011f: 22 02 93     LD (0x9302),HL
+0122: 3e 01        LD A,1
+0124: 32 00 93     LD (0x9300),A
+0127: 18 b9        JR 0x00e2
+0129: 36 05        LD (HL),5
+012b: 18 b5        JR 0x00e2
+012d: 21 e2 c0     LD HL,0xc0e2
+0130: 11 01 93     LD DE,0x9301
+0133: 06 03        LD B,3
+0135: 1a           LD A,(DE)
+0136: 1c           INC E
+0137: cd 51 01     CALL 0x0151
+013a: 10 f9        DJNZ 0x0135
+013c: 21 e2 b0     LD HL,0xb0e2
+013f: 3a 00 93     LD A,(0x9300)
+0142: 06 06        LD B,6
+0144: a7           AND A
+0145: 0e 04        LD C,4
+0147: 28 02        JR z,0x014b
+0149: 0e 0c        LD C,12
+014b: 71           LD (HL),C
+014c: 2d           DEC L
+014d: 3d           DEC A
+014e: 10 f4        DJNZ 0x0144
+0150: c9           RET
+0151: 4f           LD C,A
+0152: e6 0f        AND 15
+0154: 77           LD (HL),A
+0155: 2d           DEC L
+0156: 79           LD A,C
+0157: 07           RLCA
+0158: 07           RLCA
+0159: 07           RLCA
+015a: 07           RLCA
+015b: e6 0f        AND 15
+015d: 77           LD (HL),A
+015e: 2d           DEC L
+015f: c9           RET
+0160: fd fb        EI
+0162: f7           RST 0x30
+0163: ef           RST 0x28
+0164: fe 3a        CP 0x3a
+0166: 09           ADD HL,BC
+0167: 04           INC B
+0168: 32 72 85     LD (0x8572),A
+016b: 3a fb 15     LD A,(0x15fb)
+016e: 32 73 85     LD (0x8573),A
+0171: 31 80 97     LD SP,0x9780
+0174: 21 00 10     LD HL,0x1000
+0177: 11 00 a4     LD DE,0xa400
+017a: 01 20 00     LD BC,0x20
+017d: ed b0        LDIR
+017f: 21 b6 01     LD HL,0x1b6
+0182: 11 c0 82     LD DE,0x82c0
+0185: 01 40 00     LD BC,0x40
+0188: ed b0        LDIR
+018a: 21 02 80     LD HL,0x8002
+018d: 7e           LD A,(HL)
+018e: 3d           DEC A
+018f: 20 fc        JR nz,0x018d
+0191: 77           LD (HL),A
+0192: 32 0a 80     LD (0x800a),A
+0195: 3a 16 80     LD A,(0x8016)
+0198: cb 7f        BIT 7,A
+019a: 28 ee        JR z,0x018a
+019c: dd 21 c0 82  LD IX,0x82c0
+01a0: 06 20        LD B,0x20
+01a2: c5           PUSH BC
+01a3: cd af 01     CALL 0x01af
+01a6: c1           POP BC
+01a7: dd 23        INC IX
+01a9: dd 23        INC IX
+01ab: 10 f5        DJNZ 0x01a2
+01ad: 18 db        JR 0x018a
+01af: dd 6e 00     LD L,(IX)
+01b2: dd 66 01     LD H,(IX+1)
+01b5: e9           JP (HL)
+01b6: f6 01        OR 1
+01b8: 18 02        JR 0x01bc
+01ba: 8f           ADC A,A
+01bb: 06 8b        LD B,0x8b
+01bd: 07           RLCA
+01be: 27           DAA
+01bf: 02           LD (BC),A
+01c0: 64           LD H,H
+01c1: 02           LD (BC),A
+01c2: cd 07 1f     CALL 0x1f07
+01c5: 00           NOP
+01c6: 1f           RRA
+01c7: 00           NOP
+01c8: 1f           RRA
+01c9: 00           NOP
+01ca: 1f           RRA
+01cb: 00           NOP
+01cc: 1f           RRA
+01cd: 00           NOP
+01ce: 1f           RRA
+01cf: 00           NOP
+01d0: 1f           RRA
+01d1: 00           NOP
+01d2: 1f           RRA
+01d3: 00           NOP
+01d4: 1f           RRA
+01d5: 00           NOP
+01d6: 1f           RRA
+01d7: 00           NOP
+01d8: 1f           RRA
+01d9: 00           NOP
+01da: 1f           RRA
+01db: 00           NOP
+01dc: 1f           RRA
+01dd: 00           NOP
+01de: 1f           RRA
+01df: 00           NOP
+01e0: 1f           RRA
+01e1: 00           NOP
+01e2: 1f           RRA
+01e3: 00           NOP
+01e4: 1f           RRA
+01e5: 00           NOP
+01e6: 1f           RRA
+01e7: 00           NOP
+01e8: 1f           RRA
+01e9: 00           NOP
+01ea: 1f           RRA
+01eb: 00           NOP
+01ec: 1f           RRA
+01ed: 00           NOP
+01ee: 1f           RRA
+01ef: 00           NOP
+01f0: 1f           RRA
+01f1: 00           NOP
+01f2: a6           AND (HL)
+01f3: 02           LD (BC),A
+01f4: 1e 03        LD E,3
+01f6: 21 40 82     LD HL,0x8240
+01f9: 11 c0 87     LD DE,0x87c0
+01fc: 01 40 00     LD BC,0x40
+01ff: ed b0        LDIR
+0201: 21 40 83     LD HL,0x8340
+0204: 11 c0 97     LD DE,0x97c0
+0207: 01 40 00     LD BC,0x40
+020a: ed b0        LDIR
+020c: 21 40 81     LD HL,0x8140
+020f: 11 c0 a7     LD DE,0xa7c0
+0212: 01 40 00     LD BC,0x40
+0215: ed b0        LDIR
+0217: c9           RET
+0218: 2a 0c 80     LD HL,(0x800c)
+021b: 7d           LD A,L
+021c: 6c           LD L,H
+021d: 26 d0        LD H,0xd0
+021f: 77           LD (HL),A
+0220: 3a 0e 80     LD A,(0x800e)
+0223: 32 20 d0     LD (0xd020),A
+0226: c9           RET
+0227: 3a 18 80     LD A,(0x8018)
+022a: 4f           LD C,A
+022b: 3a 29 80     LD A,(0x8029)
+022e: 47           LD B,A
+022f: 91           SUB C
+0230: c8           RET z
+0231: 30 1b        JR nc,0x024e
+0233: 79           LD A,C
+0234: 32 29 80     LD (0x8029),A
+0237: fe a0        CP 0xa0
+0239: c8           RET z
+023a: 90           SUB B
+023b: 27           DAA
+023c: 21 00 a0     LD HL,0xa000
+023f: 86           ADD A,(HL)
+0240: 27           DAA
+0241: 77           LD (HL),A
+0242: 21 5d 02     LD HL,0x25d
+0245: 11 80 80     LD DE,0x8080
+0248: 01 07 00     LD BC,7
+024b: ed b0        LDIR
+024d: c9           RET
+024e: 27           DAA
+024f: 3d           DEC A
+0250: 32 22 80     LD (0x8022),A
+0253: 79           LD A,C
+0254: 32 29 80     LD (0x8029),A
+0257: 3e 01        LD A,1
+0259: 32 1b 80     LD (0x801b),A
+025c: c9           RET
+025d: 30 10        JR nc,0x026f
+025f: 00           NOP
+0260: 80           ADD A,B
+0261: ff           RST 0x38
+0262: 10 10        DJNZ 0x0274
+0264: 3a 2a 80     LD A,(0x802a)
+0267: a7           AND A
+0268: c0           RET nz
+0269: 3a 01 80     LD A,(0x8001)
+026c: 1f           RRA
+026d: e6 03        AND 3
+026f: c6 25        ADD A,0x25
+0271: 21 4f 7c     LD HL,0x7c4f
+0274: 06 13        LD B,0x13
+0276: 77           LD (HL),A
+0277: 2c           INC L
+0278: 2c           INC L
+0279: 10 fb        DJNZ 0x0276
+027b: 3a 01 80     LD A,(0x8001)
+027e: 0f           RRCA
+027f: 0f           RRCA
+0280: 0f           RRCA
+0281: e6 07        AND 7
+0283: 4f           LD C,A
+0284: 21 96 02     LD HL,0x296
+0287: d7           RST 0x10
+0288: 7e           LD A,(HL)
+0289: 32 1c 80     LD (0x801c),A
+028c: 79           LD A,C
+028d: 21 9e 02     LD HL,0x29e
+0290: d7           RST 0x10
+0291: 7e           LD A,(HL)
+0292: 32 43 80     LD (0x8043),A
+0295: c9           RET
+0296: 07           RLCA
+0297: 08           EX AF,AF'
+0298: 09           ADD HL,BC
+0299: 0a           LD A,(BC)
+029a: 0b           DEC BC
+029b: 0a           LD A,(BC)
+029c: 09           ADD HL,BC
+029d: 08           EX AF,AF'
+029e: 10 11        DJNZ 0x02b1
+02a0: 12           LD (DE),A
+02a1: 13           INC DE
+02a2: 14           INC D
+02a3: 13           INC DE
+02a4: 12           LD (DE),A
+02a5: 11 3a 2a     LD DE,0x2a3a
+02a8: 80           ADD A,B
+02a9: a7           AND A
+02aa: c0           RET nz
+02ab: cd d4 02     CALL 0x02d4
+02ae: 3a 03 80     LD A,(0x8003)
+02b1: a7           AND A
+02b2: 3e 40        LD A,0x40
+02b4: 28 02        JR z,0x02b8
+02b6: 3e 30        LD A,0x30
+02b8: 2a 10 80     LD HL,(0x8010)
+02bb: cf           RST 8
+02bc: 29           ADD HL,HL
+02bd: 29           ADD HL,HL
+02be: af           XOR A
+02bf: 29           ADD HL,HL
+02c0: 17           RLA
+02c1: 6c           LD L,H
+02c2: 67           LD H,A
+02c3: 22 0c 80     LD (0x800c),HL
+02c6: 3a 03 80     LD A,(0x8003)
+02c9: a7           AND A
+02ca: 3e 00        LD A,0
+02cc: 28 02        JR z,0x02d0
+02ce: 3e 00        LD A,0
+02d0: 32 0e 80     LD (0x800e),A
+02d3: c9           RET
+02d4: 2a 10 80     LD HL,(0x8010)
+02d7: 4c           LD C,H
+02d8: 3a 14 80     LD A,(0x8014)
+02db: cf           RST 8
+02dc: 22 10 80     LD (0x8010),HL
+02df: 3a 0f 80     LD A,(0x800f)
+02e2: a7           AND A
+02e3: c0           RET nz
+02e4: 7c           LD A,H
+02e5: b9           CP C
+02e6: c8           RET z
+02e7: fa ec 02     JP m,0x02ec
+02ea: c6 40        ADD A,0x40
+02ec: c6 f2        ADD A,0xf2
+02ee: 6f           LD L,A
+02ef: 3a 03 80     LD A,(0x8003)
+02f2: a7           AND A
+02f3: 3a 13 80     LD A,(0x8013)
+02f6: 28 02        JR z,0x02fa
+02f8: c6 fe        ADD A,0xfe
+02fa: c6 ff        ADD A,0xff
+02fc: 67           LD H,A
+02fd: 01 b8 20     LD BC,0x20b8
+0300: 16 fe        LD D,0xfe
+0302: 5d           LD E,L
+0303: 22 00 f0     LD (0xf000),HL
+0306: eb           EX DE,HL
+0307: e5           PUSH HL
+0308: cd 38 00     CALL 0x0038
+030b: 3a 00 f0     LD A,(0xf000)
+030e: 77           LD (HL),A
+030f: 3e 10        LD A,0x10
+0311: 84           ADD A,H
+0312: 67           LD H,A
+0313: 3a 01 f0     LD A,(0xf001)
+0316: 77           LD (HL),A
+0317: e1           POP HL
+0318: eb           EX DE,HL
+0319: 14           INC D
+031a: 24           INC H
+031b: 10 e5        DJNZ 0x0302
+031d: c9           RET
+031e: 21 00 79     LD HL,0x7900
+0321: 11 00 83     LD DE,0x8300
+0324: 06 40        LD B,0x40
+0326: e5           PUSH HL
+0327: cd 32 03     CALL 0x0332
+032a: e1           POP HL
+032b: 2c           INC L
+032c: 2c           INC L
+032d: 1c           INC E
+032e: 1c           INC E
+032f: 10 f5        DJNZ 0x0326
+0331: c9           RET
+0332: 7e           LD A,(HL)
+0333: 3d           DEC A
+0334: c8           RET z
+0335: e5           PUSH HL
+0336: 3c           INC A
+0337: 20 0c        JR nz,0x0345
+0339: 4c           LD C,H
+033a: 24           INC H
+033b: 77           LD (HL),A
+033c: 2c           INC L
+033d: 77           LD (HL),A
+033e: 24           INC H
+033f: 77           LD (HL),A
+0340: 2d           DEC L
+0341: 77           LD (HL),A
+0342: 3c           INC A
+0343: 61           LD H,C
+0344: 77           LD (HL),A
+0345: 2c           INC L
+0346: 4e           LD C,(HL)
+0347: 79           LD A,C
+0348: 12           LD (DE),A
+0349: d5           PUSH DE
+034a: 24           INC H
+034b: 56           LD D,(HL)
+034c: 2d           DEC L
+034d: 5e           LD E,(HL)
+034e: eb           EX DE,HL
+034f: cd b3 03     CALL 0x03b3
+0352: fe 02        CP 2
+0354: 38 03        JR c,0x0359
+0356: 21 00 00     LD HL,0
+0359: cd 89 03     CALL 0x0389
+035c: e5           PUSH HL
+035d: eb           EX DE,HL
+035e: 24           INC H
+035f: 5e           LD E,(HL)
+0360: 2c           INC L
+0361: 56           LD D,(HL)
+0362: eb           EX DE,HL
+0363: cd b3 03     CALL 0x03b3
+0366: a7           AND A
+0367: 28 02        JR z,0x036b
+0369: 2e 00        LD L,0
+036b: cd a2 03     CALL 0x03a2
+036e: d1           POP DE
+036f: e1           POP HL
+0370: 2c           INC L
+0371: 72           LD (HL),D
+0372: 25           DEC H
+0373: 73           LD (HL),E
+0374: 2d           DEC L
+0375: 77           LD (HL),A
+0376: 25           DEC H
+0377: eb           EX DE,HL
+0378: e1           POP HL
+0379: 4c           LD C,H
+037a: 24           INC H
+037b: 24           INC H
+037c: 24           INC H
+037d: 7e           LD A,(HL)
+037e: 12           LD (DE),A
+037f: 2c           INC L
+0380: 1c           INC E
+0381: 7e           LD A,(HL)
+0382: 12           LD (DE),A
+0383: 61           LD H,C
+0384: 2d           DEC L
+0385: 14           INC D
+0386: 14           INC D
+0387: 1d           DEC E
+0388: c9           RET
+0389: 3a 03 80     LD A,(0x8003)
+038c: a7           AND A
+038d: 28 0f        JR z,0x039e
+038f: 3e 48        LD A,0x48
+0391: cb 41        BIT 0,C
+0393: 20 02        JR nz,0x0397
+0395: 3e 58        LD A,0x58
+0397: 95           SUB L
+0398: 6f           LD L,A
+0399: 3e 01        LD A,1
+039b: 9c           SBC A,H
+039c: 67           LD H,A
+039d: c9           RET
+039e: 3e 08        LD A,8
+03a0: d7           RST 0x10
+03a1: c9           RET
+03a2: 3a 03 80     LD A,(0x8003)
+03a5: a7           AND A
+03a6: 3e ef        LD A,0xef
+03a8: 28 07        JR z,0x03b1
+03aa: 85           ADD A,L
+03ab: cb 49        BIT 1,C
+03ad: c0           RET nz
+03ae: c6 10        ADD A,0x10
+03b0: c9           RET
+03b1: 95           SUB L
+03b2: c9           RET
+03b3: af           XOR A
+03b4: 29           ADD HL,HL
+03b5: 17           RLA
+03b6: 29           ADD HL,HL
+03b7: 17           RLA
+03b8: 29           ADD HL,HL
+03b9: 17           RLA
+03ba: 6c           LD L,H
+03bb: 67           LD H,A
+03bc: c9           RET
+03bd: 0a           LD A,(BC)
+03be: 03           INC BC
+03bf: 21 d8 04     LD HL,0x4d8
+03c2: cf           RST 8
+03c3: 7e           LD A,(HL)
+03c4: 32 2b 80     LD (0x802b),A
+03c7: 23           INC HL
+03c8: 7e           LD A,(HL)
+03c9: 32 2c 80     LD (0x802c),A
+03cc: ed 43 85 81  LD (0x8185),BC
+03d0: c9           RET
+03d1: 3a 16 80     LD A,(0x8016)
+03d4: 2f           CPL
+03d5: 07           RLCA
+03d6: 07           RLCA
+03d7: 07           RLCA
+03d8: e6 03        AND 3
+03da: 21 08 04     LD HL,0x408
+03dd: d7           RST 0x10
+03de: 7e           LD A,(HL)
+03df: 6f           LD L,A
+03e0: 3a 88 81     LD A,(0x8188)
+03e3: 85           ADD A,L
+03e4: fe 80        CP 0x80
+03e6: 38 02        JR c,0x03ea
+03e8: d6 40        SUB 0x40
+03ea: 32 88 81     LD (0x8188),A
+03ed: 18 d0        JR 0x03bf
+03ef: 21 88 81     LD HL,0x8188
+03f2: 0a           LD A,(BC)
+03f3: 86           ADD A,(HL)
+03f4: 03           INC BC
+03f5: fe 80        CP 0x80
+03f7: 38 02        JR c,0x03fb
+03f9: d6 40        SUB 0x40
+03fb: 18 c2        JR 0x03bf
+03fd: 21 00 00     LD HL,0
+0400: 22 2b 80     LD (0x802b),HL
+0403: ed 43 85 81  LD (0x8185),BC
+0407: c9           RET
+0408: 02           LD (BC),A
+0409: 00           NOP
+040a: 06 10        LD B,0x10
+040c: ed 43 85 81  LD (0x8185),BC
+0410: 2a 81 81     LD HL,(0x8181)
+0413: 3a 8b 81     LD A,(0x818b)
+0416: cd 2c 04     CALL 0x042c
+0419: 11 10 00     LD DE,0x10
+041c: a7           AND A
+041d: ed 52        SBC HL,DE
+041f: 19           ADD HL,DE
+0420: 38 02        JR c,0x0424
+0422: 2e 10        LD L,0x10
+0424: 3a 88 81     LD A,(0x8188)
+0427: 85           ADD A,L
+0428: 32 88 81     LD (0x8188),A
+042b: c9           RET
+042c: c5           PUSH BC
+042d: 4f           LD C,A
+042e: af           XOR A
+042f: 06 10        LD B,0x10
+0431: 29           ADD HL,HL
+0432: 17           RLA
+0433: 38 03        JR c,0x0438
+0435: b9           CP C
+0436: 38 02        JR c,0x043a
+0438: 91           SUB C
+0439: 23           INC HL
+043a: 10 f5        DJNZ 0x0431
+043c: c1           POP BC
+043d: c9           RET
+043e: 0a           LD A,(BC)
+043f: 32 a0 81     LD (0x81a0),A
+0442: 03           INC BC
+0443: ed 43 85 81  LD (0x8185),BC
+0447: c9           RET
+0448: 0a           LD A,(BC)
+0449: 32 a3 81     LD (0x81a3),A
+044c: 03           INC BC
+044d: ed 43 85 81  LD (0x8185),BC
+0451: c9           RET
+0452: 0a           LD A,(BC)
+0453: 32 a4 81     LD (0x81a4),A
+0456: 03           INC BC
+0457: ed 43 85 81  LD (0x8185),BC
+045b: c9           RET
+045c: 0a           LD A,(BC)
+045d: 32 a2 81     LD (0x81a2),A
+0460: 03           INC BC
+0461: ed 43 85 81  LD (0x8185),BC
+0465: c9           RET
+0466: 0a           LD A,(BC)
+0467: 32 a1 81     LD (0x81a1),A
+046a: 03           INC BC
+046b: ed 43 85 81  LD (0x8185),BC
+046f: c9           RET
+0470: 0a           LD A,(BC)
+0471: 32 a5 81     LD (0x81a5),A
+0474: 03           INC BC
+0475: ed 43 85 81  LD (0x8185),BC
+0479: c9           RET
+047a: 0a           LD A,(BC)
+047b: 32 a6 81     LD (0x81a6),A
+047e: 03           INC BC
+047f: ed 43 85 81  LD (0x8185),BC
+0483: c9           RET
+0484: 0a           LD A,(BC)
+0485: 32 a7 81     LD (0x81a7),A
+0488: 03           INC BC
+0489: ed 43 85 81  LD (0x8185),BC
+048d: c9           RET
+048e: 0a           LD A,(BC)
+048f: 32 b1 81     LD (0x81b1),A
+0492: 03           INC BC
+0493: ed 43 85 81  LD (0x8185),BC
+0497: c9           RET
+0498: 04           INC B
+0499: 0b           DEC BC
+049a: 05           DEC B
+049b: 0a           LD A,(BC)
+049c: 06 09        LD B,9
+049e: 06 25        LD B,0x25
+04a0: 06 5c        LD B,0x5c
+04a2: 06 29        LD B,0x29
+04a4: 06 5e        LD B,0x5e
+04a6: 06 64        LD B,0x64
+04a8: 06 66        LD B,0x66
+04aa: 06 72        LD B,0x72
+04ac: 04           INC B
+04ad: 30 04        JR nc,0x04b3
+04af: 31 05 30     LD SP,0x3005
+04b2: 06 30        LD B,0x30
+04b4: 06 3f        LD B,0x3f
+04b6: 06 48        LD B,0x48
+04b8: 06 4b        LD B,0x4b
+04ba: 02           LD (BC),A
+04bb: 54           LD D,H
+04bc: 03           INC BC
+04bd: 54           LD D,H
+04be: 04           INC B
+04bf: 54           LD D,H
+04c0: 02           LD (BC),A
+04c1: 58           LD E,B
+04c2: 03           INC BC
+04c3: 58           LD E,B
+04c4: 04           INC B
+04c5: 58           LD E,B
+04c6: 04           INC B
+04c7: 58           LD E,B
+04c8: 04           INC B
+04c9: 58           LD E,B
+04ca: 04           INC B
+04cb: 58           LD E,B
+04cc: 04           INC B
+04cd: 58           LD E,B
+04ce: 04           INC B
+04cf: 58           LD E,B
+04d0: 04           INC B
+04d1: 58           LD E,B
+04d2: 04           INC B
+04d3: 58           LD E,B
+04d4: 04           INC B
+04d5: 58           LD E,B
+04d6: 04           INC B
+04d7: 58           LD E,B
+04d8: 03           INC BC
+04d9: 01 03 01     LD BC,0x103
+04dc: 03           INC BC
+04dd: 01 04 01     LD BC,0x104
+04e0: 04           INC B
+04e1: 01 04 01     LD BC,0x104
+04e4: 05           DEC B
+04e5: 01 05 01     LD BC,0x105
+04e8: 05           DEC B
+04e9: 01 02 19     LD BC,0x1902
+04ec: 02           LD (BC),A
+04ed: 19           ADD HL,DE
+04ee: 02           LD (BC),A
+04ef: 19           ADD HL,DE
+04f0: 04           INC B
+04f1: 01 04 01     LD BC,0x104
+04f4: 04           INC B
+04f5: 04           INC B
+04f6: 04           INC B
+04f7: 04           INC B
+04f8: 04           INC B
+04f9: 05           DEC B
+04fa: 04           INC B
+04fb: 05           DEC B
+04fc: 05           DEC B
+04fd: 05           DEC B
+04fe: 05           DEC B
+04ff: 05           DEC B
+0500: 06 05        LD B,5
+0502: 06 05        LD B,5
+0504: 03           INC BC
+0505: 19           ADD HL,DE
+0506: 03           INC BC
+0507: 19           ADD HL,DE
+0508: 04           INC B
+0509: 19           ADD HL,DE
+050a: 04           INC B
+050b: 19           ADD HL,DE
+050c: 05           DEC B
+050d: 19           ADD HL,DE
+050e: 05           DEC B
+050f: 19           ADD HL,DE
+0510: 03           INC BC
+0511: 27           DAA
+0512: 03           INC BC
+0513: 27           DAA
+0514: 04           INC B
+0515: 27           DAA
+0516: 04           INC B
+0517: 27           DAA
+0518: 05           DEC B
+0519: 27           DAA
+051a: 05           DEC B
+051b: 27           DAA
+051c: 03           INC BC
+051d: 1f           RRA
+051e: 03           INC BC
+051f: 1f           RRA
+0520: 04           INC B
+0521: 1f           RRA
+0522: 04           INC B
+0523: 1f           RRA
+0524: 05           DEC B
+0525: 1f           RRA
+0526: 05           DEC B
+0527: 1f           RRA
+0528: 03           INC BC
+0529: 13           INC DE
+052a: 03           INC BC
+052b: 13           INC DE
+052c: 04           INC B
+052d: 13           INC DE
+052e: 04           INC B
+052f: 13           INC DE
+0530: 05           DEC B
+0531: 13           INC DE
+0532: 05           DEC B
+0533: 13           INC DE
+0534: 03           INC BC
+0535: 36 03        LD (HL),3
+0537: 36 03        LD (HL),3
+0539: 37           SCF
+053a: 03           INC BC
+053b: 37           SCF
+053c: 04           INC B
+053d: 37           SCF
+053e: 04           INC B
+053f: 37           SCF
+0540: 03           INC BC
+0541: 2d           DEC L
+0542: 03           INC BC
+0543: 2d           DEC L
+0544: 04           INC B
+0545: 2d           DEC L
+0546: 04           INC B
+0547: 2d           DEC L
+0548: 05           DEC B
+0549: 2d           DEC L
+054a: 05           DEC B
+054b: 2d           DEC L
+054c: 04           INC B
+054d: 12           LD (DE),A
+054e: 04           INC B
+054f: 12           LD (DE),A
+0550: 04           INC B
+0551: 11 04 11     LD DE,0x1104
+0554: 05           DEC B
+0555: 11 05 11     LD DE,0x1105
+0558: 05           DEC B
+0559: 17           RLA
+055a: 05           DEC B
+055b: 17           RLA
+055c: 06 17        LD B,0x17
+055e: 06 17        LD B,0x17
+0560: 02           LD (BC),A
+0561: 3c           INC A
+0562: 03           INC BC
+0563: 3c           INC A
+0564: 03           INC BC
+0565: 3c           INC A
+0566: 04           INC B
+0567: 3c           INC A
+0568: 04           INC B
+0569: 3c           INC A
+056a: 05           DEC B
+056b: 3c           INC A
+056c: 05           DEC B
+056d: 19           ADD HL,DE
+056e: 05           DEC B
+056f: 19           ADD HL,DE
+0570: 06 19        LD B,0x19
+0572: 06 19        LD B,0x19
+0574: 02           LD (BC),A
+0575: 45           LD B,L
+0576: 03           INC BC
+0577: 45           LD B,L
+0578: 03           INC BC
+0579: 45           LD B,L
+057a: 04           INC B
+057b: 45           LD B,L
+057c: 04           INC B
+057d: 45           LD B,L
+057e: 05           DEC B
+057f: 45           LD B,L
+0580: 05           DEC B
+0581: 2d           DEC L
+0582: 05           DEC B
+0583: 2d           DEC L
+0584: 06 2d        LD B,0x2d
+0586: 06 2d        LD B,0x2d
+0588: 04           INC B
+0589: 27           DAA
+058a: 04           INC B
+058b: 27           DAA
+058c: 05           DEC B
+058d: 27           DAA
+058e: 05           DEC B
+058f: 27           DAA
+0590: 06 27        LD B,0x27
+0592: 06 27        LD B,0x27
+0594: 05           DEC B
+0595: 0d           DEC C
+0596: 05           DEC B
+0597: 0d           DEC C
+0598: 06 0d        LD B,13
+059a: 06 0d        LD B,13
+059c: 02           LD (BC),A
+059d: 6d           LD L,L
+059e: 03           INC BC
+059f: 6c           LD L,H
+05a0: 03           INC BC
+05a1: 6c           LD L,H
+05a2: 04           INC B
+05a3: 6c           LD L,H
+05a4: 04           INC B
+05a5: 6c           LD L,H
+05a6: 05           DEC B
+05a7: 6c           LD L,H
+05a8: 06 0d        LD B,13
+05aa: 06 0d        LD B,13
+05ac: 06 07        LD B,7
+05ae: 06 07        LD B,7
+05b0: 06 07        LD B,7
+05b2: 06 07        LD B,7
+05b4: 02           LD (BC),A
+05b5: 4e           LD C,(HL)
+05b6: 03           INC BC
+05b7: 4e           LD C,(HL)
+05b8: 03           INC BC
+05b9: 4e           LD C,(HL)
+05ba: 04           INC B
+05bb: 4e           LD C,(HL)
+05bc: 04           INC B
+05bd: 4e           LD C,(HL)
+05be: 05           DEC B
+05bf: 4e           LD C,(HL)
+05c0: 06 07        LD B,7
+05c2: 06 07        LD B,7
+05c4: 06 07        LD B,7
+05c6: 06 07        LD B,7
+05c8: 01 54 02     LD BC,0x254
+05cb: 54           LD D,H
+05cc: 06 07        LD B,7
+05ce: 06 07        LD B,7
+05d0: 06 07        LD B,7
+05d2: 06 07        LD B,7
+05d4: 01 58 02     LD BC,0x258
+05d7: 58           LD E,B
+05d8: af           XOR A
+05d9: 32 2d 80     LD (0x802d),A
+05dc: ed 43 85 81  LD (0x8185),BC
+05e0: c9           RET
+05e1: 26 7f        LD H,0x7f
+05e3: 0a           LD A,(BC)
+05e4: 6f           LD L,A
+05e5: 0b           DEC BC
+05e6: 0a           LD A,(BC)
+05e7: 77           LD (HL),A
+05e8: 03           INC BC
+05e9: 03           INC BC
+05ea: 26 7b        LD H,0x7b
+05ec: 0a           LD A,(BC)
+05ed: 0f           RRCA
+05ee: 0f           RRCA
+05ef: 0f           RRCA
+05f0: 5f           LD E,A
+05f1: e6 e0        AND 0xe0
+05f3: 77           LD (HL),A
+05f4: 2c           INC L
+05f5: 7b           LD A,E
+05f6: e6 1f        AND 0x1f
+05f8: 77           LD (HL),A
+05f9: 03           INC BC
+05fa: 26 7d        LD H,0x7d
+05fc: 0a           LD A,(BC)
+05fd: 77           LD (HL),A
+05fe: 03           INC BC
+05ff: 26 79        LD H,0x79
+0601: cb fd        SET 7,L
+0603: eb           EX DE,HL
+0604: 60           LD H,B
+0605: 69           LD L,C
+0606: cf           RST 8
+0607: 22 85 81     LD (0x8185),HL
+060a: 21 80 93     LD HL,0x9380
+060d: 3a 42 80     LD A,(0x8042)
+0610: 87           ADD A,A
+0611: 87           ADD A,A
+0612: 87           ADD A,A
+0613: d5           PUSH DE
+0614: ef           RST 0x28
+0615: d1           POP DE
+0616: eb           EX DE,HL
+0617: 72           LD (HL),D
+0618: 2d           DEC L
+0619: 73           LD (HL),E
+061a: 60           LD H,B
+061b: 69           LD L,C
+061c: 01 40 00     LD BC,0x40
+061f: ed b0        LDIR
+0621: 3a 42 80     LD A,(0x8042)
+0624: 3c           INC A
+0625: fe 0c        CP 12
+0627: 38 01        JR c,0x062a
+0629: af           XOR A
+062a: 32 42 80     LD (0x8042),A
+062d: c9           RET
+062e: 3e 31        LD A,0x31
+0630: 32 7e 7f     LD (0x7f7e),A
+0633: 3c           INC A
+0634: 32 7c 7f     LD (0x7f7c),A
+0637: af           XOR A
+0638: 32 2e 80     LD (0x802e),A
+063b: ed 43 85 81  LD (0x8185),BC
+063f: c9           RET
+0640: 3e 01        LD A,1
+0642: 32 2e 80     LD (0x802e),A
+0645: ed 43 85 81  LD (0x8185),BC
+0649: c9           RET
+064a: 21 1e 79     LD HL,0x791e
+064d: 36 02        LD (HL),2
+064f: 2c           INC L
+0650: 36 00        LD (HL),0
+0652: 24           INC H
+0653: 36 f8        LD (HL),0xf8
+0655: 24           INC H
+0656: 36 0e        LD (HL),14
+0658: 2d           DEC L
+0659: 36 80        LD (HL),0x80
+065b: 24           INC H
+065c: 36 00        LD (HL),0
+065e: ed 43 85 81  LD (0x8185),BC
+0662: af           XOR A
+0663: 32 2f 80     LD (0x802f),A
+0666: 21 76 06     LD HL,0x676
+0669: 11 02 7f     LD DE,0x7f02
+066c: 06 0f        LD B,15
+066e: 7e           LD A,(HL)
+066f: 12           LD (DE),A
+0670: 1c           INC E
+0671: 1c           INC E
+0672: 23           INC HL
+0673: 10 f9        DJNZ 0x066e
+0675: c9           RET
+0676: 41           LD B,C
+0677: 42           LD B,D
+0678: 43           LD B,E
+0679: 44           LD B,H
+067a: 45           LD B,L
+067b: 46           LD B,(HL)
+067c: 47           LD B,A
+067d: 48           LD C,B
+067e: 49           LD C,C
+067f: 52           LD D,D
+0680: 51           LD D,C
+0681: 50           LD D,B
+0682: 4f           LD C,A
+0683: 4a           LD C,D
+0684: 4b           LD C,E
+0685: ed 43 85 81  LD (0x8185),BC
+0689: 3e 01        LD A,1
+068b: 32 2f 80     LD (0x802f),A
+068e: c9           RET
+068f: 2a 85 81     LD HL,(0x8185)
+0692: 3a 11 80     LD A,(0x8011)
+0695: be           CP (HL)
+0696: c0           RET nz
+0697: 23           INC HL
+0698: 4d           LD C,L
+0699: 44           LD B,H
+069a: 03           INC BC
+069b: 7e           LD A,(HL)
+069c: 21 a9 06     LD HL,0x6a9
+069f: d7           RST 0x10
+06a0: 7e           LD A,(HL)
+06a1: 21 01 07     LD HL,0x701
+06a4: cf           RST 8
+06a5: 5e           LD E,(HL)
+06a6: 23           INC HL
+06a7: 56           LD D,(HL)
+06a8: eb           EX DE,HL
+06a9: e9           JP (HL)
+06aa: 00           NOP
+06ab: 02           LD (BC),A
+06ac: 03           INC BC
+06ad: 04           INC B
+06ae: 05           DEC B
+06af: 00           NOP
+06b0: 00           NOP
+06b1: 00           NOP
+06b2: 00           NOP
+06b3: 00           NOP
+06b4: 00           NOP
+06b5: 00           NOP
+06b6: 00           NOP
+06b7: 00           NOP
+06b8: 00           NOP
+06b9: 00           NOP
+06ba: 00           NOP
+06bb: 00           NOP
+06bc: 00           NOP
+06bd: 00           NOP
+06be: 00           NOP
+06bf: 00           NOP
+06c0: 00           NOP
+06c1: 00           NOP
+06c2: 0e 0e        LD C,14
+06c4: 01 00 01     LD BC,0x100
+06c7: 01 01 01     LD BC,0x101
+06ca: 01 06 07     LD BC,0x706
+06cd: 08           EX AF,AF'
+06ce: 09           ADD HL,BC
+06cf: 01 01 0a     LD BC,0xa01
+06d2: 0b           DEC BC
+06d3: 0c           INC C
+06d4: 0d           DEC C
+06d5: 01 01 0f     LD BC,0xf01
+06d8: 10 11        DJNZ 0x06eb
+06da: 00           NOP
+06db: 00           NOP
+06dc: 12           LD (DE),A
+06dd: 13           INC DE
+06de: 01 01 01     LD BC,0x101
+06e1: 01 01 01     LD BC,0x101
+06e4: 01 01 01     LD BC,0x101
+06e7: 01 01 01     LD BC,0x101
+06ea: 01 01 01     LD BC,0x101
+06ed: 01 01 01     LD BC,0x101
+06f0: 01 01 01     LD BC,0x101
+06f3: 01 01 14     LD BC,0x1401
+06f6: 15           DEC D
+06f7: 16 00        LD D,0
+06f9: 00           NOP
+06fa: 00           NOP
+06fb: 00           NOP
+06fc: 01 00 00     LD BC,0
+06ff: 00           NOP
+0700: 17           RLA
+0701: 31 07 3f     LD SP,0x3f07
+0704: 07           RLCA
+0705: bd           CP L
+0706: 03           INC BC
+0707: d1           POP DE
+0708: 03           INC BC
+0709: ef           RST 0x28
+070a: 03           INC BC
+070b: fd 03        INC BC
+070d: 5d           LD E,L
+070e: 07           RLCA
+070f: d8           RET c
+0710: 05           DEC B
+0711: 3e 04        LD A,4
+0713: 48           LD C,B
+0714: 04           INC B
+0715: 8e           ADC A,(HL)
+0716: 04           INC B
+0717: 52           LD D,D
+0718: 04           INC B
+0719: 5c           LD E,H
+071a: 04           INC B
+071b: 66           LD H,(HL)
+071c: 04           INC B
+071d: 67           LD H,A
+071e: 07           RLCA
+071f: e1           POP HL
+0720: 05           DEC B
+0721: 70           LD (HL),B
+0722: 04           INC B
+0723: 7a           LD A,D
+0724: 04           INC B
+0725: 2e 06        LD L,6
+0727: 40           LD B,B
+0728: 06 4a        LD B,0x4a
+072a: 06 85        LD B,0x85
+072c: 06 84        LD B,0x84
+072e: 04           INC B
+072f: 0c           INC C
+0730: 04           INC B
+0731: 26 7f        LD H,0x7f
+0733: 0a           LD A,(BC)
+0734: 6f           LD L,A
+0735: 0b           DEC BC
+0736: 0a           LD A,(BC)
+0737: 77           LD (HL),A
+0738: 03           INC BC
+0739: 03           INC BC
+073a: ed 43 85 81  LD (0x8185),BC
+073e: c9           RET
+073f: 26 7f        LD H,0x7f
+0741: 0a           LD A,(BC)
+0742: 6f           LD L,A
+0743: 0b           DEC BC
+0744: 0a           LD A,(BC)
+0745: 77           LD (HL),A
+0746: 03           INC BC
+0747: 03           INC BC
+0748: 26 7b        LD H,0x7b
+074a: 0a           LD A,(BC)
+074b: 0f           RRCA
+074c: 0f           RRCA
+074d: 0f           RRCA
+074e: 5f           LD E,A
+074f: e6 e0        AND 0xe0
+0751: 77           LD (HL),A
+0752: 2c           INC L
+0753: 7b           LD A,E
+0754: e6 1f        AND 0x1f
+0756: 77           LD (HL),A
+0757: 03           INC BC
+0758: ed 43 85 81  LD (0x8185),BC
+075c: c9           RET
+075d: 0a           LD A,(BC)
+075e: 32 22 84     LD (0x8422),A
+0761: 03           INC BC
+0762: ed 43 85 81  LD (0x8185),BC
+0766: c9           RET
+0767: 26 7f        LD H,0x7f
+0769: 0a           LD A,(BC)
+076a: 6f           LD L,A
+076b: 0b           DEC BC
+076c: 0a           LD A,(BC)
+076d: 77           LD (HL),A
+076e: 03           INC BC
+076f: 03           INC BC
+0770: 26 7b        LD H,0x7b
+0772: 0a           LD A,(BC)
+0773: 0f           RRCA
+0774: 0f           RRCA
+0775: 0f           RRCA
+0776: 5f           LD E,A
+0777: e6 e0        AND 0xe0
+0779: 77           LD (HL),A
+077a: 2c           INC L
+077b: 7b           LD A,E
+077c: e6 1f        AND 0x1f
+077e: 77           LD (HL),A
+077f: 03           INC BC
+0780: 2d           DEC L
+0781: 26 7e        LD H,0x7e
+0783: 0a           LD A,(BC)
+0784: 77           LD (HL),A
+0785: 03           INC BC
+0786: ed 43 85 81  LD (0x8185),BC
+078a: c9           RET
+078b: f7           RST 0x30
+078c: 3a 11 80     LD A,(0x8011)
+078f: fe 0e        CP 14
+0791: c8           RET z
+0792: f7           RST 0x30
+0793: 3a 11 80     LD A,(0x8011)
+0796: fe 0e        CP 14
+0798: c0           RET nz
+0799: 3a 87 81     LD A,(0x8187)
+079c: 3c           INC A
+079d: fe 10        CP 0x10
+079f: 20 02        JR nz,0x07a3
+07a1: 3e 06        LD A,6
+07a3: 32 87 81     LD (0x8187),A
+07a6: 4f           LD C,A
+07a7: 21 bd 07     LD HL,0x7bd
+07aa: d7           RST 0x10
+07ab: 7e           LD A,(HL)
+07ac: 32 13 80     LD (0x8013),A
+07af: 79           LD A,C
+07b0: 21 00 10     LD HL,0x1000
+07b3: cf           RST 8
+07b4: 5e           LD E,(HL)
+07b5: 23           INC HL
+07b6: 56           LD D,(HL)
+07b7: ed 53 85 81  LD (0x8185),DE
+07bb: 18 ce        JR 0x078b
+07bd: 24           INC H
+07be: 00           NOP
+07bf: 54           LD D,H
+07c0: 0e 40        LD C,0x40
+07c2: 1a           LD A,(DE)
+07c3: 64           LD H,H
+07c4: 04           INC B
+07c5: 2a 5c 0e     LD HL,(0x0e5c)
+07c8: 04           INC B
+07c9: 38 54        JR c,0x081f
+07cb: 1a           LD A,(DE)
+07cc: 00           NOP
+07cd: 3a ad 85     LD A,(0x85ad)
+07d0: fe 00        CP 0
+07d2: c8           RET z
+07d3: 3a 01 80     LD A,(0x8001)
+07d6: 0f           RRCA
+07d7: 0f           RRCA
+07d8: 0f           RRCA
+07d9: 0f           RRCA
+07da: e6 01        AND 1
+07dc: 47           LD B,A
+07dd: 21 00 18     LD HL,0x1800
+07e0: 11 00 05     LD DE,0x500
+07e3: 3a 21 80     LD A,(0x8021)
+07e6: a7           AND A
+07e7: 28 01        JR z,0x07ea
+07e9: eb           EX DE,HL
+07ea: 4f           LD C,A
+07eb: cd 0f 08     CALL 0x080f
+07ee: eb           EX DE,HL
+07ef: 3a 22 80     LD A,(0x8022)
+07f2: a7           AND A
+07f3: 3e 06        LD A,6
+07f5: 28 07        JR z,0x07fe
+07f7: 79           LD A,C
+07f8: ee 01        XOR 1
+07fa: 4f           LD C,A
+07fb: 79           LD A,C
+07fc: 87           ADD A,A
+07fd: 81           ADD A,C
+07fe: 11 1f 08     LD DE,0x81f
+0801: eb           EX DE,HL
+0802: d7           RST 0x10
+0803: eb           EX DE,HL
+0804: 01 c0 03     LD BC,0x3c0
+0807: 1a           LD A,(DE)
+0808: cd 28 08     CALL 0x0828
+080b: 13           INC DE
+080c: 10 f9        DJNZ 0x0807
+080e: c9           RET
+080f: d5           PUSH DE
+0810: c5           PUSH BC
+0811: 3a 23 80     LD A,(0x8023)
+0814: a0           AND B
+0815: 28 02        JR z,0x0819
+0817: 0e 02        LD C,2
+0819: cd fb 07     CALL 0x07fb
+081c: c1           POP BC
+081d: d1           POP DE
+081e: c9           RET
+081f: 01 1e 19     LD BC,0x191e
+0822: 02           LD (BC),A
+0823: 1e 19        LD E,0x19
+0825: 24           INC H
+0826: 24           INC H
+0827: 24           INC H
+0828: e5           PUSH HL
+0829: f5           PUSH AF
+082a: cd 32 08     CALL 0x0832
+082d: f1           POP AF
+082e: 77           LD (HL),A
+082f: e1           POP HL
+0830: 25           DEC H
+0831: c9           RET
+0832: 3a 03 80     LD A,(0x8003)
+0835: 25           DEC H
+0836: a7           AND A
+0837: 3e 04        LD A,4
+0839: 28 03        JR z,0x083e
+083b: 25           DEC H
+083c: 3e 18        LD A,0x18
+083e: 85           ADD A,L
+083f: e6 3f        AND 0x3f
+0841: 6f           LD L,A
+0842: 3e 03        LD A,3
+0844: 84           ADD A,H
+0845: 0f           RRCA
+0846: 0f           RRCA
+0847: 67           LD H,A
+0848: e6 c0        AND 0xc0
+084a: b5           OR L
+084b: 6f           LD L,A
+084c: 7c           LD A,H
+084d: e6 07        AND 7
+084f: 81           ADD A,C
+0850: 67           LD H,A
+0851: c9           RET
+0852: ff           RST 0x38
+0853: ff           RST 0x38
+0854: ff           RST 0x38
+0855: ff           RST 0x38
+0856: ff           RST 0x38
+0857: ff           RST 0x38
+0858: ff           RST 0x38
+0859: ff           RST 0x38
+085a: ff           RST 0x38
+085b: ff           RST 0x38
+085c: ff           RST 0x38
+085d: ff           RST 0x38
+085e: ff           RST 0x38
+085f: ff           RST 0x38
+0860: ff           RST 0x38
+0861: ff           RST 0x38
+0862: ff           RST 0x38
+0863: ff           RST 0x38
+0864: ff           RST 0x38
+0865: ff           RST 0x38
+0866: ff           RST 0x38
+0867: ff           RST 0x38
+0868: ff           RST 0x38
+0869: ff           RST 0x38
+086a: ff           RST 0x38
+086b: ff           RST 0x38
+086c: ff           RST 0x38
+086d: ff           RST 0x38
+086e: ff           RST 0x38
+086f: ff           RST 0x38
+0870: ff           RST 0x38
+0871: ff           RST 0x38
+0872: ff           RST 0x38
+0873: ff           RST 0x38
+0874: ff           RST 0x38
+0875: ff           RST 0x38
+0876: ff           RST 0x38
+0877: ff           RST 0x38
+0878: ff           RST 0x38
+0879: ff           RST 0x38
+087a: ff           RST 0x38
+087b: ff           RST 0x38
+087c: ff           RST 0x38
+087d: ff           RST 0x38
+087e: ff           RST 0x38
+087f: ff           RST 0x38
+0880: ff           RST 0x38
+0881: ff           RST 0x38
+0882: ff           RST 0x38
+0883: ff           RST 0x38
+0884: ff           RST 0x38
+0885: ff           RST 0x38
+0886: ff           RST 0x38
+0887: ff           RST 0x38
+0888: ff           RST 0x38
+0889: ff           RST 0x38
+088a: ff           RST 0x38
+088b: ff           RST 0x38
+088c: ff           RST 0x38
+088d: ff           RST 0x38
+088e: ff           RST 0x38
+088f: ff           RST 0x38
+0890: ff           RST 0x38
+0891: ff           RST 0x38
+0892: ff           RST 0x38
+0893: ff           RST 0x38
+0894: ff           RST 0x38
+0895: ff           RST 0x38
+0896: ff           RST 0x38
+0897: ff           RST 0x38
+0898: ff           RST 0x38
+0899: ff           RST 0x38
+089a: ff           RST 0x38
+089b: ff           RST 0x38
+089c: ff           RST 0x38
+089d: ff           RST 0x38
+089e: ff           RST 0x38
+089f: ff           RST 0x38
+08a0: ff           RST 0x38
+08a1: ff           RST 0x38
+08a2: ff           RST 0x38
+08a3: ff           RST 0x38
+08a4: ff           RST 0x38
+08a5: ff           RST 0x38
+08a6: ff           RST 0x38
+08a7: ff           RST 0x38
+08a8: ff           RST 0x38
+08a9: ff           RST 0x38
+08aa: ff           RST 0x38
+08ab: ff           RST 0x38
+08ac: ff           RST 0x38
+08ad: ff           RST 0x38
+08ae: ff           RST 0x38
+08af: ff           RST 0x38
+08b0: ff           RST 0x38
+08b1: ff           RST 0x38
+08b2: ff           RST 0x38
+08b3: ff           RST 0x38
+08b4: ff           RST 0x38
+08b5: ff           RST 0x38
+08b6: ff           RST 0x38
+08b7: ff           RST 0x38
+08b8: ff           RST 0x38
+08b9: ff           RST 0x38
+08ba: ff           RST 0x38
+08bb: ff           RST 0x38
+08bc: ff           RST 0x38
+08bd: ff           RST 0x38
+08be: ff           RST 0x38
+08bf: ff           RST 0x38
+08c0: ff           RST 0x38
+08c1: ff           RST 0x38
+08c2: ff           RST 0x38
+08c3: ff           RST 0x38
+08c4: ff           RST 0x38
+08c5: ff           RST 0x38
+08c6: ff           RST 0x38
+08c7: ff           RST 0x38
+08c8: ff           RST 0x38
+08c9: ff           RST 0x38
+08ca: ff           RST 0x38
+08cb: ff           RST 0x38
+08cc: ff           RST 0x38
+08cd: ff           RST 0x38
+08ce: ff           RST 0x38
+08cf: ff           RST 0x38
+08d0: ff           RST 0x38
+08d1: ff           RST 0x38
+08d2: ff           RST 0x38
+08d3: ff           RST 0x38
+08d4: ff           RST 0x38
+08d5: ff           RST 0x38
+08d6: ff           RST 0x38
+08d7: ff           RST 0x38
+08d8: ff           RST 0x38
+08d9: ff           RST 0x38
+08da: ff           RST 0x38
+08db: ff           RST 0x38
+08dc: ff           RST 0x38
+08dd: ff           RST 0x38
+08de: ff           RST 0x38
+08df: ff           RST 0x38
+08e0: ff           RST 0x38
+08e1: ff           RST 0x38
+08e2: ff           RST 0x38
+08e3: ff           RST 0x38
+08e4: ff           RST 0x38
+08e5: ff           RST 0x38
+08e6: ff           RST 0x38
+08e7: ff           RST 0x38
+08e8: ff           RST 0x38
+08e9: ff           RST 0x38
+08ea: ff           RST 0x38
+08eb: ff           RST 0x38
+08ec: ff           RST 0x38
+08ed: ff           RST 0x38
+08ee: ff           RST 0x38
+08ef: ff           RST 0x38
+08f0: ff           RST 0x38
+08f1: ff           RST 0x38
+08f2: ff           RST 0x38
+08f3: ff           RST 0x38
+08f4: ff           RST 0x38
+08f5: ff           RST 0x38
+08f6: ff           RST 0x38
+08f7: ff           RST 0x38
+08f8: ff           RST 0x38
+08f9: ff           RST 0x38
+08fa: ff           RST 0x38
+08fb: ff           RST 0x38
+08fc: ff           RST 0x38
+08fd: ff           RST 0x38
+08fe: ff           RST 0x38
+08ff: ff           RST 0x38
+0900: ff           RST 0x38
+0901: ff           RST 0x38
+0902: ff           RST 0x38
+0903: ff           RST 0x38
+0904: ff           RST 0x38
+0905: ff           RST 0x38
+0906: ff           RST 0x38
+0907: ff           RST 0x38
+0908: ff           RST 0x38
+0909: ff           RST 0x38
+090a: ff           RST 0x38
+090b: ff           RST 0x38
+090c: ff           RST 0x38
+090d: ff           RST 0x38
+090e: ff           RST 0x38
+090f: ff           RST 0x38
+0910: ff           RST 0x38
+0911: ff           RST 0x38
+0912: ff           RST 0x38
+0913: ff           RST 0x38
+0914: ff           RST 0x38
+0915: ff           RST 0x38
+0916: ff           RST 0x38
+0917: ff           RST 0x38
+0918: ff           RST 0x38
+0919: ff           RST 0x38
+091a: ff           RST 0x38
+091b: ff           RST 0x38
+091c: ff           RST 0x38
+091d: ff           RST 0x38
+091e: ff           RST 0x38
+091f: ff           RST 0x38
+0920: ff           RST 0x38
+0921: ff           RST 0x38
+0922: ff           RST 0x38
+0923: ff           RST 0x38
+0924: ff           RST 0x38
+0925: ff           RST 0x38
+0926: ff           RST 0x38
+0927: ff           RST 0x38
+0928: ff           RST 0x38
+0929: ff           RST 0x38
+092a: ff           RST 0x38
+092b: ff           RST 0x38
+092c: ff           RST 0x38
+092d: ff           RST 0x38
+092e: ff           RST 0x38
+092f: ff           RST 0x38
+0930: ff           RST 0x38
+0931: ff           RST 0x38
+0932: ff           RST 0x38
+0933: ff           RST 0x38
+0934: ff           RST 0x38
+0935: ff           RST 0x38
+0936: ff           RST 0x38
+0937: ff           RST 0x38
+0938: ff           RST 0x38
+0939: ff           RST 0x38
+093a: ff           RST 0x38
+093b: ff           RST 0x38
+093c: ff           RST 0x38
+093d: ff           RST 0x38
+093e: ff           RST 0x38
+093f: ff           RST 0x38
+0940: ff           RST 0x38
+0941: ff           RST 0x38
+0942: ff           RST 0x38
+0943: ff           RST 0x38
+0944: ff           RST 0x38
+0945: ff           RST 0x38
+0946: ff           RST 0x38
+0947: ff           RST 0x38
+0948: ff           RST 0x38
+0949: ff           RST 0x38
+094a: ff           RST 0x38
+094b: ff           RST 0x38
+094c: ff           RST 0x38
+094d: ff           RST 0x38
+094e: ff           RST 0x38
+094f: ff           RST 0x38
+0950: ff           RST 0x38
+0951: ff           RST 0x38
+0952: ff           RST 0x38
+0953: ff           RST 0x38
+0954: ff           RST 0x38
+0955: ff           RST 0x38
+0956: ff           RST 0x38
+0957: ff           RST 0x38
+0958: ff           RST 0x38
+0959: ff           RST 0x38
+095a: ff           RST 0x38
+095b: ff           RST 0x38
+095c: ff           RST 0x38
+095d: ff           RST 0x38
+095e: ff           RST 0x38
+095f: ff           RST 0x38
+0960: ff           RST 0x38
+0961: ff           RST 0x38
+0962: ff           RST 0x38
+0963: ff           RST 0x38
+0964: ff           RST 0x38
+0965: ff           RST 0x38
+0966: ff           RST 0x38
+0967: ff           RST 0x38
+0968: ff           RST 0x38
+0969: ff           RST 0x38
+096a: ff           RST 0x38
+096b: ff           RST 0x38
+096c: ff           RST 0x38
+096d: ff           RST 0x38
+096e: ff           RST 0x38
+096f: ff           RST 0x38
+0970: ff           RST 0x38
+0971: ff           RST 0x38
+0972: ff           RST 0x38
+0973: ff           RST 0x38
+0974: ff           RST 0x38
+0975: ff           RST 0x38
+0976: ff           RST 0x38
+0977: ff           RST 0x38
+0978: ff           RST 0x38
+0979: ff           RST 0x38
+097a: ff           RST 0x38
+097b: ff           RST 0x38
+097c: ff           RST 0x38
+097d: ff           RST 0x38
+097e: ff           RST 0x38
+097f: ff           RST 0x38
+0980: ff           RST 0x38
+0981: ff           RST 0x38
+0982: ff           RST 0x38
+0983: ff           RST 0x38
+0984: ff           RST 0x38
+0985: ff           RST 0x38
+0986: ff           RST 0x38
+0987: ff           RST 0x38
+0988: ff           RST 0x38
+0989: ff           RST 0x38
+098a: ff           RST 0x38
+098b: ff           RST 0x38
+098c: ff           RST 0x38
+098d: ff           RST 0x38
+098e: ff           RST 0x38
+098f: ff           RST 0x38
+0990: ff           RST 0x38
+0991: ff           RST 0x38
+0992: ff           RST 0x38
+0993: ff           RST 0x38
+0994: ff           RST 0x38
+0995: ff           RST 0x38
+0996: ff           RST 0x38
+0997: ff           RST 0x38
+0998: ff           RST 0x38
+0999: ff           RST 0x38
+099a: ff           RST 0x38
+099b: ff           RST 0x38
+099c: ff           RST 0x38
+099d: ff           RST 0x38
+099e: ff           RST 0x38
+099f: ff           RST 0x38
+09a0: ff           RST 0x38
+09a1: ff           RST 0x38
+09a2: ff           RST 0x38
+09a3: ff           RST 0x38
+09a4: ff           RST 0x38
+09a5: ff           RST 0x38
+09a6: ff           RST 0x38
+09a7: ff           RST 0x38
+09a8: ff           RST 0x38
+09a9: ff           RST 0x38
+09aa: ff           RST 0x38
+09ab: ff           RST 0x38
+09ac: ff           RST 0x38
+09ad: ff           RST 0x38
+09ae: ff           RST 0x38
+09af: ff           RST 0x38
+09b0: ff           RST 0x38
+09b1: ff           RST 0x38
+09b2: ff           RST 0x38
+09b3: ff           RST 0x38
+09b4: ff           RST 0x38
+09b5: ff           RST 0x38
+09b6: ff           RST 0x38
+09b7: ff           RST 0x38
+09b8: ff           RST 0x38
+09b9: ff           RST 0x38
+09ba: ff           RST 0x38
+09bb: ff           RST 0x38
+09bc: ff           RST 0x38
+09bd: ff           RST 0x38
+09be: ff           RST 0x38
+09bf: ff           RST 0x38
+09c0: ff           RST 0x38
+09c1: ff           RST 0x38
+09c2: ff           RST 0x38
+09c3: ff           RST 0x38
+09c4: ff           RST 0x38
+09c5: ff           RST 0x38
+09c6: ff           RST 0x38
+09c7: ff           RST 0x38
+09c8: ff           RST 0x38
+09c9: ff           RST 0x38
+09ca: ff           RST 0x38
+09cb: ff           RST 0x38
+09cc: ff           RST 0x38
+09cd: ff           RST 0x38
+09ce: ff           RST 0x38
+09cf: ff           RST 0x38
+09d0: ff           RST 0x38
+09d1: ff           RST 0x38
+09d2: ff           RST 0x38
+09d3: ff           RST 0x38
+09d4: ff           RST 0x38
+09d5: ff           RST 0x38
+09d6: ff           RST 0x38
+09d7: ff           RST 0x38
+09d8: ff           RST 0x38
+09d9: ff           RST 0x38
+09da: ff           RST 0x38
+09db: ff           RST 0x38
+09dc: ff           RST 0x38
+09dd: ff           RST 0x38
+09de: ff           RST 0x38
+09df: ff           RST 0x38
+09e0: ff           RST 0x38
+09e1: ff           RST 0x38
+09e2: ff           RST 0x38
+09e3: ff           RST 0x38
+09e4: ff           RST 0x38
+09e5: ff           RST 0x38
+09e6: ff           RST 0x38
+09e7: ff           RST 0x38
+09e8: ff           RST 0x38
+09e9: ff           RST 0x38
+09ea: ff           RST 0x38
+09eb: ff           RST 0x38
+09ec: ff           RST 0x38
+09ed: ff           RST 0x38
+09ee: ff           RST 0x38
+09ef: ff           RST 0x38
+09f0: ff           RST 0x38
+09f1: ff           RST 0x38
+09f2: ff           RST 0x38
+09f3: ff           RST 0x38
+09f4: ff           RST 0x38
+09f5: ff           RST 0x38
+09f6: ff           RST 0x38
+09f7: ff           RST 0x38
+09f8: ff           RST 0x38
+09f9: ff           RST 0x38
+09fa: ff           RST 0x38
+09fb: ff           RST 0x38
+09fc: ff           RST 0x38
+09fd: ff           RST 0x38
+09fe: ff           RST 0x38
+09ff: ff           RST 0x38
+0a00: ff           RST 0x38
+0a01: ff           RST 0x38
+0a02: ff           RST 0x38
+0a03: ff           RST 0x38
+0a04: ff           RST 0x38
+0a05: ff           RST 0x38
+0a06: ff           RST 0x38
+0a07: ff           RST 0x38
+0a08: ff           RST 0x38
+0a09: ff           RST 0x38
+0a0a: ff           RST 0x38
+0a0b: ff           RST 0x38
+0a0c: ff           RST 0x38
+0a0d: ff           RST 0x38
+0a0e: ff           RST 0x38
+0a0f: ff           RST 0x38
+0a10: ff           RST 0x38
+0a11: ff           RST 0x38
+0a12: ff           RST 0x38
+0a13: ff           RST 0x38
+0a14: ff           RST 0x38
+0a15: ff           RST 0x38
+0a16: ff           RST 0x38
+0a17: ff           RST 0x38
+0a18: ff           RST 0x38
+0a19: ff           RST 0x38
+0a1a: ff           RST 0x38
+0a1b: ff           RST 0x38
+0a1c: ff           RST 0x38
+0a1d: ff           RST 0x38
+0a1e: ff           RST 0x38
+0a1f: ff           RST 0x38
+0a20: ff           RST 0x38
+0a21: ff           RST 0x38
+0a22: ff           RST 0x38
+0a23: ff           RST 0x38
+0a24: ff           RST 0x38
+0a25: ff           RST 0x38
+0a26: ff           RST 0x38
+0a27: ff           RST 0x38
+0a28: ff           RST 0x38
+0a29: ff           RST 0x38
+0a2a: ff           RST 0x38
+0a2b: ff           RST 0x38
+0a2c: ff           RST 0x38
+0a2d: ff           RST 0x38
+0a2e: ff           RST 0x38
+0a2f: ff           RST 0x38
+0a30: ff           RST 0x38
+0a31: ff           RST 0x38
+0a32: ff           RST 0x38
+0a33: ff           RST 0x38
+0a34: ff           RST 0x38
+0a35: ff           RST 0x38
+0a36: ff           RST 0x38
+0a37: ff           RST 0x38
+0a38: ff           RST 0x38
+0a39: ff           RST 0x38
+0a3a: ff           RST 0x38
+0a3b: ff           RST 0x38
+0a3c: ff           RST 0x38
+0a3d: ff           RST 0x38
+0a3e: ff           RST 0x38
+0a3f: ff           RST 0x38
+0a40: ff           RST 0x38
+0a41: ff           RST 0x38
+0a42: ff           RST 0x38
+0a43: ff           RST 0x38
+0a44: ff           RST 0x38
+0a45: ff           RST 0x38
+0a46: ff           RST 0x38
+0a47: ff           RST 0x38
+0a48: ff           RST 0x38
+0a49: ff           RST 0x38
+0a4a: ff           RST 0x38
+0a4b: ff           RST 0x38
+0a4c: ff           RST 0x38
+0a4d: ff           RST 0x38
+0a4e: ff           RST 0x38
+0a4f: ff           RST 0x38
+0a50: ff           RST 0x38
+0a51: ff           RST 0x38
+0a52: ff           RST 0x38
+0a53: ff           RST 0x38
+0a54: ff           RST 0x38
+0a55: ff           RST 0x38
+0a56: ff           RST 0x38
+0a57: ff           RST 0x38
+0a58: ff           RST 0x38
+0a59: ff           RST 0x38
+0a5a: ff           RST 0x38
+0a5b: ff           RST 0x38
+0a5c: ff           RST 0x38
+0a5d: ff           RST 0x38
+0a5e: ff           RST 0x38
+0a5f: ff           RST 0x38
+0a60: ff           RST 0x38
+0a61: ff           RST 0x38
+0a62: ff           RST 0x38
+0a63: ff           RST 0x38
+0a64: ff           RST 0x38
+0a65: ff           RST 0x38
+0a66: ff           RST 0x38
+0a67: ff           RST 0x38
+0a68: ff           RST 0x38
+0a69: ff           RST 0x38
+0a6a: ff           RST 0x38
+0a6b: ff           RST 0x38
+0a6c: ff           RST 0x38
+0a6d: ff           RST 0x38
+0a6e: ff           RST 0x38
+0a6f: ff           RST 0x38
+0a70: ff           RST 0x38
+0a71: ff           RST 0x38
+0a72: ff           RST 0x38
+0a73: ff           RST 0x38
+0a74: ff           RST 0x38
+0a75: ff           RST 0x38
+0a76: ff           RST 0x38
+0a77: ff           RST 0x38
+0a78: ff           RST 0x38
+0a79: ff           RST 0x38
+0a7a: ff           RST 0x38
+0a7b: ff           RST 0x38
+0a7c: ff           RST 0x38
+0a7d: ff           RST 0x38
+0a7e: ff           RST 0x38
+0a7f: ff           RST 0x38
+0a80: ff           RST 0x38
+0a81: ff           RST 0x38
+0a82: ff           RST 0x38
+0a83: ff           RST 0x38
+0a84: ff           RST 0x38
+0a85: ff           RST 0x38
+0a86: ff           RST 0x38
+0a87: ff           RST 0x38
+0a88: ff           RST 0x38
+0a89: ff           RST 0x38
+0a8a: ff           RST 0x38
+0a8b: ff           RST 0x38
+0a8c: ff           RST 0x38
+0a8d: ff           RST 0x38
+0a8e: ff           RST 0x38
+0a8f: ff           RST 0x38
+0a90: ff           RST 0x38
+0a91: ff           RST 0x38
+0a92: ff           RST 0x38
+0a93: ff           RST 0x38
+0a94: ff           RST 0x38
+0a95: ff           RST 0x38
+0a96: ff           RST 0x38
+0a97: ff           RST 0x38
+0a98: ff           RST 0x38
+0a99: ff           RST 0x38
+0a9a: ff           RST 0x38
+0a9b: ff           RST 0x38
+0a9c: ff           RST 0x38
+0a9d: ff           RST 0x38
+0a9e: ff           RST 0x38
+0a9f: ff           RST 0x38
+0aa0: ff           RST 0x38
+0aa1: ff           RST 0x38
+0aa2: ff           RST 0x38
+0aa3: ff           RST 0x38
+0aa4: ff           RST 0x38
+0aa5: ff           RST 0x38
+0aa6: ff           RST 0x38
+0aa7: ff           RST 0x38
+0aa8: ff           RST 0x38
+0aa9: ff           RST 0x38
+0aaa: ff           RST 0x38
+0aab: ff           RST 0x38
+0aac: ff           RST 0x38
+0aad: ff           RST 0x38
+0aae: ff           RST 0x38
+0aaf: ff           RST 0x38
+0ab0: ff           RST 0x38
+0ab1: ff           RST 0x38
+0ab2: ff           RST 0x38
+0ab3: ff           RST 0x38
+0ab4: ff           RST 0x38
+0ab5: ff           RST 0x38
+0ab6: ff           RST 0x38
+0ab7: ff           RST 0x38
+0ab8: ff           RST 0x38
+0ab9: ff           RST 0x38
+0aba: ff           RST 0x38
+0abb: ff           RST 0x38
+0abc: ff           RST 0x38
+0abd: ff           RST 0x38
+0abe: ff           RST 0x38
+0abf: ff           RST 0x38
+0ac0: ff           RST 0x38
+0ac1: ff           RST 0x38
+0ac2: ff           RST 0x38
+0ac3: ff           RST 0x38
+0ac4: ff           RST 0x38
+0ac5: ff           RST 0x38
+0ac6: ff           RST 0x38
+0ac7: ff           RST 0x38
+0ac8: ff           RST 0x38
+0ac9: ff           RST 0x38
+0aca: ff           RST 0x38
+0acb: ff           RST 0x38
+0acc: ff           RST 0x38
+0acd: ff           RST 0x38
+0ace: ff           RST 0x38
+0acf: ff           RST 0x38
+0ad0: ff           RST 0x38
+0ad1: ff           RST 0x38
+0ad2: ff           RST 0x38
+0ad3: ff           RST 0x38
+0ad4: ff           RST 0x38
+0ad5: ff           RST 0x38
+0ad6: ff           RST 0x38
+0ad7: ff           RST 0x38
+0ad8: ff           RST 0x38
+0ad9: ff           RST 0x38
+0ada: ff           RST 0x38
+0adb: ff           RST 0x38
+0adc: ff           RST 0x38
+0add: ff           RST 0x38
+0ade: ff           RST 0x38
+0adf: ff           RST 0x38
+0ae0: ff           RST 0x38
+0ae1: ff           RST 0x38
+0ae2: ff           RST 0x38
+0ae3: ff           RST 0x38
+0ae4: ff           RST 0x38
+0ae5: ff           RST 0x38
+0ae6: ff           RST 0x38
+0ae7: ff           RST 0x38
+0ae8: ff           RST 0x38
+0ae9: ff           RST 0x38
+0aea: ff           RST 0x38
+0aeb: ff           RST 0x38
+0aec: ff           RST 0x38
+0aed: ff           RST 0x38
+0aee: ff           RST 0x38
+0aef: ff           RST 0x38
+0af0: ff           RST 0x38
+0af1: ff           RST 0x38
+0af2: ff           RST 0x38
+0af3: ff           RST 0x38
+0af4: ff           RST 0x38
+0af5: ff           RST 0x38
+0af6: ff           RST 0x38
+0af7: ff           RST 0x38
+0af8: ff           RST 0x38
+0af9: ff           RST 0x38
+0afa: ff           RST 0x38
+0afb: ff           RST 0x38
+0afc: ff           RST 0x38
+0afd: ff           RST 0x38
+0afe: ff           RST 0x38
+0aff: ff           RST 0x38
+0b00: ff           RST 0x38
+0b01: ff           RST 0x38
+0b02: ff           RST 0x38
+0b03: ff           RST 0x38
+0b04: ff           RST 0x38
+0b05: ff           RST 0x38
+0b06: ff           RST 0x38
+0b07: ff           RST 0x38
+0b08: ff           RST 0x38
+0b09: ff           RST 0x38
+0b0a: ff           RST 0x38
+0b0b: ff           RST 0x38
+0b0c: ff           RST 0x38
+0b0d: ff           RST 0x38
+0b0e: ff           RST 0x38
+0b0f: ff           RST 0x38
+0b10: ff           RST 0x38
+0b11: ff           RST 0x38
+0b12: ff           RST 0x38
+0b13: ff           RST 0x38
+0b14: ff           RST 0x38
+0b15: ff           RST 0x38
+0b16: ff           RST 0x38
+0b17: ff           RST 0x38
+0b18: ff           RST 0x38
+0b19: ff           RST 0x38
+0b1a: ff           RST 0x38
+0b1b: ff           RST 0x38
+0b1c: ff           RST 0x38
+0b1d: ff           RST 0x38
+0b1e: ff           RST 0x38
+0b1f: ff           RST 0x38
+0b20: ff           RST 0x38
+0b21: ff           RST 0x38
+0b22: ff           RST 0x38
+0b23: ff           RST 0x38
+0b24: ff           RST 0x38
+0b25: ff           RST 0x38
+0b26: ff           RST 0x38
+0b27: ff           RST 0x38
+0b28: ff           RST 0x38
+0b29: ff           RST 0x38
+0b2a: ff           RST 0x38
+0b2b: ff           RST 0x38
+0b2c: ff           RST 0x38
+0b2d: ff           RST 0x38
+0b2e: ff           RST 0x38
+0b2f: ff           RST 0x38
+0b30: ff           RST 0x38
+0b31: ff           RST 0x38
+0b32: ff           RST 0x38
+0b33: ff           RST 0x38
+0b34: ff           RST 0x38
+0b35: ff           RST 0x38
+0b36: ff           RST 0x38
+0b37: ff           RST 0x38
+0b38: ff           RST 0x38
+0b39: ff           RST 0x38
+0b3a: ff           RST 0x38
+0b3b: ff           RST 0x38
+0b3c: ff           RST 0x38
+0b3d: ff           RST 0x38
+0b3e: ff           RST 0x38
+0b3f: ff           RST 0x38
+0b40: ff           RST 0x38
+0b41: ff           RST 0x38
+0b42: ff           RST 0x38
+0b43: ff           RST 0x38
+0b44: ff           RST 0x38
+0b45: ff           RST 0x38
+0b46: ff           RST 0x38
+0b47: ff           RST 0x38
+0b48: ff           RST 0x38
+0b49: ff           RST 0x38
+0b4a: ff           RST 0x38
+0b4b: ff           RST 0x38
+0b4c: ff           RST 0x38
+0b4d: ff           RST 0x38
+0b4e: ff           RST 0x38
+0b4f: ff           RST 0x38
+0b50: ff           RST 0x38
+0b51: ff           RST 0x38
+0b52: ff           RST 0x38
+0b53: ff           RST 0x38
+0b54: ff           RST 0x38
+0b55: ff           RST 0x38
+0b56: ff           RST 0x38
+0b57: ff           RST 0x38
+0b58: ff           RST 0x38
+0b59: ff           RST 0x38
+0b5a: ff           RST 0x38
+0b5b: ff           RST 0x38
+0b5c: ff           RST 0x38
+0b5d: ff           RST 0x38
+0b5e: ff           RST 0x38
+0b5f: ff           RST 0x38
+0b60: ff           RST 0x38
+0b61: ff           RST 0x38
+0b62: ff           RST 0x38
+0b63: ff           RST 0x38
+0b64: ff           RST 0x38
+0b65: ff           RST 0x38
+0b66: ff           RST 0x38
+0b67: ff           RST 0x38
+0b68: ff           RST 0x38
+0b69: ff           RST 0x38
+0b6a: ff           RST 0x38
+0b6b: ff           RST 0x38
+0b6c: ff           RST 0x38
+0b6d: ff           RST 0x38
+0b6e: ff           RST 0x38
+0b6f: ff           RST 0x38
+0b70: ff           RST 0x38
+0b71: ff           RST 0x38
+0b72: ff           RST 0x38
+0b73: ff           RST 0x38
+0b74: ff           RST 0x38
+0b75: ff           RST 0x38
+0b76: ff           RST 0x38
+0b77: ff           RST 0x38
+0b78: ff           RST 0x38
+0b79: ff           RST 0x38
+0b7a: ff           RST 0x38
+0b7b: ff           RST 0x38
+0b7c: ff           RST 0x38
+0b7d: ff           RST 0x38
+0b7e: ff           RST 0x38
+0b7f: ff           RST 0x38
+0b80: ff           RST 0x38
+0b81: ff           RST 0x38
+0b82: ff           RST 0x38
+0b83: ff           RST 0x38
+0b84: ff           RST 0x38
+0b85: ff           RST 0x38
+0b86: ff           RST 0x38
+0b87: ff           RST 0x38
+0b88: ff           RST 0x38
+0b89: ff           RST 0x38
+0b8a: ff           RST 0x38
+0b8b: ff           RST 0x38
+0b8c: ff           RST 0x38
+0b8d: ff           RST 0x38
+0b8e: ff           RST 0x38
+0b8f: ff           RST 0x38
+0b90: ff           RST 0x38
+0b91: ff           RST 0x38
+0b92: ff           RST 0x38
+0b93: ff           RST 0x38
+0b94: ff           RST 0x38
+0b95: ff           RST 0x38
+0b96: ff           RST 0x38
+0b97: ff           RST 0x38
+0b98: ff           RST 0x38
+0b99: ff           RST 0x38
+0b9a: ff           RST 0x38
+0b9b: ff           RST 0x38
+0b9c: ff           RST 0x38
+0b9d: ff           RST 0x38
+0b9e: ff           RST 0x38
+0b9f: ff           RST 0x38
+0ba0: ff           RST 0x38
+0ba1: ff           RST 0x38
+0ba2: ff           RST 0x38
+0ba3: ff           RST 0x38
+0ba4: ff           RST 0x38
+0ba5: ff           RST 0x38
+0ba6: ff           RST 0x38
+0ba7: ff           RST 0x38
+0ba8: ff           RST 0x38
+0ba9: ff           RST 0x38
+0baa: ff           RST 0x38
+0bab: ff           RST 0x38
+0bac: ff           RST 0x38
+0bad: ff           RST 0x38
+0bae: ff           RST 0x38
+0baf: ff           RST 0x38
+0bb0: ff           RST 0x38
+0bb1: ff           RST 0x38
+0bb2: ff           RST 0x38
+0bb3: ff           RST 0x38
+0bb4: ff           RST 0x38
+0bb5: ff           RST 0x38
+0bb6: ff           RST 0x38
+0bb7: ff           RST 0x38
+0bb8: ff           RST 0x38
+0bb9: ff           RST 0x38
+0bba: ff           RST 0x38
+0bbb: ff           RST 0x38
+0bbc: ff           RST 0x38
+0bbd: ff           RST 0x38
+0bbe: ff           RST 0x38
+0bbf: ff           RST 0x38
+0bc0: ff           RST 0x38
+0bc1: ff           RST 0x38
+0bc2: ff           RST 0x38
+0bc3: ff           RST 0x38
+0bc4: ff           RST 0x38
+0bc5: ff           RST 0x38
+0bc6: ff           RST 0x38
+0bc7: ff           RST 0x38
+0bc8: ff           RST 0x38
+0bc9: ff           RST 0x38
+0bca: ff           RST 0x38
+0bcb: ff           RST 0x38
+0bcc: ff           RST 0x38
+0bcd: ff           RST 0x38
+0bce: ff           RST 0x38
+0bcf: ff           RST 0x38
+0bd0: ff           RST 0x38
+0bd1: ff           RST 0x38
+0bd2: ff           RST 0x38
+0bd3: ff           RST 0x38
+0bd4: ff           RST 0x38
+0bd5: ff           RST 0x38
+0bd6: ff           RST 0x38
+0bd7: ff           RST 0x38
+0bd8: ff           RST 0x38
+0bd9: ff           RST 0x38
+0bda: ff           RST 0x38
+0bdb: ff           RST 0x38
+0bdc: ff           RST 0x38
+0bdd: ff           RST 0x38
+0bde: ff           RST 0x38
+0bdf: ff           RST 0x38
+0be0: ff           RST 0x38
+0be1: ff           RST 0x38
+0be2: ff           RST 0x38
+0be3: ff           RST 0x38
+0be4: ff           RST 0x38
+0be5: ff           RST 0x38
+0be6: ff           RST 0x38
+0be7: ff           RST 0x38
+0be8: ff           RST 0x38
+0be9: ff           RST 0x38
+0bea: ff           RST 0x38
+0beb: ff           RST 0x38
+0bec: ff           RST 0x38
+0bed: ff           RST 0x38
+0bee: ff           RST 0x38
+0bef: ff           RST 0x38
+0bf0: ff           RST 0x38
+0bf1: ff           RST 0x38
+0bf2: ff           RST 0x38
+0bf3: ff           RST 0x38
+0bf4: ff           RST 0x38
+0bf5: ff           RST 0x38
+0bf6: ff           RST 0x38
+0bf7: ff           RST 0x38
+0bf8: ff           RST 0x38
+0bf9: ff           RST 0x38
+0bfa: ff           RST 0x38
+0bfb: ff           RST 0x38
+0bfc: ff           RST 0x38
+0bfd: ff           RST 0x38
+0bfe: ff           RST 0x38
+0bff: ff           RST 0x38
+0c00: ff           RST 0x38
+0c01: ff           RST 0x38
+0c02: ff           RST 0x38
+0c03: ff           RST 0x38
+0c04: ff           RST 0x38
+0c05: ff           RST 0x38
+0c06: ff           RST 0x38
+0c07: ff           RST 0x38
+0c08: ff           RST 0x38
+0c09: ff           RST 0x38
+0c0a: ff           RST 0x38
+0c0b: ff           RST 0x38
+0c0c: ff           RST 0x38
+0c0d: ff           RST 0x38
+0c0e: ff           RST 0x38
+0c0f: ff           RST 0x38
+0c10: ff           RST 0x38
+0c11: ff           RST 0x38
+0c12: ff           RST 0x38
+0c13: ff           RST 0x38
+0c14: ff           RST 0x38
+0c15: ff           RST 0x38
+0c16: ff           RST 0x38
+0c17: ff           RST 0x38
+0c18: ff           RST 0x38
+0c19: ff           RST 0x38
+0c1a: ff           RST 0x38
+0c1b: ff           RST 0x38
+0c1c: ff           RST 0x38
+0c1d: ff           RST 0x38
+0c1e: ff           RST 0x38
+0c1f: ff           RST 0x38
+0c20: ff           RST 0x38
+0c21: ff           RST 0x38
+0c22: ff           RST 0x38
+0c23: ff           RST 0x38
+0c24: ff           RST 0x38
+0c25: ff           RST 0x38
+0c26: ff           RST 0x38
+0c27: ff           RST 0x38
+0c28: ff           RST 0x38
+0c29: ff           RST 0x38
+0c2a: ff           RST 0x38
+0c2b: ff           RST 0x38
+0c2c: ff           RST 0x38
+0c2d: ff           RST 0x38
+0c2e: ff           RST 0x38
+0c2f: ff           RST 0x38
+0c30: ff           RST 0x38
+0c31: ff           RST 0x38
+0c32: ff           RST 0x38
+0c33: ff           RST 0x38
+0c34: ff           RST 0x38
+0c35: ff           RST 0x38
+0c36: ff           RST 0x38
+0c37: ff           RST 0x38
+0c38: ff           RST 0x38
+0c39: ff           RST 0x38
+0c3a: ff           RST 0x38
+0c3b: ff           RST 0x38
+0c3c: ff           RST 0x38
+0c3d: ff           RST 0x38
+0c3e: ff           RST 0x38
+0c3f: ff           RST 0x38
+0c40: ff           RST 0x38
+0c41: ff           RST 0x38
+0c42: ff           RST 0x38
+0c43: ff           RST 0x38
+0c44: ff           RST 0x38
+0c45: ff           RST 0x38
+0c46: ff           RST 0x38
+0c47: ff           RST 0x38
+0c48: ff           RST 0x38
+0c49: ff           RST 0x38
+0c4a: ff           RST 0x38
+0c4b: ff           RST 0x38
+0c4c: ff           RST 0x38
+0c4d: ff           RST 0x38
+0c4e: ff           RST 0x38
+0c4f: ff           RST 0x38
+0c50: ff           RST 0x38
+0c51: ff           RST 0x38
+0c52: ff           RST 0x38
+0c53: ff           RST 0x38
+0c54: ff           RST 0x38
+0c55: ff           RST 0x38
+0c56: ff           RST 0x38
+0c57: ff           RST 0x38
+0c58: ff           RST 0x38
+0c59: ff           RST 0x38
+0c5a: ff           RST 0x38
+0c5b: ff           RST 0x38
+0c5c: ff           RST 0x38
+0c5d: ff           RST 0x38
+0c5e: ff           RST 0x38
+0c5f: ff           RST 0x38
+0c60: ff           RST 0x38
+0c61: ff           RST 0x38
+0c62: ff           RST 0x38
+0c63: ff           RST 0x38
+0c64: ff           RST 0x38
+0c65: ff           RST 0x38
+0c66: ff           RST 0x38
+0c67: ff           RST 0x38
+0c68: ff           RST 0x38
+0c69: ff           RST 0x38
+0c6a: ff           RST 0x38
+0c6b: ff           RST 0x38
+0c6c: ff           RST 0x38
+0c6d: ff           RST 0x38
+0c6e: ff           RST 0x38
+0c6f: ff           RST 0x38
+0c70: ff           RST 0x38
+0c71: ff           RST 0x38
+0c72: ff           RST 0x38
+0c73: ff           RST 0x38
+0c74: ff           RST 0x38
+0c75: ff           RST 0x38
+0c76: ff           RST 0x38
+0c77: ff           RST 0x38
+0c78: ff           RST 0x38
+0c79: ff           RST 0x38
+0c7a: ff           RST 0x38
+0c7b: ff           RST 0x38
+0c7c: ff           RST 0x38
+0c7d: ff           RST 0x38
+0c7e: ff           RST 0x38
+0c7f: ff           RST 0x38
+0c80: ff           RST 0x38
+0c81: ff           RST 0x38
+0c82: ff           RST 0x38
+0c83: ff           RST 0x38
+0c84: ff           RST 0x38
+0c85: ff           RST 0x38
+0c86: ff           RST 0x38
+0c87: ff           RST 0x38
+0c88: ff           RST 0x38
+0c89: ff           RST 0x38
+0c8a: ff           RST 0x38
+0c8b: ff           RST 0x38
+0c8c: ff           RST 0x38
+0c8d: ff           RST 0x38
+0c8e: ff           RST 0x38
+0c8f: ff           RST 0x38
+0c90: ff           RST 0x38
+0c91: ff           RST 0x38
+0c92: ff           RST 0x38
+0c93: ff           RST 0x38
+0c94: ff           RST 0x38
+0c95: ff           RST 0x38
+0c96: ff           RST 0x38
+0c97: ff           RST 0x38
+0c98: ff           RST 0x38
+0c99: ff           RST 0x38
+0c9a: ff           RST 0x38
+0c9b: ff           RST 0x38
+0c9c: ff           RST 0x38
+0c9d: ff           RST 0x38
+0c9e: ff           RST 0x38
+0c9f: ff           RST 0x38
+0ca0: ff           RST 0x38
+0ca1: ff           RST 0x38
+0ca2: ff           RST 0x38
+0ca3: ff           RST 0x38
+0ca4: ff           RST 0x38
+0ca5: ff           RST 0x38
+0ca6: ff           RST 0x38
+0ca7: ff           RST 0x38
+0ca8: ff           RST 0x38
+0ca9: ff           RST 0x38
+0caa: ff           RST 0x38
+0cab: ff           RST 0x38
+0cac: ff           RST 0x38
+0cad: ff           RST 0x38
+0cae: ff           RST 0x38
+0caf: ff           RST 0x38
+0cb0: ff           RST 0x38
+0cb1: ff           RST 0x38
+0cb2: ff           RST 0x38
+0cb3: ff           RST 0x38
+0cb4: ff           RST 0x38
+0cb5: ff           RST 0x38
+0cb6: ff           RST 0x38
+0cb7: ff           RST 0x38
+0cb8: ff           RST 0x38
+0cb9: ff           RST 0x38
+0cba: ff           RST 0x38
+0cbb: ff           RST 0x38
+0cbc: ff           RST 0x38
+0cbd: ff           RST 0x38
+0cbe: ff           RST 0x38
+0cbf: ff           RST 0x38
+0cc0: ff           RST 0x38
+0cc1: ff           RST 0x38
+0cc2: ff           RST 0x38
+0cc3: ff           RST 0x38
+0cc4: ff           RST 0x38
+0cc5: ff           RST 0x38
+0cc6: ff           RST 0x38
+0cc7: ff           RST 0x38
+0cc8: ff           RST 0x38
+0cc9: ff           RST 0x38
+0cca: ff           RST 0x38
+0ccb: ff           RST 0x38
+0ccc: ff           RST 0x38
+0ccd: ff           RST 0x38
+0cce: ff           RST 0x38
+0ccf: ff           RST 0x38
+0cd0: ff           RST 0x38
+0cd1: ff           RST 0x38
+0cd2: ff           RST 0x38
+0cd3: ff           RST 0x38
+0cd4: ff           RST 0x38
+0cd5: ff           RST 0x38
+0cd6: ff           RST 0x38
+0cd7: ff           RST 0x38
+0cd8: ff           RST 0x38
+0cd9: ff           RST 0x38
+0cda: ff           RST 0x38
+0cdb: ff           RST 0x38
+0cdc: ff           RST 0x38
+0cdd: ff           RST 0x38
+0cde: ff           RST 0x38
+0cdf: ff           RST 0x38
+0ce0: ff           RST 0x38
+0ce1: ff           RST 0x38
+0ce2: ff           RST 0x38
+0ce3: ff           RST 0x38
+0ce4: ff           RST 0x38
+0ce5: ff           RST 0x38
+0ce6: ff           RST 0x38
+0ce7: ff           RST 0x38
+0ce8: ff           RST 0x38
+0ce9: ff           RST 0x38
+0cea: ff           RST 0x38
+0ceb: ff           RST 0x38
+0cec: ff           RST 0x38
+0ced: ff           RST 0x38
+0cee: ff           RST 0x38
+0cef: ff           RST 0x38
+0cf0: ff           RST 0x38
+0cf1: ff           RST 0x38
+0cf2: ff           RST 0x38
+0cf3: ff           RST 0x38
+0cf4: ff           RST 0x38
+0cf5: ff           RST 0x38
+0cf6: ff           RST 0x38
+0cf7: ff           RST 0x38
+0cf8: ff           RST 0x38
+0cf9: ff           RST 0x38
+0cfa: ff           RST 0x38
+0cfb: ff           RST 0x38
+0cfc: ff           RST 0x38
+0cfd: ff           RST 0x38
+0cfe: ff           RST 0x38
+0cff: ff           RST 0x38
+0d00: ff           RST 0x38
+0d01: ff           RST 0x38
+0d02: ff           RST 0x38
+0d03: ff           RST 0x38
+0d04: ff           RST 0x38
+0d05: ff           RST 0x38
+0d06: ff           RST 0x38
+0d07: ff           RST 0x38
+0d08: ff           RST 0x38
+0d09: ff           RST 0x38
+0d0a: ff           RST 0x38
+0d0b: ff           RST 0x38
+0d0c: ff           RST 0x38
+0d0d: ff           RST 0x38
+0d0e: ff           RST 0x38
+0d0f: ff           RST 0x38
+0d10: ff           RST 0x38
+0d11: ff           RST 0x38
+0d12: ff           RST 0x38
+0d13: ff           RST 0x38
+0d14: ff           RST 0x38
+0d15: ff           RST 0x38
+0d16: ff           RST 0x38
+0d17: ff           RST 0x38
+0d18: ff           RST 0x38
+0d19: ff           RST 0x38
+0d1a: ff           RST 0x38
+0d1b: ff           RST 0x38
+0d1c: ff           RST 0x38
+0d1d: ff           RST 0x38
+0d1e: ff           RST 0x38
+0d1f: ff           RST 0x38
+0d20: ff           RST 0x38
+0d21: ff           RST 0x38
+0d22: ff           RST 0x38
+0d23: ff           RST 0x38
+0d24: ff           RST 0x38
+0d25: ff           RST 0x38
+0d26: ff           RST 0x38
+0d27: ff           RST 0x38
+0d28: ff           RST 0x38
+0d29: ff           RST 0x38
+0d2a: ff           RST 0x38
+0d2b: ff           RST 0x38
+0d2c: ff           RST 0x38
+0d2d: ff           RST 0x38
+0d2e: ff           RST 0x38
+0d2f: ff           RST 0x38
+0d30: ff           RST 0x38
+0d31: ff           RST 0x38
+0d32: ff           RST 0x38
+0d33: ff           RST 0x38
+0d34: ff           RST 0x38
+0d35: ff           RST 0x38
+0d36: ff           RST 0x38
+0d37: ff           RST 0x38
+0d38: ff           RST 0x38
+0d39: ff           RST 0x38
+0d3a: ff           RST 0x38
+0d3b: ff           RST 0x38
+0d3c: ff           RST 0x38
+0d3d: ff           RST 0x38
+0d3e: ff           RST 0x38
+0d3f: ff           RST 0x38
+0d40: ff           RST 0x38
+0d41: ff           RST 0x38
+0d42: ff           RST 0x38
+0d43: ff           RST 0x38
+0d44: ff           RST 0x38
+0d45: ff           RST 0x38
+0d46: ff           RST 0x38
+0d47: ff           RST 0x38
+0d48: ff           RST 0x38
+0d49: ff           RST 0x38
+0d4a: ff           RST 0x38
+0d4b: ff           RST 0x38
+0d4c: ff           RST 0x38
+0d4d: ff           RST 0x38
+0d4e: ff           RST 0x38
+0d4f: ff           RST 0x38
+0d50: ff           RST 0x38
+0d51: ff           RST 0x38
+0d52: ff           RST 0x38
+0d53: ff           RST 0x38
+0d54: ff           RST 0x38
+0d55: ff           RST 0x38
+0d56: ff           RST 0x38
+0d57: ff           RST 0x38
+0d58: ff           RST 0x38
+0d59: ff           RST 0x38
+0d5a: ff           RST 0x38
+0d5b: ff           RST 0x38
+0d5c: ff           RST 0x38
+0d5d: ff           RST 0x38
+0d5e: ff           RST 0x38
+0d5f: ff           RST 0x38
+0d60: ff           RST 0x38
+0d61: ff           RST 0x38
+0d62: ff           RST 0x38
+0d63: ff           RST 0x38
+0d64: ff           RST 0x38
+0d65: ff           RST 0x38
+0d66: ff           RST 0x38
+0d67: ff           RST 0x38
+0d68: ff           RST 0x38
+0d69: ff           RST 0x38
+0d6a: ff           RST 0x38
+0d6b: ff           RST 0x38
+0d6c: ff           RST 0x38
+0d6d: ff           RST 0x38
+0d6e: ff           RST 0x38
+0d6f: ff           RST 0x38
+0d70: ff           RST 0x38
+0d71: ff           RST 0x38
+0d72: ff           RST 0x38
+0d73: ff           RST 0x38
+0d74: ff           RST 0x38
+0d75: ff           RST 0x38
+0d76: ff           RST 0x38
+0d77: ff           RST 0x38
+0d78: ff           RST 0x38
+0d79: ff           RST 0x38
+0d7a: ff           RST 0x38
+0d7b: ff           RST 0x38
+0d7c: ff           RST 0x38
+0d7d: ff           RST 0x38
+0d7e: ff           RST 0x38
+0d7f: ff           RST 0x38
+0d80: ff           RST 0x38
+0d81: ff           RST 0x38
+0d82: ff           RST 0x38
+0d83: ff           RST 0x38
+0d84: ff           RST 0x38
+0d85: ff           RST 0x38
+0d86: ff           RST 0x38
+0d87: ff           RST 0x38
+0d88: ff           RST 0x38
+0d89: ff           RST 0x38
+0d8a: ff           RST 0x38
+0d8b: ff           RST 0x38
+0d8c: ff           RST 0x38
+0d8d: ff           RST 0x38
+0d8e: ff           RST 0x38
+0d8f: ff           RST 0x38
+0d90: ff           RST 0x38
+0d91: ff           RST 0x38
+0d92: ff           RST 0x38
+0d93: ff           RST 0x38
+0d94: ff           RST 0x38
+0d95: ff           RST 0x38
+0d96: ff           RST 0x38
+0d97: ff           RST 0x38
+0d98: ff           RST 0x38
+0d99: ff           RST 0x38
+0d9a: ff           RST 0x38
+0d9b: ff           RST 0x38
+0d9c: ff           RST 0x38
+0d9d: ff           RST 0x38
+0d9e: ff           RST 0x38
+0d9f: ff           RST 0x38
+0da0: ff           RST 0x38
+0da1: ff           RST 0x38
+0da2: ff           RST 0x38
+0da3: ff           RST 0x38
+0da4: ff           RST 0x38
+0da5: ff           RST 0x38
+0da6: ff           RST 0x38
+0da7: ff           RST 0x38
+0da8: ff           RST 0x38
+0da9: ff           RST 0x38
+0daa: ff           RST 0x38
+0dab: ff           RST 0x38
+0dac: ff           RST 0x38
+0dad: ff           RST 0x38
+0dae: ff           RST 0x38
+0daf: ff           RST 0x38
+0db0: ff           RST 0x38
+0db1: ff           RST 0x38
+0db2: ff           RST 0x38
+0db3: ff           RST 0x38
+0db4: ff           RST 0x38
+0db5: ff           RST 0x38
+0db6: ff           RST 0x38
+0db7: ff           RST 0x38
+0db8: ff           RST 0x38
+0db9: ff           RST 0x38
+0dba: ff           RST 0x38
+0dbb: ff           RST 0x38
+0dbc: ff           RST 0x38
+0dbd: ff           RST 0x38
+0dbe: ff           RST 0x38
+0dbf: ff           RST 0x38
+0dc0: ff           RST 0x38
+0dc1: ff           RST 0x38
+0dc2: ff           RST 0x38
+0dc3: ff           RST 0x38
+0dc4: ff           RST 0x38
+0dc5: ff           RST 0x38
+0dc6: ff           RST 0x38
+0dc7: ff           RST 0x38
+0dc8: ff           RST 0x38
+0dc9: ff           RST 0x38
+0dca: ff           RST 0x38
+0dcb: ff           RST 0x38
+0dcc: ff           RST 0x38
+0dcd: ff           RST 0x38
+0dce: ff           RST 0x38
+0dcf: ff           RST 0x38
+0dd0: ff           RST 0x38
+0dd1: ff           RST 0x38
+0dd2: ff           RST 0x38
+0dd3: ff           RST 0x38
+0dd4: ff           RST 0x38
+0dd5: ff           RST 0x38
+0dd6: ff           RST 0x38
+0dd7: ff           RST 0x38
+0dd8: ff           RST 0x38
+0dd9: ff           RST 0x38
+0dda: ff           RST 0x38
+0ddb: ff           RST 0x38
+0ddc: ff           RST 0x38
+0ddd: ff           RST 0x38
+0dde: ff           RST 0x38
+0ddf: ff           RST 0x38
+0de0: ff           RST 0x38
+0de1: ff           RST 0x38
+0de2: ff           RST 0x38
+0de3: ff           RST 0x38
+0de4: ff           RST 0x38
+0de5: ff           RST 0x38
+0de6: ff           RST 0x38
+0de7: ff           RST 0x38
+0de8: ff           RST 0x38
+0de9: ff           RST 0x38
+0dea: ff           RST 0x38
+0deb: ff           RST 0x38
+0dec: ff           RST 0x38
+0ded: ff           RST 0x38
+0dee: ff           RST 0x38
+0def: ff           RST 0x38
+0df0: ff           RST 0x38
+0df1: ff           RST 0x38
+0df2: ff           RST 0x38
+0df3: ff           RST 0x38
+0df4: ff           RST 0x38
+0df5: ff           RST 0x38
+0df6: ff           RST 0x38
+0df7: ff           RST 0x38
+0df8: ff           RST 0x38
+0df9: ff           RST 0x38
+0dfa: ff           RST 0x38
+0dfb: ff           RST 0x38
+0dfc: ff           RST 0x38
+0dfd: ff           RST 0x38
+0dfe: ff           RST 0x38
+0dff: ff           RST 0x38
+0e00: ff           RST 0x38
+0e01: ff           RST 0x38
+0e02: ff           RST 0x38
+0e03: ff           RST 0x38
+0e04: ff           RST 0x38
+0e05: ff           RST 0x38
+0e06: ff           RST 0x38
+0e07: ff           RST 0x38
+0e08: ff           RST 0x38
+0e09: ff           RST 0x38
+0e0a: ff           RST 0x38
+0e0b: ff           RST 0x38
+0e0c: ff           RST 0x38
+0e0d: ff           RST 0x38
+0e0e: ff           RST 0x38
+0e0f: ff           RST 0x38
+0e10: ff           RST 0x38
+0e11: ff           RST 0x38
+0e12: ff           RST 0x38
+0e13: ff           RST 0x38
+0e14: ff           RST 0x38
+0e15: ff           RST 0x38
+0e16: ff           RST 0x38
+0e17: ff           RST 0x38
+0e18: ff           RST 0x38
+0e19: ff           RST 0x38
+0e1a: ff           RST 0x38
+0e1b: ff           RST 0x38
+0e1c: ff           RST 0x38
+0e1d: ff           RST 0x38
+0e1e: ff           RST 0x38
+0e1f: ff           RST 0x38
+0e20: ff           RST 0x38
+0e21: ff           RST 0x38
+0e22: ff           RST 0x38
+0e23: ff           RST 0x38
+0e24: ff           RST 0x38
+0e25: ff           RST 0x38
+0e26: ff           RST 0x38
+0e27: ff           RST 0x38
+0e28: ff           RST 0x38
+0e29: ff           RST 0x38
+0e2a: ff           RST 0x38
+0e2b: ff           RST 0x38
+0e2c: ff           RST 0x38
+0e2d: ff           RST 0x38
+0e2e: ff           RST 0x38
+0e2f: ff           RST 0x38
+0e30: ff           RST 0x38
+0e31: ff           RST 0x38
+0e32: ff           RST 0x38
+0e33: ff           RST 0x38
+0e34: ff           RST 0x38
+0e35: ff           RST 0x38
+0e36: ff           RST 0x38
+0e37: ff           RST 0x38
+0e38: ff           RST 0x38
+0e39: ff           RST 0x38
+0e3a: ff           RST 0x38
+0e3b: ff           RST 0x38
+0e3c: ff           RST 0x38
+0e3d: ff           RST 0x38
+0e3e: ff           RST 0x38
+0e3f: ff           RST 0x38
+0e40: ff           RST 0x38
+0e41: ff           RST 0x38
+0e42: ff           RST 0x38
+0e43: ff           RST 0x38
+0e44: ff           RST 0x38
+0e45: ff           RST 0x38
+0e46: ff           RST 0x38
+0e47: ff           RST 0x38
+0e48: ff           RST 0x38
+0e49: ff           RST 0x38
+0e4a: ff           RST 0x38
+0e4b: ff           RST 0x38
+0e4c: ff           RST 0x38
+0e4d: ff           RST 0x38
+0e4e: ff           RST 0x38
+0e4f: ff           RST 0x38
+0e50: ff           RST 0x38
+0e51: ff           RST 0x38
+0e52: ff           RST 0x38
+0e53: ff           RST 0x38
+0e54: ff           RST 0x38
+0e55: ff           RST 0x38
+0e56: ff           RST 0x38
+0e57: ff           RST 0x38
+0e58: ff           RST 0x38
+0e59: ff           RST 0x38
+0e5a: ff           RST 0x38
+0e5b: ff           RST 0x38
+0e5c: ff           RST 0x38
+0e5d: ff           RST 0x38
+0e5e: ff           RST 0x38
+0e5f: ff           RST 0x38
+0e60: ff           RST 0x38
+0e61: ff           RST 0x38
+0e62: ff           RST 0x38
+0e63: ff           RST 0x38
+0e64: ff           RST 0x38
+0e65: ff           RST 0x38
+0e66: ff           RST 0x38
+0e67: ff           RST 0x38
+0e68: ff           RST 0x38
+0e69: ff           RST 0x38
+0e6a: ff           RST 0x38
+0e6b: ff           RST 0x38
+0e6c: ff           RST 0x38
+0e6d: ff           RST 0x38
+0e6e: ff           RST 0x38
+0e6f: ff           RST 0x38
+0e70: ff           RST 0x38
+0e71: ff           RST 0x38
+0e72: ff           RST 0x38
+0e73: ff           RST 0x38
+0e74: ff           RST 0x38
+0e75: ff           RST 0x38
+0e76: ff           RST 0x38
+0e77: ff           RST 0x38
+0e78: ff           RST 0x38
+0e79: ff           RST 0x38
+0e7a: ff           RST 0x38
+0e7b: ff           RST 0x38
+0e7c: ff           RST 0x38
+0e7d: ff           RST 0x38
+0e7e: ff           RST 0x38
+0e7f: ff           RST 0x38
+0e80: ff           RST 0x38
+0e81: ff           RST 0x38
+0e82: ff           RST 0x38
+0e83: ff           RST 0x38
+0e84: ff           RST 0x38
+0e85: ff           RST 0x38
+0e86: ff           RST 0x38
+0e87: ff           RST 0x38
+0e88: ff           RST 0x38
+0e89: ff           RST 0x38
+0e8a: ff           RST 0x38
+0e8b: ff           RST 0x38
+0e8c: ff           RST 0x38
+0e8d: ff           RST 0x38
+0e8e: ff           RST 0x38
+0e8f: ff           RST 0x38
+0e90: ff           RST 0x38
+0e91: ff           RST 0x38
+0e92: ff           RST 0x38
+0e93: ff           RST 0x38
+0e94: ff           RST 0x38
+0e95: ff           RST 0x38
+0e96: ff           RST 0x38
+0e97: ff           RST 0x38
+0e98: ff           RST 0x38
+0e99: ff           RST 0x38
+0e9a: ff           RST 0x38
+0e9b: ff           RST 0x38
+0e9c: ff           RST 0x38
+0e9d: ff           RST 0x38
+0e9e: ff           RST 0x38
+0e9f: ff           RST 0x38
+0ea0: ff           RST 0x38
+0ea1: ff           RST 0x38
+0ea2: ff           RST 0x38
+0ea3: ff           RST 0x38
+0ea4: ff           RST 0x38
+0ea5: ff           RST 0x38
+0ea6: ff           RST 0x38
+0ea7: ff           RST 0x38
+0ea8: ff           RST 0x38
+0ea9: ff           RST 0x38
+0eaa: ff           RST 0x38
+0eab: ff           RST 0x38
+0eac: ff           RST 0x38
+0ead: ff           RST 0x38
+0eae: ff           RST 0x38
+0eaf: ff           RST 0x38
+0eb0: ff           RST 0x38
+0eb1: ff           RST 0x38
+0eb2: ff           RST 0x38
+0eb3: ff           RST 0x38
+0eb4: ff           RST 0x38
+0eb5: ff           RST 0x38
+0eb6: ff           RST 0x38
+0eb7: ff           RST 0x38
+0eb8: ff           RST 0x38
+0eb9: ff           RST 0x38
+0eba: ff           RST 0x38
+0ebb: ff           RST 0x38
+0ebc: ff           RST 0x38
+0ebd: ff           RST 0x38
+0ebe: ff           RST 0x38
+0ebf: ff           RST 0x38
+0ec0: ff           RST 0x38
+0ec1: ff           RST 0x38
+0ec2: ff           RST 0x38
+0ec3: ff           RST 0x38
+0ec4: ff           RST 0x38
+0ec5: ff           RST 0x38
+0ec6: ff           RST 0x38
+0ec7: ff           RST 0x38
+0ec8: ff           RST 0x38
+0ec9: ff           RST 0x38
+0eca: ff           RST 0x38
+0ecb: ff           RST 0x38
+0ecc: ff           RST 0x38
+0ecd: ff           RST 0x38
+0ece: ff           RST 0x38
+0ecf: ff           RST 0x38
+0ed0: ff           RST 0x38
+0ed1: ff           RST 0x38
+0ed2: ff           RST 0x38
+0ed3: ff           RST 0x38
+0ed4: ff           RST 0x38
+0ed5: ff           RST 0x38
+0ed6: ff           RST 0x38
+0ed7: ff           RST 0x38
+0ed8: ff           RST 0x38
+0ed9: ff           RST 0x38
+0eda: ff           RST 0x38
+0edb: ff           RST 0x38
+0edc: ff           RST 0x38
+0edd: ff           RST 0x38
+0ede: ff           RST 0x38
+0edf: ff           RST 0x38
+0ee0: ff           RST 0x38
+0ee1: ff           RST 0x38
+0ee2: ff           RST 0x38
+0ee3: ff           RST 0x38
+0ee4: ff           RST 0x38
+0ee5: ff           RST 0x38
+0ee6: ff           RST 0x38
+0ee7: ff           RST 0x38
+0ee8: ff           RST 0x38
+0ee9: ff           RST 0x38
+0eea: ff           RST 0x38
+0eeb: ff           RST 0x38
+0eec: ff           RST 0x38
+0eed: ff           RST 0x38
+0eee: ff           RST 0x38
+0eef: ff           RST 0x38
+0ef0: ff           RST 0x38
+0ef1: ff           RST 0x38
+0ef2: ff           RST 0x38
+0ef3: ff           RST 0x38
+0ef4: ff           RST 0x38
+0ef5: ff           RST 0x38
+0ef6: ff           RST 0x38
+0ef7: ff           RST 0x38
+0ef8: ff           RST 0x38
+0ef9: ff           RST 0x38
+0efa: ff           RST 0x38
+0efb: ff           RST 0x38
+0efc: ff           RST 0x38
+0efd: ff           RST 0x38
+0efe: ff           RST 0x38
+0eff: ff           RST 0x38
+0f00: ff           RST 0x38
+0f01: ff           RST 0x38
+0f02: ff           RST 0x38
+0f03: ff           RST 0x38
+0f04: ff           RST 0x38
+0f05: ff           RST 0x38
+0f06: ff           RST 0x38
+0f07: ff           RST 0x38
+0f08: ff           RST 0x38
+0f09: ff           RST 0x38
+0f0a: ff           RST 0x38
+0f0b: ff           RST 0x38
+0f0c: ff           RST 0x38
+0f0d: ff           RST 0x38
+0f0e: ff           RST 0x38
+0f0f: ff           RST 0x38
+0f10: ff           RST 0x38
+0f11: ff           RST 0x38
+0f12: ff           RST 0x38
+0f13: ff           RST 0x38
+0f14: ff           RST 0x38
+0f15: ff           RST 0x38
+0f16: ff           RST 0x38
+0f17: ff           RST 0x38
+0f18: ff           RST 0x38
+0f19: ff           RST 0x38
+0f1a: ff           RST 0x38
+0f1b: ff           RST 0x38
+0f1c: ff           RST 0x38
+0f1d: ff           RST 0x38
+0f1e: ff           RST 0x38
+0f1f: ff           RST 0x38
+0f20: ff           RST 0x38
+0f21: ff           RST 0x38
+0f22: ff           RST 0x38
+0f23: ff           RST 0x38
+0f24: ff           RST 0x38
+0f25: ff           RST 0x38
+0f26: ff           RST 0x38
+0f27: ff           RST 0x38
+0f28: ff           RST 0x38
+0f29: ff           RST 0x38
+0f2a: ff           RST 0x38
+0f2b: ff           RST 0x38
+0f2c: ff           RST 0x38
+0f2d: ff           RST 0x38
+0f2e: ff           RST 0x38
+0f2f: ff           RST 0x38
+0f30: ff           RST 0x38
+0f31: ff           RST 0x38
+0f32: ff           RST 0x38
+0f33: ff           RST 0x38
+0f34: ff           RST 0x38
+0f35: ff           RST 0x38
+0f36: ff           RST 0x38
+0f37: ff           RST 0x38
+0f38: ff           RST 0x38
+0f39: ff           RST 0x38
+0f3a: ff           RST 0x38
+0f3b: ff           RST 0x38
+0f3c: ff           RST 0x38
+0f3d: ff           RST 0x38
+0f3e: ff           RST 0x38
+0f3f: ff           RST 0x38
+0f40: ff           RST 0x38
+0f41: ff           RST 0x38
+0f42: ff           RST 0x38
+0f43: ff           RST 0x38
+0f44: ff           RST 0x38
+0f45: ff           RST 0x38
+0f46: ff           RST 0x38
+0f47: ff           RST 0x38
+0f48: ff           RST 0x38
+0f49: ff           RST 0x38
+0f4a: ff           RST 0x38
+0f4b: ff           RST 0x38
+0f4c: ff           RST 0x38
+0f4d: ff           RST 0x38
+0f4e: ff           RST 0x38
+0f4f: ff           RST 0x38
+0f50: ff           RST 0x38
+0f51: ff           RST 0x38
+0f52: ff           RST 0x38
+0f53: ff           RST 0x38
+0f54: ff           RST 0x38
+0f55: ff           RST 0x38
+0f56: ff           RST 0x38
+0f57: ff           RST 0x38
+0f58: ff           RST 0x38
+0f59: ff           RST 0x38
+0f5a: ff           RST 0x38
+0f5b: ff           RST 0x38
+0f5c: ff           RST 0x38
+0f5d: ff           RST 0x38
+0f5e: ff           RST 0x38
+0f5f: ff           RST 0x38
+0f60: ff           RST 0x38
+0f61: ff           RST 0x38
+0f62: ff           RST 0x38
+0f63: ff           RST 0x38
+0f64: ff           RST 0x38
+0f65: ff           RST 0x38
+0f66: ff           RST 0x38
+0f67: ff           RST 0x38
+0f68: ff           RST 0x38
+0f69: ff           RST 0x38
+0f6a: ff           RST 0x38
+0f6b: ff           RST 0x38
+0f6c: ff           RST 0x38
+0f6d: ff           RST 0x38
+0f6e: ff           RST 0x38
+0f6f: ff           RST 0x38
+0f70: ff           RST 0x38
+0f71: ff           RST 0x38
+0f72: ff           RST 0x38
+0f73: ff           RST 0x38
+0f74: ff           RST 0x38
+0f75: ff           RST 0x38
+0f76: ff           RST 0x38
+0f77: ff           RST 0x38
+0f78: ff           RST 0x38
+0f79: ff           RST 0x38
+0f7a: ff           RST 0x38
+0f7b: ff           RST 0x38
+0f7c: ff           RST 0x38
+0f7d: ff           RST 0x38
+0f7e: ff           RST 0x38
+0f7f: ff           RST 0x38
+0f80: ff           RST 0x38
+0f81: ff           RST 0x38
+0f82: ff           RST 0x38
+0f83: ff           RST 0x38
+0f84: ff           RST 0x38
+0f85: ff           RST 0x38
+0f86: ff           RST 0x38
+0f87: ff           RST 0x38
+0f88: ff           RST 0x38
+0f89: ff           RST 0x38
+0f8a: ff           RST 0x38
+0f8b: ff           RST 0x38
+0f8c: ff           RST 0x38
+0f8d: ff           RST 0x38
+0f8e: ff           RST 0x38
+0f8f: ff           RST 0x38
+0f90: ff           RST 0x38
+0f91: ff           RST 0x38
+0f92: ff           RST 0x38
+0f93: ff           RST 0x38
+0f94: ff           RST 0x38
+0f95: ff           RST 0x38
+0f96: ff           RST 0x38
+0f97: ff           RST 0x38
+0f98: ff           RST 0x38
+0f99: ff           RST 0x38
+0f9a: ff           RST 0x38
+0f9b: ff           RST 0x38
+0f9c: ff           RST 0x38
+0f9d: ff           RST 0x38
+0f9e: ff           RST 0x38
+0f9f: ff           RST 0x38
+0fa0: ff           RST 0x38
+0fa1: ff           RST 0x38
+0fa2: ff           RST 0x38
+0fa3: ff           RST 0x38
+0fa4: ff           RST 0x38
+0fa5: ff           RST 0x38
+0fa6: ff           RST 0x38
+0fa7: ff           RST 0x38
+0fa8: ff           RST 0x38
+0fa9: ff           RST 0x38
+0faa: ff           RST 0x38
+0fab: ff           RST 0x38
+0fac: ff           RST 0x38
+0fad: ff           RST 0x38
+0fae: ff           RST 0x38
+0faf: ff           RST 0x38
+0fb0: ff           RST 0x38
+0fb1: ff           RST 0x38
+0fb2: ff           RST 0x38
+0fb3: ff           RST 0x38
+0fb4: ff           RST 0x38
+0fb5: ff           RST 0x38
+0fb6: ff           RST 0x38
+0fb7: ff           RST 0x38
+0fb8: ff           RST 0x38
+0fb9: ff           RST 0x38
+0fba: ff           RST 0x38
+0fbb: ff           RST 0x38
+0fbc: ff           RST 0x38
+0fbd: ff           RST 0x38
+0fbe: ff           RST 0x38
+0fbf: ff           RST 0x38
+0fc0: ff           RST 0x38
+0fc1: ff           RST 0x38
+0fc2: ff           RST 0x38
+0fc3: ff           RST 0x38
+0fc4: ff           RST 0x38
+0fc5: ff           RST 0x38
+0fc6: ff           RST 0x38
+0fc7: ff           RST 0x38
+0fc8: ff           RST 0x38
+0fc9: ff           RST 0x38
+0fca: ff           RST 0x38
+0fcb: ff           RST 0x38
+0fcc: ff           RST 0x38
+0fcd: ff           RST 0x38
+0fce: ff           RST 0x38
+0fcf: ff           RST 0x38
+0fd0: ff           RST 0x38
+0fd1: ff           RST 0x38
+0fd2: ff           RST 0x38
+0fd3: ff           RST 0x38
+0fd4: ff           RST 0x38
+0fd5: ff           RST 0x38
+0fd6: ff           RST 0x38
+0fd7: ff           RST 0x38
+0fd8: ff           RST 0x38
+0fd9: ff           RST 0x38
+0fda: ff           RST 0x38
+0fdb: ff           RST 0x38
+0fdc: ff           RST 0x38
+0fdd: ff           RST 0x38
+0fde: ff           RST 0x38
+0fdf: ff           RST 0x38
+0fe0: ff           RST 0x38
+0fe1: ff           RST 0x38
+0fe2: ff           RST 0x38
+0fe3: ff           RST 0x38
+0fe4: ff           RST 0x38
+0fe5: ff           RST 0x38
+0fe6: ff           RST 0x38
+0fe7: ff           RST 0x38
+0fe8: ff           RST 0x38
+0fe9: ff           RST 0x38
+0fea: ff           RST 0x38
+0feb: ff           RST 0x38
+0fec: ff           RST 0x38
+0fed: ff           RST 0x38
+0fee: ff           RST 0x38
+0fef: ff           RST 0x38
+0ff0: ff           RST 0x38
+0ff1: ff           RST 0x38
+0ff2: ff           RST 0x38
+0ff3: ff           RST 0x38
+0ff4: ff           RST 0x38
+0ff5: ff           RST 0x38
+0ff6: ff           RST 0x38
+0ff7: ff           RST 0x38
+0ff8: ff           RST 0x38
+0ff9: ff           RST 0x38
+0ffa: ff           RST 0x38
+0ffb: ff           RST 0x38
+0ffc: ff           RST 0x38
+0ffd: ff           RST 0x38
+0ffe: ff           RST 0x38
+0fff: 96           SUB (HL)
+1000: 20 10        JR nz,0x1012
+1002: c8           RET z
+1003: 10 af        DJNZ 0x0fb4
+1005: 11 3d 12     LD DE,0x123d
+1008: cd 12 a8     CALL 0xa812
+100b: 13           INC DE
+100c: 73           LD (HL),E
+100d: 14           INC D
+100e: 3f           CCF
+100f: 15           DEC D
+1010: 9c           SBC A,H
+1011: 16 e8        LD D,0xe8
+1013: 16 42        LD D,0x42
+1015: 18 24        JR 0x103b
+1017: 19           ADD HL,DE
+1018: 7a           LD A,D
+1019: 1a           LD A,(DE)
+101a: 29           ADD HL,HL
+101b: 1b           DEC DE
+101c: 77           LD (HL),A
+101d: 1b           DEC DE
+101e: f0           RET p
+101f: 1c           INC E
+1020: 0c           INC C
+1021: 53           LD D,E
+1022: 00           NOP
+1023: 0c           INC C
+1024: ff           RST 0x38
+1025: 24           INC H
+1026: 0f           RRCA
+1027: ff           RST 0x38
+1028: 25           DEC H
+1029: ff           RST 0x38
+102a: ff           RST 0x38
+102b: 28 12        JR z,0x103f
+102d: ff           RST 0x38
+102e: 29           ADD HL,HL
+102f: 1f           RRA
+1030: fe 2a        CP 0x2a
+1032: 07           RLCA
+1033: fe 2f        CP 0x2f
+1035: 1f           RRA
+1036: fe 30        CP 0x30
+1038: 1f           RRA
+1039: fe 2b        CP 0x2b
+103b: 07           RLCA
+103c: fd 03        INC BC
+103e: eb           EX DE,HL
+103f: 03           INC BC
+1040: d7           RST 0x10
+1041: 03           INC BC
+1042: d6 1e        SUB 0x1e
+1044: 04           INC B
+1045: 80           ADD A,B
+1046: d6 1f        SUB 0x1f
+1048: 06 70        LD B,0x70
+104a: c3 05 b7     JP 0xb705
+104d: 03           INC BC
+104e: b6           OR (HL)
+104f: 1e 08        LD E,8
+1051: 80           ADD A,B
+1052: b6           OR (HL)
+1053: 26 0a        LD H,10
+1055: 70           LD (HL),B
+1056: ab           XOR E
+1057: 1e 0c        LD E,12
+1059: 58           LD E,B
+105a: a9           XOR C
+105b: 26 0e        LD H,14
+105d: 58           LD E,B
+105e: a1           AND C
+105f: 1f           RRA
+1060: 10 40        DJNZ 0x10a2
+1062: 9f           SBC A,A
+1063: 26 12        LD H,0x12
+1065: 50           LD D,B
+1066: 9f           SBC A,A
+1067: 05           DEC B
+1068: 9b           SBC A,E
+1069: 57           LD D,A
+106a: 9b           SBC A,E
+106b: 57           LD D,A
+106c: 93           SUB E
+106d: 03           INC BC
+106e: 83           ADD A,E
+106f: 03           INC BC
+1070: 7a           LD A,D
+1071: 26 14        LD H,0x14
+1073: 70           LD (HL),B
+1074: 78           LD A,B
+1075: 1f           RRA
+1076: 16 70        LD D,0x70
+1078: 73           LD (HL),E
+1079: 03           INC BC
+107a: 69           LD L,C
+107b: 1d           DEC E
+107c: 18 20        JR 0x109e
+107e: 61           LD H,C
+107f: 2c           INC L
+1080: 1a           LD A,(DE)
+1081: 5a           LD E,D
+1082: 60           LD H,B
+1083: 25           DEC H
+1084: 1f           RRA
+1085: 5f           LD E,A
+1086: 57           LD D,A
+1087: 5f           LD E,A
+1088: 57           LD D,A
+1089: 5e           LD E,(HL)
+108a: 2c           INC L
+108b: 1c           INC E
+108c: 5a           LD E,D
+108d: 5b           LD E,E
+108e: 2c           INC L
+108f: 1e 5a        LD E,0x5a
+1091: 5b           LD E,E
+1092: 03           INC BC
+1093: 53           LD D,E
+1094: 03           INC BC
+1095: 47           LD B,A
+1096: 03           INC BC
+1097: 44           LD B,H
+1098: 54           LD D,H
+1099: 00           NOP
+109a: 3c           INC A
+109b: 1e 04        LD E,4
+109d: 60           LD H,B
+109e: 3c           INC A
+109f: 26 06        LD H,6
+10a1: 70           LD (HL),B
+10a2: 3b           DEC SP
+10a3: 02           LD (BC),A
+10a4: 03           INC BC
+10a5: 27           DAA
+10a6: 1f           RRA
+10a7: 08           EX AF,AF'
+10a8: 28 25        JR z,0x10cf
+10aa: 26 0a        LD H,10
+10ac: 38 23        JR c,0x10d1
+10ae: 1f           RRA
+10af: 0c           INC C
+10b0: 48           LD C,B
+10b1: 23           INC HL
+10b2: 26 0e        LD H,14
+10b4: c0           RET nz
+10b5: 21 26 10     LD HL,0x1026
+10b8: 58           LD E,B
+10b9: 1f           RRA
+10ba: 1f           RRA
+10bb: 12           LD (DE),A
+10bc: 68           LD L,B
+10bd: 17           RLA
+10be: 05           DEC B
+10bf: 17           RLA
+10c0: 1d           DEC E
+10c1: 14           INC D
+10c2: d0           RET nc
+10c3: 15           DEC D
+10c4: 2d           DEC L
+10c5: 16 68        LD D,0x68
+10c7: 0d           DEC C
+10c8: ff           RST 0x38
+10c9: 02           LD (BC),A
+10ca: 01 ef 05     LD BC,0x5ef
+10cd: e7           RST 0x20
+10ce: 2e 04        LD L,4
+10d0: 9c           SBC A,H
+10d1: 03           INC BC
+10d2: 40           LD B,B
+10d3: 00           NOP
+10d4: 38 1c        JR c,0x10f2
+10d6: ff           RST 0x38
+10d7: 18 dd        JR 0x10b6
+10d9: 26 06        LD H,6
+10db: 70           LD (HL),B
+10dc: dd 1e 08     LD E,8
+10df: 60           LD H,B
+10e0: d3 1f        OUT (0x001f),A
+10e2: 0a           LD A,(BC)
+10e3: d0           RET nc
+10e4: d3 26        OUT (0x0026),A
+10e6: 0c           INC C
+10e7: c0           RET nz
+10e8: c9           RET
+10e9: 26 0e        LD H,14
+10eb: 70           LD (HL),B
+10ec: c9           RET
+10ed: 26 10        LD H,0x10
+10ef: 60           LD H,B
+10f0: c3 03 bb     JP 0xbb03
+10f3: 2e 12        LD L,0x12
+10f5: 94           SUB H
+10f6: 03           INC BC
+10f7: 68           LD L,B
+10f8: 00           NOP
+10f9: 20 02        JR nz,0x10fd
+10fb: ff           RST 0x38
+10fc: 00           NOP
+10fd: b3           OR E
+10fe: 26 14        LD H,0x14
+1100: 68           LD L,B
+1101: b3           OR E
+1102: 05           DEC B
+1103: a7           AND A
+1104: 2e 16        LD L,0x16
+1106: 94           SUB H
+1107: 03           INC BC
+1108: 58           LD E,B
+1109: 00           NOP
+110a: c0           RET nz
+110b: 18 ff        JR 0x110c
+110d: 00           NOP
+110e: a3           AND E
+110f: 26 18        LD H,0x18
+1111: 70           LD (HL),B
+1112: a3           AND E
+1113: 1f           RRA
+1114: 1a           LD A,(DE)
+1115: 60           LD H,B
+1116: a3           AND E
+1117: 03           INC BC
+1118: 95           SUB L
+1119: 26 1c        LD H,0x1c
+111b: 68           LD L,B
+111c: 93           SUB E
+111d: 03           INC BC
+111e: 83           ADD A,E
+111f: 05           DEC B
+1120: 79           LD A,C
+1121: 1f           RRA
+1122: 1e d0        LD E,0xd0
+1124: 6f           LD L,A
+1125: 26 04        LD H,4
+1127: 70           LD (HL),B
+1128: 6f           LD L,A
+1129: 1f           RRA
+112a: 06 60        LD B,0x60
+112c: 6d           LD L,L
+112d: 1f           RRA
+112e: 08           EX AF,AF'
+112f: 70           LD (HL),B
+1130: 6d           LD L,L
+1131: 26 0a        LD H,10
+1133: 60           LD H,B
+1134: 67           LD H,A
+1135: 1d           DEC E
+1136: 0c           INC C
+1137: 20 67        JR nz,0x11a0
+1139: 2e 0e        LD L,14
+113b: d8           RET c
+113c: 04           INC B
+113d: 48           LD C,B
+113e: 1c           INC E
+113f: 50           LD D,B
+1140: 00           NOP
+1141: 20 1c        JR nz,0x115f
+1143: ff           RST 0x38
+1144: 00           NOP
+1145: 5b           LD E,E
+1146: 03           INC BC
+1147: 4b           LD C,E
+1148: 05           DEC B
+1149: 47           LD B,A
+114a: 2e 10        LD L,0x10
+114c: a4           AND H
+114d: 04           INC B
+114e: 08           EX AF,AF'
+114f: 00           NOP
+1150: 50           LD D,B
+1151: 08           EX AF,AF'
+1152: 60           LD H,B
+1153: 00           NOP
+1154: c0           RET nz
+1155: 02           LD (BC),A
+1156: 44           LD B,H
+1157: 2e 12        LD L,0x12
+1159: 34           INC (HL)
+115a: 03           INC BC
+115b: 78           LD A,B
+115c: 00           NOP
+115d: a8           XOR B
+115e: 04           INC B
+115f: c0           RET nz
+1160: 06 3e        LD B,0x3e
+1162: 1d           DEC E
+1163: 14           INC D
+1164: 70           LD (HL),B
+1165: 39           ADD HL,SP
+1166: 1f           RRA
+1167: 16 d0        LD D,0xd0
+1169: 39           ADD HL,SP
+116a: 26 18        LD H,0x18
+116c: c0           RET nz
+116d: 33           INC SP
+116e: 03           INC BC
+116f: 27           DAA
+1170: 1e 1a        LD E,0x1a
+1172: 90           SUB B
+1173: 25           DEC H
+1174: 1f           RRA
+1175: 1c           INC E
+1176: 80           ADD A,B
+1177: 25           DEC H
+1178: 2e 1e        LD L,0x1e
+117a: 60           LD H,B
+117b: 02           LD (BC),A
+117c: 90           SUB B
+117d: 04           INC B
+117e: c0           RET nz
+117f: 08           EX AF,AF'
+1180: 23           INC HL
+1181: 1e 04        LD E,4
+1183: 70           LD (HL),B
+1184: 23           INC HL
+1185: 05           DEC B
+1186: 21 1f 06     LD HL,0x61f
+1189: 60           LD H,B
+118a: 1f           RRA
+118b: 1e 08        LD E,8
+118d: 50           LD D,B
+118e: 1c           INC E
+118f: 28 18        JR z,0x11a9
+1191: 1b           DEC DE
+1192: 02           LD (BC),A
+1193: 01 17 26     LD BC,0x2617
+1196: 0a           LD A,(BC)
+1197: a0           AND B
+1198: 17           RLA
+1199: 26 0c        LD H,12
+119b: 90           SUB B
+119c: 15           DEC D
+119d: 05           DEC B
+119e: 13           INC DE
+119f: 1f           RRA
+11a0: 0e b0        LD C,0xb0
+11a2: 13           INC DE
+11a3: 1b           DEC DE
+11a4: 10 a0        DJNZ 0x1146
+11a6: 13           INC DE
+11a7: 1b           DEC DE
+11a8: 12           LD (DE),A
+11a9: 90           SUB B
+11aa: 13           INC DE
+11ab: 1f           RRA
+11ac: 14           INC D
+11ad: 80           ADD A,B
+11ae: 0d           DEC C
+11af: ff           RST 0x38
+11b0: 22 04 ff     LD (0xff04),HL
+11b3: 28 14        JR z,0x11c9
+11b5: ef           RST 0x28
+11b6: 1f           RRA
+11b7: 16 40        LD D,0x40
+11b9: e4 22 02     CALL po,0x0222
+11bc: bd           CP L
+11bd: 26 18        LD H,0x18
+11bf: a0           AND B
+11c0: bb           CP E
+11c1: 1f           RRA
+11c2: 1a           LD A,(DE)
+11c3: a0           AND B
+11c4: b8           CP B
+11c5: 22 02 a3     LD (0xa302),HL
+11c8: 20 1c        JR nz,0x11e6
+11ca: c0           RET nz
+11cb: 9f           SBC A,A
+11cc: 1d           DEC E
+11cd: 04           INC B
+11ce: e0           RET po
+11cf: 93           SUB E
+11d0: 0f           RRCA
+11d1: 74           LD (HL),H
+11d2: 91           SUB C
+11d3: 26 06        LD H,6
+11d5: 80           ADD A,B
+11d6: 8f           ADC A,A
+11d7: 1e 08        LD E,8
+11d9: 80           ADD A,B
+11da: 8c           ADC A,H
+11db: 54           LD D,H
+11dc: 00           NOP
+11dd: 87           ADD A,A
+11de: 1e 0a        LD E,10
+11e0: 90           SUB B
+11e1: 87           ADD A,A
+11e2: 1f           RRA
+11e3: 0c           INC C
+11e4: 80           ADD A,B
+11e5: 83           ADD A,E
+11e6: 23           INC HL
+11e7: 83           ADD A,E
+11e8: 57           LD D,A
+11e9: 7b           LD A,E
+11ea: 03           INC BC
+11eb: 6b           LD L,E
+11ec: 1f           RRA
+11ed: 0e d0        LD C,0xd0
+11ef: 6b           LD L,E
+11f0: 26 10        LD H,0x10
+11f2: a0           AND B
+11f3: 63           LD H,E
+11f4: 05           DEC B
+11f5: 63           LD H,E
+11f6: 26 12        LD H,0x12
+11f8: 60           LD H,B
+11f9: 5b           LD E,E
+11fa: 1f           RRA
+11fb: 14           INC D
+11fc: 60           LD H,B
+11fd: 57           LD D,A
+11fe: 36 16        LD (HL),0x16
+1200: 78           LD A,B
+1201: 57           LD D,A
+1202: 03           INC BC
+1203: 4b           LD C,E
+1204: 57           LD D,A
+1205: 49           LD C,C
+1206: 1f           RRA
+1207: 18 d0        JR 0x11d9
+1209: 49           LD C,C
+120a: 26 1a        LD H,0x1a
+120c: a0           AND B
+120d: 43           LD B,E
+120e: 03           INC BC
+120f: 36 1e        LD (HL),0x1e
+1211: 1c           INC E
+1212: c0           RET nz
+1213: 36 26        LD (HL),0x26
+1215: 1e a8        LD E,0xa8
+1217: 36 1f        LD (HL),0x1f
+1219: 04           INC B
+121a: 90           SUB B
+121b: 36 1e        LD (HL),0x1e
+121d: 06 78        LD B,0x78
+121f: 2c           INC L
+1220: 1f           RRA
+1221: 08           EX AF,AF'
+1222: 90           SUB B
+1223: 2b           DEC HL
+1224: 05           DEC B
+1225: 1f           RRA
+1226: 1f           RRA
+1227: 0a           LD A,(BC)
+1228: 80           ADD A,B
+1229: 1f           RRA
+122a: 26 0c        LD H,12
+122c: 60           LD H,B
+122d: 1f           RRA
+122e: 1f           RRA
+122f: 0e 40        LD C,0x40
+1231: 18 24        JR 0x1257
+1233: 03           INC BC
+1234: 17           RLA
+1235: 21 10 60     LD HL,0x6010
+1238: 17           RLA
+1239: 1d           DEC E
+123a: 14           INC D
+123b: 20 0d        JR nz,0x124a
+123d: ff           RST 0x38
+123e: 02           LD (BC),A
+123f: 01 f0 05     LD BC,0x5f0
+1242: ed 2e        
+1244: 16 9c        LD D,0x9c
+1246: 03           INC BC
+1247: a0           AND B
+1248: 00           NOP
+1249: 80           ADD A,B
+124a: 10 80        DJNZ 0x11cc
+124c: 00           NOP
+124d: e3           EX (SP),HL
+124e: 2e 18        LD L,0x18
+1250: 2c           INC L
+1251: 02           LD (BC),A
+1252: 90           SUB B
+1253: 00           NOP
+1254: 80           ADD A,B
+1255: 1c           INC E
+1256: db 1e        IN A,(0x001e)
+1258: 1a           LD A,(DE)
+1259: 60           LD H,B
+125a: db 1f        IN A,(0x001f)
+125c: 1c           INC E
+125d: 50           LD D,B
+125e: d1           POP DE
+125f: 2e 1e        LD L,0x1e
+1261: 7c           LD A,H
+1262: 03           INC BC
+1263: 38 00        JR c,0x1265
+1265: 80           ADD A,B
+1266: 02           LD (BC),A
+1267: c0           RET nz
+1268: 00           NOP
+1269: cb 03        RLC E
+126b: c5           PUSH BC
+126c: 26 04        LD H,4
+126e: b0           OR B
+126f: c5           PUSH BC
+1270: 1f           RRA
+1271: 06 a0        LD B,0xa0
+1273: c5           PUSH BC
+1274: 1d           DEC E
+1275: 08           EX AF,AF'
+1276: 60           LD H,B
+1277: bd           CP L
+1278: 2e 0a        LD L,10
+127a: 24           INC H
+127b: 03           INC BC
+127c: 48           LD C,B
+127d: 00           NOP
+127e: 28 02        JR z,0x1282
+1280: ff           RST 0x38
+1281: 00           NOP
+1282: bb           CP E
+1283: 05           DEC B
+1284: af           XOR A
+1285: 1f           RRA
+1286: 0c           INC C
+1287: 50           LD D,B
+1288: ad           XOR L
+1289: 1f           RRA
+128a: 0e 40        LD C,0x40
+128c: aa           XOR D
+128d: 26 10        LD H,0x10
+128f: 50           LD D,B
+1290: a7           AND A
+1291: 26 12        LD H,0x12
+1293: 40           LD B,B
+1294: a7           AND A
+1295: 2e 14        LD L,0x14
+1297: 24           INC H
+1298: 04           INC B
+1299: 60           LD H,B
+129a: 00           NOP
+129b: d8           RET c
+129c: 10 28        DJNZ 0x12c6
+129e: 08           EX AF,AF'
+129f: ff           RST 0x38
+12a0: 02           LD (BC),A
+12a1: 9f           SBC A,A
+12a2: 03           INC BC
+12a3: 8b           ADC A,E
+12a4: 05           DEC B
+12a5: 87           ADD A,A
+12a6: 22 01 83     LD (0x8301),HL
+12a9: 23           INC HL
+12aa: 73           LD (HL),E
+12ab: 02           LD (BC),A
+12ac: 45           LD B,L
+12ad: 73           LD (HL),E
+12ae: 4e           LD C,(HL)
+12af: 2f           CPL
+12b0: 73           LD (HL),E
+12b1: 4c           LD C,H
+12b2: 63           LD H,E
+12b3: 05           DEC B
+12b4: 5f           LD E,A
+12b5: 02           LD (BC),A
+12b6: 45           LD B,L
+12b7: 4f           LD C,A
+12b8: 05           DEC B
+12b9: 3f           CCF
+12ba: 22 04 33     LD (0x3304),HL
+12bd: 23           INC HL
+12be: 31 23 2b     LD SP,0x2b23
+12c1: 23           INC HL
+12c2: 2b           DEC HL
+12c3: 57           LD D,A
+12c4: 28 03        JR z,0x12c9
+12c6: 20 4d        JR nz,0x1315
+12c8: 20 03        JR nz,0x12cd
+12ca: 10 03        DJNZ 0x12cf
+12cc: 0d           DEC C
+12cd: ff           RST 0x38
+12ce: 24           INC H
+12cf: 07           RLCA
+12d0: ff           RST 0x38
+12d1: 2f           CPL
+12d2: 0f           RRCA
+12d3: fe 30        CP 0x30
+12d5: 0f           RRCA
+12d6: fe 28        CP 0x28
+12d8: 1c           INC E
+12d9: fd 03        INC BC
+12db: ef           RST 0x28
+12dc: 03           INC BC
+12dd: e3           EX (SP),HL
+12de: 57           LD D,A
+12df: e3           EX (SP),HL
+12e0: 05           DEC B
+12e1: dd 1f        RRA
+12e3: 04           INC B
+12e4: a0           AND B
+12e5: dd 1e 06     LD E,6
+12e8: 90           SUB B
+12e9: db 21        IN A,(0x0021)
+12eb: 08           EX AF,AF'
+12ec: 70           LD (HL),B
+12ed: db 1e        IN A,(0x001e)
+12ef: 0c           INC C
+12f0: a0           AND B
+12f1: db 1f        IN A,(0x001f)
+12f3: 0e 90        LD C,0x90
+12f5: d1           POP DE
+12f6: 3d           DEC A
+12f7: 10 c0        DJNZ 0x12b9
+12f9: cb 03        RLC E
+12fb: bf           CP A
+12fc: 3e 12        LD A,0x12
+12fe: a0           AND B
+12ff: bb           CP E
+1300: 03           INC BC
+1301: bb           CP E
+1302: 3e 14        LD A,0x14
+1304: 60           LD H,B
+1305: b7           OR A
+1306: 3e 16        LD A,0x16
+1308: a0           AND B
+1309: b3           OR E
+130a: 03           INC BC
+130b: b3           OR E
+130c: 3f           CCF
+130d: 18 60        JR 0x136f
+130f: af           XOR A
+1310: 3f           CCF
+1311: 1a           LD A,(DE)
+1312: 20 a7        JR nz,0x12bb
+1314: 05           DEC B
+1315: a5           AND L
+1316: 21 1c 68     LD HL,0x681c
+1319: 9b           SBC A,E
+131a: 3e 04        LD A,4
+131c: 40           LD B,B
+131d: 97           SUB A
+131e: 3e 06        LD A,6
+1320: 80           ADD A,B
+1321: 95           SUB L
+1322: 3e 08        LD A,8
+1324: a0           AND B
+1325: 93           SUB E
+1326: 3e 0a        LD A,10
+1328: c0           RET nz
+1329: 93           SUB E
+132a: 03           INC BC
+132b: 7b           LD A,E
+132c: 05           DEC B
+132d: 7b           LD A,E
+132e: 54           LD D,H
+132f: 00           NOP
+1330: 71           LD (HL),C
+1331: 2e 0c        LD L,12
+1333: 60           LD H,B
+1334: 0c           INC C
+1335: 30 00        JR nc,0x1337
+1337: 30 10        JR nc,0x1349
+1339: 30 18        JR nc,0x1353
+133b: 30 08        JR nc,0x1345
+133d: 30 00        JR nc,0x133f
+133f: 30 10        JR nc,0x1351
+1341: 30 18        JR nc,0x135b
+1343: 30 08        JR nc,0x134d
+1345: 30 00        JR nc,0x1347
+1347: 30 10        JR nc,0x1359
+1349: 30 18        JR nc,0x1363
+134b: 30 08        JR nc,0x1355
+134d: 71           LD (HL),C
+134e: 1d           DEC E
+134f: 0e 20        LD C,0x20
+1351: 70           LD (HL),B
+1352: 25           DEC H
+1353: 0f           RRCA
+1354: 70           LD (HL),B
+1355: 24           INC H
+1356: 0f           RRCA
+1357: 6b           LD L,E
+1358: 1e 10        LD E,0x10
+135a: 80           ADD A,B
+135b: 69           LD L,C
+135c: 26 12        LD H,0x12
+135e: 80           ADD A,B
+135f: 67           LD H,A
+1360: 1e 14        LD E,0x14
+1362: 80           ADD A,B
+1363: 65           LD H,L
+1364: 26 16        LD H,0x16
+1366: 80           ADD A,B
+1367: 63           LD H,E
+1368: 03           INC BC
+1369: 4b           LD C,E
+136a: 05           DEC B
+136b: 4b           LD C,E
+136c: 1f           RRA
+136d: 18 c0        JR 0x132f
+136f: 3f           CCF
+1370: 03           INC BC
+1371: 35           DEC (HL)
+1372: 1f           RRA
+1373: 1a           LD A,(DE)
+1374: 80           ADD A,B
+1375: 32 2e 1c     LD (0x1c2e),A
+1378: d8           RET c
+1379: 03           INC BC
+137a: c0           RET nz
+137b: 18 18        JR 0x1395
+137d: 10 c0        DJNZ 0x133f
+137f: 08           EX AF,AF'
+1380: 31 1d 1e     LD SP,0x1e1d
+1383: 40           LD B,B
+1384: 2f           CPL
+1385: 05           DEC B
+1386: 23           INC HL
+1387: 2e 04        LD L,4
+1389: c0           RET nz
+138a: 01 c0 18     LD BC,0x18c0
+138d: 20 2e        JR nz,0x13bd
+138f: 06 20        LD B,0x20
+1391: 01 c0 08     LD BC,0x8c0
+1394: 1d           DEC E
+1395: 2e 08        LD L,8
+1397: c0           RET nz
+1398: 01 c0 18     LD BC,0x18c0
+139b: 17           RLA
+139c: 1f           RRA
+139d: 0a           LD A,(BC)
+139e: c0           RET nz
+139f: 17           RLA
+13a0: 21 0c 80     LD HL,0x800c
+13a3: 17           RLA
+13a4: 1f           RRA
+13a5: 10 40        DJNZ 0x13e7
+13a7: 0d           DEC C
+13a8: ff           RST 0x38
+13a9: 24           INC H
+13aa: 07           RLCA
+13ab: f3           DI
+13ac: 26 04        LD H,4
+13ae: c0           RET nz
+13af: f3           DI
+13b0: 1e 06        LD E,6
+13b2: b0           OR B
+13b3: eb           EX DE,HL
+13b4: 2e 08        LD L,8
+13b6: 3c           INC A
+13b7: 03           INC BC
+13b8: c0           RET nz
+13b9: 00           NOP
+13ba: c0           RET nz
+13bb: 10 c0        DJNZ 0x137d
+13bd: 00           NOP
+13be: db 2e        IN A,(0x002e)
+13c0: 0a           LD A,(BC)
+13c1: 34           INC (HL)
+13c2: 02           LD (BC),A
+13c3: 20 02        JR nz,0x13c7
+13c5: ff           RST 0x38
+13c6: 00           NOP
+13c7: d7           RST 0x10
+13c8: 1f           RRA
+13c9: 0c           INC C
+13ca: c0           RET nz
+13cb: d5           PUSH DE
+13cc: 26 0e        LD H,14
+13ce: d0           RET nc
+13cf: d5           PUSH DE
+13d0: 30 ff        JR nc,0x13d1
+13d2: cb 2e        SRA (HL)
+13d4: 10 1c        DJNZ 0x13f2
+13d6: 03           INC BC
+13d7: 98           SBC A,B
+13d8: 00           NOP
+13d9: 80           ADD A,B
+13da: 02           LD (BC),A
+13db: 40           LD B,B
+13dc: 00           NOP
+13dd: bb           CP E
+13de: 2e 12        LD L,0x12
+13e0: 1c           INC E
+13e1: 01 ff 00     LD BC,0xff
+13e4: b6           OR (HL)
+13e5: 1e 14        LD E,0x14
+13e7: c0           RET nz
+13e8: b6           OR (HL)
+13e9: 26 16        LD H,0x16
+13eb: d0           RET nc
+13ec: b4           OR H
+13ed: 30 0f        JR nc,0x13fe
+13ef: aa           XOR D
+13f0: 1f           RRA
+13f1: 18 b0        JR 0x13a3
+13f3: aa           XOR D
+13f4: 1f           RRA
+13f5: 1a           LD A,(DE)
+13f6: a0           AND B
+13f7: 9f           SBC A,A
+13f8: 21 1c a0     LD HL,0xa01c
+13fb: 9b           SBC A,E
+13fc: 03           INC BC
+13fd: 8b           ADC A,E
+13fe: 1d           DEC E
+13ff: 04           INC B
+1400: 30 83        JR nc,0x1385
+1402: 05           DEC B
+1403: 77           LD (HL),A
+1404: 2d           DEC L
+1405: 06 c0        LD B,0xc0
+1407: 6f           LD L,A
+1408: 3a 10 48     LD A,(0x4810)
+140b: 6b           LD L,E
+140c: 38 12        JR c,0x1420
+140e: 60           LD H,B
+140f: 6b           LD L,E
+1410: 38 14        JR c,0x1426
+1412: 30 67        JR nc,0x147b
+1414: 38 16        JR c,0x142c
+1416: 48           LD C,B
+1417: 5f           LD E,A
+1418: 1f           RRA
+1419: 18 80        JR 0x139b
+141b: 5d           LD E,L
+141c: 26 1a        LD H,0x1a
+141e: 70           LD (HL),B
+141f: 56           LD D,(HL)
+1420: 2e 1c        LD L,0x1c
+1422: 14           INC D
+1423: 0b           DEC BC
+1424: 40           LD B,B
+1425: 00           NOP
+1426: 38 04        JR c,0x142c
+1428: 50           LD D,B
+1429: 06 38        LD B,0x38
+142b: 04           INC B
+142c: 3c           INC A
+142d: 08           EX AF,AF'
+142e: 30 04        JR nc,0x1434
+1430: 20 00        JR nz,0x1432
+1432: 20 10        JR nz,0x1444
+1434: 20 00        JR nz,0x1436
+1436: 20 10        JR nz,0x1448
+1438: 20 00        JR nz,0x143a
+143a: 55           LD D,L
+143b: 26 1e        LD H,0x1e
+143d: 70           LD (HL),B
+143e: 4f           LD C,A
+143f: 26 04        LD H,4
+1441: 80           ADD A,B
+1442: 4f           LD C,A
+1443: 1d           DEC E
+1444: 06 d0        LD B,0xd0
+1446: 48           LD C,B
+1447: 2e 08        LD L,8
+1449: d8           RET c
+144a: 03           INC BC
+144b: 08           EX AF,AF'
+144c: 00           NOP
+144d: 58           LD E,B
+144e: 18 ff        JR 0x144f
+1450: 00           NOP
+1451: 41           LD B,C
+1452: 2e 0a        LD L,10
+1454: 48           LD C,B
+1455: 02           LD (BC),A
+1456: 78           LD A,B
+1457: 00           NOP
+1458: ff           RST 0x38
+1459: 08           EX AF,AF'
+145a: 33           INC SP
+145b: 1f           RRA
+145c: 0c           INC C
+145d: 70           LD (HL),B
+145e: 27           DAA
+145f: 26 0e        LD H,14
+1461: 70           LD (HL),B
+1462: 25           DEC H
+1463: 26 10        LD H,0x10
+1465: 90           SUB B
+1466: 23           INC HL
+1467: 26 12        LD H,0x12
+1469: b0           OR B
+146a: 17           RLA
+146b: 21 14 c0     LD HL,0xc014
+146e: 17           RLA
+146f: 21 18 a0     LD HL,0xa018
+1472: 0d           DEC C
+1473: ff           RST 0x38
+1474: 22 08 f1     LD (0xf108),HL
+1477: 1f           RRA
+1478: 04           INC B
+1479: 80           ADD A,B
+147a: ef           RST 0x28
+147b: 1e 06        LD E,6
+147d: 80           ADD A,B
+147e: ed 22        
+1480: 03           INC BC
+1481: ca 30 3f     JP z,0x3f30
+1484: c9           RET
+1485: 2e 08        LD L,8
+1487: 70           LD (HL),B
+1488: 06 60        LD B,0x60
+148a: 0c           INC C
+148b: 60           LD H,B
+148c: 10 60        DJNZ 0x14ee
+148e: 14           INC D
+148f: 60           LD H,B
+1490: 1c           INC E
+1491: 60           LD H,B
+1492: 00           NOP
+1493: 60           LD H,B
+1494: 04           INC B
+1495: c6 2e        ADD A,0x2e
+1497: 0a           LD A,(BC)
+1498: 58           LD E,B
+1499: 06 30        LD B,0x30
+149b: 04           INC B
+149c: 60           LD H,B
+149d: 0c           INC C
+149e: 60           LD H,B
+149f: 10 60        DJNZ 0x1501
+14a1: 14           INC D
+14a2: 60           LD H,B
+14a3: 1c           INC E
+14a4: 60           LD H,B
+14a5: 00           NOP
+14a6: c3 2e 0c     JP 0x0c2e
+14a9: 40           LD B,B
+14aa: 06 60        LD B,0x60
+14ac: 04           INC B
+14ad: 60           LD H,B
+14ae: 0c           INC C
+14af: 60           LD H,B
+14b0: 10 60        DJNZ 0x1512
+14b2: 14           INC D
+14b3: 60           LD H,B
+14b4: 1c           INC E
+14b5: 60           LD H,B
+14b6: 00           NOP
+14b7: c0           RET nz
+14b8: 2e 0e        LD L,14
+14ba: 40           LD B,B
+14bb: 06 30        LD B,0x30
+14bd: 00           NOP
+14be: 60           LD H,B
+14bf: 04           INC B
+14c0: 60           LD H,B
+14c1: 0c           INC C
+14c2: 60           LD H,B
+14c3: 10 60        DJNZ 0x1525
+14c5: 14           INC D
+14c6: 60           LD H,B
+14c7: 1c           INC E
+14c8: bd           CP L
+14c9: 2e 10        LD L,0x10
+14cb: 40           LD B,B
+14cc: 06 60        LD B,0x60
+14ce: 00           NOP
+14cf: 60           LD H,B
+14d0: 04           INC B
+14d1: 60           LD H,B
+14d2: 0c           INC C
+14d3: 60           LD H,B
+14d4: 10 60        DJNZ 0x1536
+14d6: 14           INC D
+14d7: 60           LD H,B
+14d8: 1c           INC E
+14d9: ba           CP D
+14da: 2e 12        LD L,0x12
+14dc: 58           LD E,B
+14dd: 07           RLCA
+14de: 30 1c        JR nc,0x14fc
+14e0: 60           LD H,B
+14e1: 00           NOP
+14e2: 60           LD H,B
+14e3: 04           INC B
+14e4: 60           LD H,B
+14e5: 0c           INC C
+14e6: 60           LD H,B
+14e7: 10 60        DJNZ 0x1549
+14e9: 14           INC D
+14ea: 60           LD H,B
+14eb: 1c           INC E
+14ec: a7           AND A
+14ed: 2f           CPL
+14ee: 07           RLCA
+14ef: a1           AND C
+14f0: 1e 14        LD E,0x14
+14f2: 70           LD (HL),B
+14f3: 9f           SBC A,A
+14f4: 26 16        LD H,0x16
+14f6: 60           LD H,B
+14f7: 9e           SBC A,(HL)
+14f8: 22 02 9d     LD (0x9d02),HL
+14fb: 1f           RRA
+14fc: 18 50        JR 0x154e
+14fe: 9b           SBC A,E
+14ff: 1e 1a        LD E,0x1a
+1501: 40           LD B,B
+1502: 83           ADD A,E
+1503: 10 74        DJNZ 0x1579
+1505: 81           ADD A,C
+1506: 26 1c        LD H,0x1c
+1508: 40           LD B,B
+1509: 7b           LD A,E
+150a: 1d           DEC E
+150b: 1e d8        LD E,0xd8
+150d: 6c           LD L,H
+150e: 23           INC HL
+150f: 6b           LD L,E
+1510: 1e 04        LD E,4
+1512: b0           OR B
+1513: 6b           LD L,E
+1514: 1f           RRA
+1515: 06 80        LD B,0x80
+1517: 6b           LD L,E
+1518: 1e 08        LD E,8
+151a: 50           LD D,B
+151b: 6b           LD L,E
+151c: 1f           RRA
+151d: 0a           LD A,(BC)
+151e: 20 66        JR nz,0x1586
+1520: 54           LD D,H
+1521: 00           NOP
+1522: 4f           LD C,A
+1523: 22 10 36     LD (0x3610),HL
+1526: 1f           RRA
+1527: 0c           INC C
+1528: 48           LD C,B
+1529: 36 1f        LD (HL),0x1f
+152b: 0e 20        LD C,0x20
+152d: 2b           DEC HL
+152e: 3b           DEC SP
+152f: 10 c0        DJNZ 0x14f1
+1531: 27           DAA
+1532: 3c           INC A
+1533: 12           LD (DE),A
+1534: a0           AND B
+1535: 17           RLA
+1536: 11 76 11     LD DE,0x1176
+1539: 1d           DEC E
+153a: 14           INC D
+153b: 20 0f        JR nz,0x154c
+153d: 23           INC HL
+153e: 0d           DEC C
+153f: f3           DI
+1540: 03           INC BC
+1541: f3           DI
+1542: 30 ff        JR nc,0x1543
+1544: f3           DI
+1545: 57           LD D,A
+1546: ee 2e        XOR 0x2e
+1548: 04           INC B
+1549: 14           INC D
+154a: 05           DEC B
+154b: 08           EX AF,AF'
+154c: 00           NOP
+154d: a0           AND B
+154e: 08           EX AF,AF'
+154f: 30 0c        JR nc,0x155d
+1551: ff           RST 0x38
+1552: 10 ff        DJNZ 0x1553
+1554: 00           NOP
+1555: ea 05 e5     JP pe,0xe505
+1558: 26 06        LD H,6
+155a: 30 e5        JR nc,0x1541
+155c: 26 08        LD H,8
+155e: c8           RET z
+155f: e2 1f 0a     JP po,0x0a1f
+1562: 48           LD C,B
+1563: e2 1f 0c     JP po,0x0c1f
+1566: b0           OR B
+1567: df           RST 0x18
+1568: 26 0e        LD H,14
+156a: 60           LD H,B
+156b: df           RST 0x18
+156c: 26 10        LD H,0x10
+156e: 98           SBC A,B
+156f: cc 1e 12     CALL z,0x121e
+1572: 40           LD B,B
+1573: c8           RET z
+1574: 26 14        LD H,0x14
+1576: 60           LD H,B
+1577: c8           RET z
+1578: 26 16        LD H,0x16
+157a: 20 c7        JR nz,0x1543
+157c: 21 18 48     LD HL,0x4818
+157f: c3 1e 1c     JP 0x1c1e
+1582: 40           LD B,B
+1583: bb           CP E
+1584: 57           LD D,A
+1585: b3           OR E
+1586: 1f           RRA
+1587: 1e 48        LD E,0x48
+1589: a8           XOR B
+158a: 03           INC BC
+158b: a5           AND L
+158c: 2e 04        LD L,4
+158e: a0           AND B
+158f: 02           LD (BC),A
+1590: b0           OR B
+1591: 02           LD (BC),A
+1592: 80           ADD A,B
+1593: 00           NOP
+1594: a5           AND L
+1595: 2e 06        LD L,6
+1597: 74           LD (HL),H
+1598: 04           INC B
+1599: 78           LD A,B
+159a: 00           NOP
+159b: 50           LD D,B
+159c: 18 50        JR 0x15ee
+159e: 08           EX AF,AF'
+159f: 80           ADD A,B
+15a0: 00           NOP
+15a1: a5           AND L
+15a2: 2e 08        LD L,8
+15a4: 14           INC D
+15a5: 04           INC B
+15a6: 78           LD A,B
+15a7: 00           NOP
+15a8: 50           LD D,B
+15a9: 08           EX AF,AF'
+15aa: 50           LD D,B
+15ab: 18 80        JR 0x152d
+15ad: 00           NOP
+15ae: 9b           SBC A,E
+15af: 05           DEC B
+15b0: 93           SUB E
+15b1: 2e 0a        LD L,10
+15b3: 7c           LD A,H
+15b4: 05           DEC B
+15b5: a0           AND B
+15b6: 00           NOP
+15b7: f0           RET p
+15b8: 10 30        DJNZ 0x15ea
+15ba: 0f           RRCA
+15bb: 30 1f        JR nc,0x15dc
+15bd: 80           ADD A,B
+15be: 00           NOP
+15bf: 93           SUB E
+15c0: 1f           RRA
+15c1: 0c           INC C
+15c2: 50           LD D,B
+15c3: 93           SUB E
+15c4: 26 0e        LD H,14
+15c6: 40           LD B,B
+15c7: 93           SUB E
+15c8: 2e 10        LD L,0x10
+15ca: 14           INC D
+15cb: 03           INC BC
+15cc: ac           XOR H
+15cd: 00           NOP
+15ce: ff           RST 0x38
+15cf: 10 80        DJNZ 0x1551
+15d1: 00           NOP
+15d2: 83           ADD A,E
+15d3: 03           INC BC
+15d4: 7f           LD A,A
+15d5: 2e 12        LD L,0x12
+15d7: 84           ADD A,H
+15d8: 07           RLCA
+15d9: 50           LD D,B
+15da: 00           NOP
+15db: c0           RET nz
+15dc: 10 50        DJNZ 0x162e
+15de: 10 28        DJNZ 0x1608
+15e0: 0b           DEC BC
+15e1: 50           LD D,B
+15e2: 10 70        DJNZ 0x1654
+15e4: 0c           INC C
+15e5: 60           LD H,B
+15e6: 0d           DEC C
+15e7: 77           LD (HL),A
+15e8: 1d           DEC E
+15e9: 14           INC D
+15ea: d0           RET nc
+15eb: 73           LD (HL),E
+15ec: 05           DEC B
+15ed: 73           LD (HL),E
+15ee: 26 04        LD H,4
+15f0: 58           LD E,B
+15f1: 73           LD (HL),E
+15f2: 1f           RRA
+15f3: 06 48        LD B,0x48
+15f5: 6d           LD L,L
+15f6: 2e 16        LD L,0x16
+15f8: 14           INC D
+15f9: 01 80 00     LD BC,0x80
+15fc: 6a           LD L,D
+15fd: 2e 18        LD L,0x18
+15ff: 14           INC D
+1600: 01 80 00     LD BC,0x80
+1603: 67           LD H,A
+1604: 2e 1a        LD L,0x1a
+1606: 14           INC D
+1607: 01 80 00     LD BC,0x80
+160a: 64           LD H,H
+160b: 35           DEC (HL)
+160c: 1c           INC E
+160d: 14           INC D
+160e: 61           LD H,C
+160f: 35           DEC (HL)
+1610: 1e 14        LD E,0x14
+1612: 47           LD B,A
+1613: 2e 08        LD L,8
+1615: 80           ADD A,B
+1616: 06 08        LD B,8
+1618: 00           NOP
+1619: 58           LD E,B
+161a: 08           EX AF,AF'
+161b: 60           LD H,B
+161c: 00           NOP
+161d: 60           LD H,B
+161e: 02           LD (BC),A
+161f: 80           ADD A,B
+1620: 00           NOP
+1621: 60           LD H,B
+1622: 04           INC B
+1623: 47           LD B,A
+1624: 2e 0a        LD L,10
+1626: 68           LD L,B
+1627: 08           EX AF,AF'
+1628: 08           EX AF,AF'
+1629: 00           NOP
+162a: 88           ADC A,B
+162b: 08           EX AF,AF'
+162c: 60           LD H,B
+162d: 00           NOP
+162e: 60           LD H,B
+162f: 1c           INC E
+1630: 38 00        JR c,0x1632
+1632: 18 12        JR 0x1646
+1634: a8           XOR B
+1635: 14           INC D
+1636: 80           ADD A,B
+1637: 00           NOP
+1638: 47           LD B,A
+1639: 2e 0c        LD L,12
+163b: 50           LD D,B
+163c: 03           INC BC
+163d: 08           EX AF,AF'
+163e: 00           NOP
+163f: 78           LD A,B
+1640: 18 80        JR 0x15c2
+1642: 00           NOP
+1643: 37           SCF
+1644: 1b           DEC DE
+1645: 0e b8        LD C,0xb8
+1647: 37           SCF
+1648: 1b           DEC DE
+1649: 10 48        DJNZ 0x1693
+164b: 27           DAA
+164c: 2e 12        LD L,0x12
+164e: 50           LD D,B
+164f: 02           LD (BC),A
+1650: 68           LD L,B
+1651: 04           INC B
+1652: e0           RET po
+1653: 08           EX AF,AF'
+1654: 24           INC H
+1655: 2e 14        LD L,0x14
+1657: 38 02        JR c,0x165b
+1659: 98           SBC A,B
+165a: 04           INC B
+165b: e0           RET po
+165c: 08           EX AF,AF'
+165d: 21 2e 16     LD HL,0x162e
+1660: 20 02        JR nz,0x1664
+1662: c8           RET z
+1663: 04           INC B
+1664: e0           RET po
+1665: 08           EX AF,AF'
+1666: 1f           RRA
+1667: 2e 18        LD L,0x18
+1669: 90           SUB B
+166a: 03           INC BC
+166b: 08           EX AF,AF'
+166c: 1c           INC E
+166d: e0           RET po
+166e: 00           NOP
+166f: d0           RET nc
+1670: 08           EX AF,AF'
+1671: 1c           INC E
+1672: 2e 1a        LD L,0x1a
+1674: a8           XOR B
+1675: 03           INC BC
+1676: 38 1c        JR c,0x1694
+1678: e0           RET po
+1679: 00           NOP
+167a: d0           RET nc
+167b: 08           EX AF,AF'
+167c: 19           ADD HL,DE
+167d: 2e 1c        LD L,0x1c
+167f: c0           RET nz
+1680: 03           INC BC
+1681: 68           LD L,B
+1682: 1c           INC E
+1683: e0           RET po
+1684: 00           NOP
+1685: d0           RET nc
+1686: 08           EX AF,AF'
+1687: 19           ADD HL,DE
+1688: 1f           RRA
+1689: 1e 88        LD E,0x88
+168b: 19           ADD HL,DE
+168c: 1f           RRA
+168d: 04           INC B
+168e: 68           LD L,B
+168f: 19           ADD HL,DE
+1690: 1f           RRA
+1691: 06 48        LD B,0x48
+1693: 13           INC DE
+1694: 1b           DEC DE
+1695: 08           EX AF,AF'
+1696: 88           ADC A,B
+1697: 13           INC DE
+1698: 1b           DEC DE
+1699: 0c           INC C
+169a: 48           LD C,B
+169b: 0d           DEC C
+169c: fb           EI
+169d: 02           LD (BC),A
+169e: 1f           RRA
+169f: f5           PUSH AF
+16a0: 1d           DEC E
+16a1: 10 a0        DJNZ 0x1643
+16a3: f3           DI
+16a4: 1d           DEC E
+16a5: 12           LD (DE),A
+16a6: 80           ADD A,B
+16a7: f1           POP AF
+16a8: 1d           DEC E
+16a9: 14           INC D
+16aa: 60           LD H,B
+16ab: ef           RST 0x28
+16ac: 1d           DEC E
+16ad: 16 40        LD D,0x40
+16af: eb           EX DE,HL
+16b0: 05           DEC B
+16b1: e3           EX (SP),HL
+16b2: 02           LD (BC),A
+16b3: 38 d5        JR c,0x168a
+16b5: 21 18 50     LD HL,0x5018
+16b8: d3 05        OUT (0x0005),A
+16ba: d1           POP DE
+16bb: 57           LD D,A
+16bc: cf           RST 8
+16bd: 03           INC BC
+16be: c7           RST 0
+16bf: 03           INC BC
+16c0: c3 02 6f     JP 0x6f02
+16c3: bf           CP A
+16c4: 05           DEC B
+16c5: b3           OR E
+16c6: 33           INC SP
+16c7: 9f           SBC A,A
+16c8: 34           INC (HL)
+16c9: 87           ADD A,A
+16ca: 18 76        JR 0x1742
+16cc: 85           ADD A,L
+16cd: 4e           LD C,(HL)
+16ce: 0f           RRCA
+16cf: 83           ADD A,E
+16d0: 4c           LD C,H
+16d1: 73           LD (HL),E
+16d2: 02           LD (BC),A
+16d3: 45           LD B,L
+16d4: 63           LD H,E
+16d5: 05           DEC B
+16d6: 63           LD H,E
+16d7: 57           LD D,A
+16d8: 5b           LD E,E
+16d9: 02           LD (BC),A
+16da: 65           LD H,L
+16db: 4b           LD C,E
+16dc: 05           DEC B
+16dd: 3f           CCF
+16de: 03           INC BC
+16df: 2f           CPL
+16e0: 03           INC BC
+16e1: 20 4d        JR nz,0x1730
+16e3: 1f           RRA
+16e4: 03           INC BC
+16e5: 10 05        DJNZ 0x16ec
+16e7: 0d           DEC C
+16e8: ff           RST 0x38
+16e9: 03           INC BC
+16ea: ff           RST 0x38
+16eb: 30 3f        JR nc,0x172c
+16ed: f7           RST 0x30
+16ee: 05           DEC B
+16ef: f3           DI
+16f0: 57           LD D,A
+16f1: ef           RST 0x28
+16f2: 03           INC BC
+16f3: e3           EX (SP),HL
+16f4: 05           DEC B
+16f5: db 03        IN A,(0x0003)
+16f7: cf           RST 8
+16f8: 05           DEC B
+16f9: c6 2e        ADD A,0x2e
+16fb: 1c           INC E
+16fc: d8           RET c
+16fd: 08           EX AF,AF'
+16fe: 60           LD H,B
+16ff: 14           INC D
+1700: 60           LD H,B
+1701: 04           INC B
+1702: 60           LD H,B
+1703: 14           INC D
+1704: 60           LD H,B
+1705: 04           INC B
+1706: 60           LD H,B
+1707: 14           INC D
+1708: 60           LD H,B
+1709: 04           INC B
+170a: 60           LD H,B
+170b: 14           INC D
+170c: 60           LD H,B
+170d: 04           INC B
+170e: c6 2e        ADD A,0x2e
+1710: 1e 98        LD E,0x98
+1712: 08           EX AF,AF'
+1713: 60           LD H,B
+1714: 10 60        DJNZ 0x1776
+1716: 00           NOP
+1717: 60           LD H,B
+1718: 10 60        DJNZ 0x177a
+171a: 00           NOP
+171b: 60           LD H,B
+171c: 10 60        DJNZ 0x177e
+171e: 00           NOP
+171f: 60           LD H,B
+1720: 10 60        DJNZ 0x1782
+1722: 00           NOP
+1723: c6 2e        ADD A,0x2e
+1725: 04           INC B
+1726: 58           LD E,B
+1727: 08           EX AF,AF'
+1728: 60           LD H,B
+1729: 0c           INC C
+172a: 60           LD H,B
+172b: 1c           INC E
+172c: 60           LD H,B
+172d: 0c           INC C
+172e: 60           LD H,B
+172f: 1c           INC E
+1730: 60           LD H,B
+1731: 0c           INC C
+1732: 60           LD H,B
+1733: 1c           INC E
+1734: 60           LD H,B
+1735: 0c           INC C
+1736: 60           LD H,B
+1737: 1c           INC E
+1738: be           CP (HL)
+1739: 2e 06        LD L,6
+173b: b8           CP B
+173c: 08           EX AF,AF'
+173d: 40           LD B,B
+173e: 08           EX AF,AF'
+173f: 60           LD H,B
+1740: 18 60        JR 0x17a2
+1742: 08           EX AF,AF'
+1743: 60           LD H,B
+1744: 18 60        JR 0x17a6
+1746: 08           EX AF,AF'
+1747: 60           LD H,B
+1748: 18 60        JR 0x17aa
+174a: 08           EX AF,AF'
+174b: 60           LD H,B
+174c: 18 be        JR 0x170c
+174e: 2e 08        LD L,8
+1750: 78           LD A,B
+1751: 08           EX AF,AF'
+1752: 40           LD B,B
+1753: 18 60        JR 0x17b5
+1755: 08           EX AF,AF'
+1756: 60           LD H,B
+1757: 18 60        JR 0x17b9
+1759: 08           EX AF,AF'
+175a: 60           LD H,B
+175b: 18 60        JR 0x17bd
+175d: 08           EX AF,AF'
+175e: 60           LD H,B
+175f: 18 60        JR 0x17c1
+1761: 08           EX AF,AF'
+1762: b8           CP B
+1763: 2e 0a        LD L,10
+1765: c8           RET z
+1766: 07           RLCA
+1767: 40           LD B,B
+1768: 1c           INC E
+1769: 60           LD H,B
+176a: 0c           INC C
+176b: 60           LD H,B
+176c: 1c           INC E
+176d: 60           LD H,B
+176e: 0c           INC C
+176f: 60           LD H,B
+1770: 1c           INC E
+1771: 60           LD H,B
+1772: 0c           INC C
+1773: 60           LD H,B
+1774: 1c           INC E
+1775: b8           CP B
+1776: 2e 0c        LD L,12
+1778: 98           SBC A,B
+1779: 07           RLCA
+177a: 40           LD B,B
+177b: 00           NOP
+177c: 60           LD H,B
+177d: 10 60        DJNZ 0x17df
+177f: 00           NOP
+1780: 60           LD H,B
+1781: 10 60        DJNZ 0x17e3
+1783: 00           NOP
+1784: 60           LD H,B
+1785: 10 60        DJNZ 0x17e7
+1787: 00           NOP
+1788: b8           CP B
+1789: 2e 0e        LD L,14
+178b: 68           LD L,B
+178c: 07           RLCA
+178d: 40           LD B,B
+178e: 04           INC B
+178f: 60           LD H,B
+1790: 14           INC D
+1791: 60           LD H,B
+1792: 04           INC B
+1793: 60           LD H,B
+1794: 14           INC D
+1795: 60           LD H,B
+1796: 04           INC B
+1797: 60           LD H,B
+1798: 14           INC D
+1799: 60           LD H,B
+179a: 04           INC B
+179b: a9           XOR C
+179c: 1e 10        LD E,0x10
+179e: b0           OR B
+179f: a9           XOR C
+17a0: 1e 12        LD E,0x12
+17a2: 90           SUB B
+17a3: a7           AND A
+17a4: 1e 14        LD E,0x14
+17a6: a0           AND B
+17a7: a5           AND L
+17a8: 1e 16        LD E,0x16
+17aa: b0           OR B
+17ab: a5           AND L
+17ac: 1e 18        LD E,0x18
+17ae: 90           SUB B
+17af: 9b           SBC A,E
+17b0: 18 76        JR 0x1828
+17b2: 91           SUB C
+17b3: 1f           RRA
+17b4: 1a           LD A,(DE)
+17b5: 40           LD B,B
+17b6: 8f           ADC A,A
+17b7: 1f           RRA
+17b8: 1c           INC E
+17b9: 40           LD B,B
+17ba: 8b           ADC A,E
+17bb: 18 76        JR 0x1833
+17bd: 87           ADD A,A
+17be: 1e 1e        LD E,0x1e
+17c0: 50           LD D,B
+17c1: 87           ADD A,A
+17c2: 1e 04        LD E,4
+17c4: 40           LD B,B
+17c5: 7b           LD A,E
+17c6: 18 76        JR 0x183e
+17c8: 6f           LD L,A
+17c9: 1f           RRA
+17ca: 06 c0        LD B,0xc0
+17cc: 6f           LD L,A
+17cd: 1e 08        LD E,8
+17cf: a0           AND B
+17d0: 6f           LD L,A
+17d1: 1f           RRA
+17d2: 0a           LD A,(BC)
+17d3: 80           ADD A,B
+17d4: 64           LD H,H
+17d5: 2e 0c        LD L,12
+17d7: 98           SBC A,B
+17d8: 10 80        DJNZ 0x175a
+17da: 18 80        JR 0x175c
+17dc: 10 80        DJNZ 0x175e
+17de: 09           ADD HL,BC
+17df: 20 0c        JR nz,0x17ed
+17e1: 40           LD B,B
+17e2: 18 20        JR 0x1804
+17e4: 1a           LD A,(DE)
+17e5: 10 18        DJNZ 0x17ff
+17e7: 28 10        JR z,0x17f9
+17e9: 10 08        DJNZ 0x17f3
+17eb: 20 06        JR nz,0x17f3
+17ed: 48           LD C,B
+17ee: 08           EX AF,AF'
+17ef: 18 0c        JR 0x17fd
+17f1: 70           LD (HL),B
+17f2: 18 a0        JR 0x1794
+17f4: 13           INC DE
+17f5: 98           SBC A,B
+17f6: 08           EX AF,AF'
+17f7: 80           ADD A,B
+17f8: 04           INC B
+17f9: 47           LD B,A
+17fa: 1d           DEC E
+17fb: 0e c0        LD C,0xc0
+17fd: 47           LD B,A
+17fe: 1d           DEC E
+17ff: 10 a0        DJNZ 0x17a1
+1801: 47           LD B,A
+1802: 1d           DEC E
+1803: 12           LD (DE),A
+1804: 80           ADD A,B
+1805: 47           LD B,A
+1806: 1d           DEC E
+1807: 14           INC D
+1808: 60           LD H,B
+1809: 43           LD B,E
+180a: 1d           DEC E
+180b: 16 c0        LD D,0xc0
+180d: 43           LD B,E
+180e: 1d           DEC E
+180f: 18 a0        JR 0x17b1
+1811: 43           LD B,E
+1812: 1d           DEC E
+1813: 1a           LD A,(DE)
+1814: 80           ADD A,B
+1815: 43           LD B,E
+1816: 1d           DEC E
+1817: 1c           INC E
+1818: 60           LD H,B
+1819: 36 1e        LD (HL),0x1e
+181b: 1e 80        LD E,0x80
+181d: 36 26        LD (HL),0x26
+181f: 04           INC B
+1820: 60           LD H,B
+1821: 36 1e        LD (HL),0x1e
+1823: 06 40        LD B,0x40
+1825: 2b           DEC HL
+1826: 1f           RRA
+1827: 08           EX AF,AF'
+1828: 50           LD D,B
+1829: 21 20 0a     LD HL,0xa20
+182c: 80           ADD A,B
+182d: 1b           DEC DE
+182e: 20 0e        JR nz,0x183e
+1830: 80           ADD A,B
+1831: 19           ADD HL,DE
+1832: 1b           DEC DE
+1833: 12           LD (DE),A
+1834: d0           RET nc
+1835: 19           ADD HL,DE
+1836: 1b           DEC DE
+1837: 14           INC D
+1838: 20 13        JR nz,0x184d
+183a: 1b           DEC DE
+183b: 16 d0        LD D,0xd0
+183d: 13           INC DE
+183e: 1b           DEC DE
+183f: 18 20        JR 0x1861
+1841: 0d           DEC C
+1842: fb           EI
+1843: 11 74 f3     LD DE,0xf374
+1846: 22 08 e9     LD (0xe908),HL
+1849: 2d           DEC L
+184a: 04           INC B
+184b: 60           LD H,B
+184c: e6 22        AND 0x22
+184e: 08           EX AF,AF'
+184f: e4 2e 0e     CALL po,0x0e2e
+1852: 9c           SBC A,H
+1853: 01 80 00     LD BC,0x80
+1856: dc 2e 10     CALL c,0x102e
+1859: 2c           INC L
+185a: 02           LD (BC),A
+185b: f8           RET m
+185c: 00           NOP
+185d: 40           LD B,B
+185e: 1c           INC E
+185f: cb 26        SLA (HL)
+1861: 12           LD (DE),A
+1862: b0           OR B
+1863: cb 1f        RR A
+1865: 14           INC D
+1866: a0           AND B
+1867: cb 2e        SRA (HL)
+1869: 16 2c        LD D,0x2c
+186b: 07           RLCA
+186c: 70           LD (HL),B
+186d: 00           NOP
+186e: e8           RET pe
+186f: 10 20        DJNZ 0x1891
+1871: 12           LD (DE),A
+1872: b8           CP B
+1873: 10 b8        DJNZ 0x182d
+1875: 00           NOP
+1876: 20 02        JR nz,0x187a
+1878: 20 00        JR nz,0x187a
+187a: c3 23 c3     JP 0xc323
+187d: 35           DEC (HL)
+187e: 18 7c        JR 0x18fc
+1880: bf           CP A
+1881: 35           DEC (HL)
+1882: 1a           LD A,(DE)
+1883: 7c           LD A,H
+1884: bb           CP E
+1885: 35           DEC (HL)
+1886: 1c           INC E
+1887: 7c           LD A,H
+1888: b7           OR A
+1889: 39           ADD HL,SP
+188a: 1e 7c        LD E,0x7c
+188c: af           XOR A
+188d: 3b           DEC SP
+188e: 04           INC B
+188f: 24           INC H
+1890: a7           AND A
+1891: 3b           DEC SP
+1892: 06 24        LD B,0x24
+1894: a3           AND E
+1895: 22 0c 9b     LD (0x9b0c),HL
+1898: 03           INC BC
+1899: 8b           ADC A,E
+189a: 05           DEC B
+189b: 8b           ADC A,E
+189c: 1d           DEC E
+189d: 08           EX AF,AF'
+189e: 70           LD (HL),B
+189f: 84           ADD A,H
+18a0: 1d           DEC E
+18a1: 0a           LD A,(BC)
+18a2: 70           LD (HL),B
+18a3: 84           ADD A,H
+18a4: 22 04 77     LD (0x7704),HL
+18a7: 2e 0c        LD L,12
+18a9: 34           INC (HL)
+18aa: 09           ADD HL,BC
+18ab: 60           LD H,B
+18ac: 00           NOP
+18ad: a0           AND B
+18ae: 10 28        DJNZ 0x18d8
+18b0: 0d           DEC C
+18b1: 50           LD D,B
+18b2: 10 70        DJNZ 0x1924
+18b4: 0c           INC C
+18b5: 60           LD H,B
+18b6: 0d           DEC C
+18b7: 40           LD B,B
+18b8: 06 30        LD B,0x30
+18ba: 04           INC B
+18bb: 20 08        JR nz,0x18c5
+18bd: 75           LD (HL),L
+18be: 1f           RRA
+18bf: 0e 60        LD C,0x60
+18c1: 73           LD (HL),E
+18c2: 1e 10        LD E,0x10
+18c4: 70           LD (HL),B
+18c5: 73           LD (HL),E
+18c6: 23           INC HL
+18c7: 71           LD (HL),C
+18c8: 1f           RRA
+18c9: 12           LD (DE),A
+18ca: 80           ADD A,B
+18cb: 6f           LD L,A
+18cc: 1e 14        LD E,0x14
+18ce: 90           SUB B
+18cf: 6d           LD L,L
+18d0: 1f           RRA
+18d1: 16 a0        LD D,0xa0
+18d3: 6b           LD L,E
+18d4: 1e 18        LD E,0x18
+18d6: b0           OR B
+18d7: 69           LD L,C
+18d8: 1f           RRA
+18d9: 1a           LD A,(DE)
+18da: c0           RET nz
+18db: 67           LD H,A
+18dc: 1e 1c        LD E,0x1c
+18de: d0           RET nc
+18df: 67           LD H,A
+18e0: 57           LD D,A
+18e1: 63           LD H,E
+18e2: 03           INC BC
+18e3: 63           LD H,E
+18e4: 03           INC BC
+18e5: 53           LD D,E
+18e6: 22 10 43     LD (0x4310),HL
+18e9: 03           INC BC
+18ea: 3b           DEC SP
+18eb: 05           DEC B
+18ec: 2b           DEC HL
+18ed: 2e 1e        LD L,0x1e
+18ef: e0           RET po
+18f0: 05           DEC B
+18f1: 08           EX AF,AF'
+18f2: 00           NOP
+18f3: 60           LD H,B
+18f4: 18 20        JR 0x1916
+18f6: 1c           INC E
+18f7: d8           RET c
+18f8: 18 20        JR 0x191a
+18fa: 14           INC D
+18fb: 27           DAA
+18fc: 21 04 68     LD HL,0x6804
+18ff: 23           INC HL
+1900: 23           INC HL
+1901: 1e 1d        LD E,0x1d
+1903: 08           EX AF,AF'
+1904: 20 1d        JR nz,0x1923
+1906: 1f           RRA
+1907: 0a           LD A,(BC)
+1908: d0           RET nc
+1909: 1d           DEC E
+190a: 1f           RRA
+190b: 0c           INC C
+190c: a0           AND B
+190d: 1b           DEC DE
+190e: 1d           DEC E
+190f: 0e 38        LD C,0x38
+1911: 18 1d        JR 0x1930
+1913: 10 50        DJNZ 0x1965
+1915: 17           RLA
+1916: 1e 12        LD E,0x12
+1918: d0           RET nc
+1919: 17           RLA
+191a: 1e 14        LD E,0x14
+191c: a0           AND B
+191d: 15           DEC D
+191e: 1d           DEC E
+191f: 16 68        LD D,0x68
+1921: 13           INC DE
+1922: 23           INC HL
+1923: 0d           DEC C
+1924: ff           RST 0x38
+1925: 30 0f        JR nc,0x1936
+1927: ff           RST 0x38
+1928: 29           ADD HL,HL
+1929: 0f           RRCA
+192a: ff           RST 0x38
+192b: 2b           DEC HL
+192c: 03           INC BC
+192d: ff           RST 0x38
+192e: 2a 03 f3     LD HL,(0xf303)
+1931: 57           LD D,A
+1932: ee 2e        XOR 0x2e
+1934: 04           INC B
+1935: 14           INC D
+1936: 09           ADD HL,BC
+1937: 08           EX AF,AF'
+1938: 00           NOP
+1939: a0           AND B
+193a: 08           EX AF,AF'
+193b: 30 0c        JR nc,0x1949
+193d: 48           LD C,B
+193e: 10 30        DJNZ 0x1970
+1940: 00           NOP
+1941: 50           LD D,B
+1942: 10 68        DJNZ 0x19ac
+1944: 00           NOP
+1945: 30 1c        JR nc,0x1963
+1947: 20 18        JR nz,0x1961
+1949: e5           PUSH HL
+194a: 1b           DEC DE
+194b: 06 c0        LD B,0xc0
+194d: e5           PUSH HL
+194e: 1f           RRA
+194f: 08           EX AF,AF'
+1950: b0           OR B
+1951: e5           PUSH HL
+1952: 1f           RRA
+1953: 0a           LD A,(BC)
+1954: 48           LD C,B
+1955: e5           PUSH HL
+1956: 1b           DEC DE
+1957: 0c           INC C
+1958: 38 e3        JR c,0x193d
+195a: 1f           RRA
+195b: 0e c0        LD C,0xc0
+195d: e3           EX (SP),HL
+195e: 1b           DEC DE
+195f: 10 b0        DJNZ 0x1911
+1961: e3           EX (SP),HL
+1962: 1b           DEC DE
+1963: 12           LD (DE),A
+1964: 48           LD C,B
+1965: e3           EX (SP),HL
+1966: 1f           RRA
+1967: 14           INC D
+1968: 38 dc        JR c,0x1946
+196a: 2e 16        LD L,0x16
+196c: 7c           LD A,H
+196d: 04           INC B
+196e: 08           EX AF,AF'
+196f: 10 78        DJNZ 0x19e9
+1971: 00           NOP
+1972: 50           LD D,B
+1973: 10 40        DJNZ 0x19b5
+1975: 00           NOP
+1976: c9           RET
+1977: 35           DEC (HL)
+1978: 18 48        JR 0x19c2
+197a: c9           RET
+197b: 35           DEC (HL)
+197c: 1a           LD A,(DE)
+197d: 38 c7        JR c,0x1946
+197f: 35           DEC (HL)
+1980: 1c           INC E
+1981: 48           LD C,B
+1982: c7           RST 0
+1983: 35           DEC (HL)
+1984: 1e 38        LD E,0x38
+1986: bd           CP L
+1987: 1e 04        LD E,4
+1989: b0           OR B
+198a: bb           CP E
+198b: 1e 06        LD E,6
+198d: b0           OR B
+198e: bb           CP E
+198f: 1e 08        LD E,8
+1991: 90           SUB B
+1992: b9           CP C
+1993: 1e 0a        LD E,10
+1995: 90           SUB B
+1996: b3           OR E
+1997: 2e 0c        LD L,12
+1999: cc 01 20     CALL z,0x2001
+199c: 00           NOP
+199d: a7           AND A
+199e: 2e 0e        LD L,14
+19a0: 74           LD (HL),H
+19a1: 04           INC B
+19a2: 58           LD E,B
+19a3: 00           NOP
+19a4: a0           AND B
+19a5: 18 a0        JR 0x1947
+19a7: 08           EX AF,AF'
+19a8: 20 00        JR nz,0x19aa
+19aa: a3           AND E
+19ab: 2e 10        LD L,0x10
+19ad: 14           INC D
+19ae: 01 20 00     LD BC,0x20
+19b1: a3           AND E
+19b2: 57           LD D,A
+19b3: a1           AND C
+19b4: 2e 12        LD L,0x12
+19b6: 14           INC D
+19b7: 01 20 00     LD BC,0x20
+19ba: 97           SUB A
+19bb: 03           INC BC
+19bc: 93           SUB E
+19bd: 2e 14        LD L,0x14
+19bf: 7c           LD A,H
+19c0: 02           LD (BC),A
+19c1: 98           SBC A,B
+19c2: 00           NOP
+19c3: 20 02        JR nz,0x19c7
+19c5: 8d           ADC A,L
+19c6: 1d           DEC E
+19c7: 16 e0        LD D,0xe0
+19c9: 8d           ADC A,L
+19ca: 1d           DEC E
+19cb: 18 d0        JR 0x199d
+19cd: 8b           ADC A,E
+19ce: 1d           DEC E
+19cf: 1a           LD A,(DE)
+19d0: e0           RET po
+19d1: 8b           ADC A,E
+19d2: 1d           DEC E
+19d3: 1c           INC E
+19d4: d0           RET nc
+19d5: 87           ADD A,A
+19d6: 05           DEC B
+19d7: 83           ADD A,E
+19d8: 03           INC BC
+19d9: 77           LD (HL),A
+19da: 1e 1e        LD E,0x1e
+19dc: 60           LD H,B
+19dd: 77           LD (HL),A
+19de: 1f           RRA
+19df: 04           INC B
+19e0: 50           LD D,B
+19e1: 73           LD (HL),E
+19e2: 05           DEC B
+19e3: 73           LD (HL),E
+19e4: 2e 06        LD L,6
+19e6: 14           INC D
+19e7: 04           INC B
+19e8: 70           LD (HL),B
+19e9: 00           NOP
+19ea: e0           RET po
+19eb: 10 a0        DJNZ 0x198d
+19ed: 10 20        DJNZ 0x1a0f
+19ef: 00           NOP
+19f0: 6f           LD L,A
+19f1: 1f           RRA
+19f2: 08           EX AF,AF'
+19f3: 60           LD H,B
+19f4: 6f           LD L,A
+19f5: 1e 0a        LD E,10
+19f7: 50           LD D,B
+19f8: 6b           LD L,E
+19f9: 03           INC BC
+19fa: 5b           LD E,E
+19fb: 05           DEC B
+19fc: 55           LD D,L
+19fd: 1b           DEC DE
+19fe: 0c           INC C
+19ff: a8           XOR B
+1a00: 47           LD B,A
+1a01: 2e 0e        LD L,14
+1a03: 78           LD A,B
+1a04: 03           INC BC
+1a05: 08           EX AF,AF'
+1a06: 00           NOP
+1a07: c8           RET z
+1a08: 18 20        JR 0x1a2a
+1a0a: 00           NOP
+1a0b: 47           LD B,A
+1a0c: 2e 10        LD L,0x10
+1a0e: 90           SUB B
+1a0f: 03           INC BC
+1a10: 08           EX AF,AF'
+1a11: 00           NOP
+1a12: f8           RET m
+1a13: 18 20        JR 0x1a35
+1a15: 00           NOP
+1a16: 47           LD B,A
+1a17: 2e 12        LD L,0x12
+1a19: a8           XOR B
+1a1a: 04           INC B
+1a1b: 08           EX AF,AF'
+1a1c: 00           NOP
+1a1d: e0           RET po
+1a1e: 18 48        JR 0x1a68
+1a20: 18 20        JR 0x1a42
+1a22: 00           NOP
+1a23: 37           SCF
+1a24: 1f           RRA
+1a25: 14           INC D
+1a26: c0           RET nz
+1a27: 37           SCF
+1a28: 1f           RRA
+1a29: 16 b0        LD D,0xb0
+1a2b: 30 1b        JR nc,0x1a48
+1a2d: 18 68        JR 0x1a97
+1a2f: 2e 1b        LD L,0x1b
+1a31: 1a           LD A,(DE)
+1a32: 58           LD E,B
+1a33: 2c           INC L
+1a34: 1b           DEC DE
+1a35: 1c           INC E
+1a36: 48           LD C,B
+1a37: 2a 1b 1e     LD HL,(0x1e1b)
+1a3a: 38 27        JR c,0x1a63
+1a3c: 36 04        LD (HL),4
+1a3e: 14           INC D
+1a3f: 23           INC HL
+1a40: 36 06        LD (HL),6
+1a42: 14           INC D
+1a43: 1f           RRA
+1a44: 36 08        LD (HL),8
+1a46: 14           INC D
+1a47: 1b           DEC DE
+1a48: 39           ADD HL,SP
+1a49: 0a           LD A,(BC)
+1a4a: 14           INC D
+1a4b: 18 2e        JR 0x1a7b
+1a4d: 0c           INC C
+1a4e: 88           ADC A,B
+1a4f: 08           EX AF,AF'
+1a50: 40           LD B,B
+1a51: 00           NOP
+1a52: 80           ADD A,B
+1a53: 18 80        JR 0x19d5
+1a55: 10 80        DJNZ 0x19d7
+1a57: 08           EX AF,AF'
+1a58: 80           ADD A,B
+1a59: 00           NOP
+1a5a: 80           ADD A,B
+1a5b: 18 80        JR 0x19dd
+1a5d: 10 80        DJNZ 0x19df
+1a5f: 08           EX AF,AF'
+1a60: 18 2e        JR 0x1a90
+1a62: 0e 48        LD C,0x48
+1a64: 08           EX AF,AF'
+1a65: 40           LD B,B
+1a66: 10 80        DJNZ 0x19e8
+1a68: 08           EX AF,AF'
+1a69: 80           ADD A,B
+1a6a: 00           NOP
+1a6b: 80           ADD A,B
+1a6c: 18 80        JR 0x19ee
+1a6e: 10 80        DJNZ 0x19f0
+1a70: 08           EX AF,AF'
+1a71: 80           ADD A,B
+1a72: 00           NOP
+1a73: 80           ADD A,B
+1a74: 18 17        JR 0x1a8d
+1a76: 21 10 70     LD HL,0x7010
+1a79: 0d           DEC C
+1a7a: f7           RST 0x30
+1a7b: 1b           DEC DE
+1a7c: 14           INC D
+1a7d: 20 f3        JR nz,0x1a72
+1a7f: 1b           DEC DE
+1a80: 16 a0        LD D,0xa0
+1a82: f3           DI
+1a83: 1b           DEC DE
+1a84: 18 70        JR 0x1af6
+1a86: ed 1f        
+1a88: 1a           LD A,(DE)
+1a89: a0           AND B
+1a8a: eb           EX DE,HL
+1a8b: 1f           RRA
+1a8c: 1c           INC E
+1a8d: 90           SUB B
+1a8e: e9           JP (HL)
+1a8f: 1f           RRA
+1a90: 1e 80        LD E,0x80
+1a92: e7           RST 0x20
+1a93: 1f           RRA
+1a94: 04           INC B
+1a95: 70           LD (HL),B
+1a96: e3           EX (SP),HL
+1a97: 57           LD D,A
+1a98: df           RST 0x18
+1a99: 1b           DEC DE
+1a9a: 06 c0        LD B,0xc0
+1a9c: d9           EXX
+1a9d: 1b           DEC DE
+1a9e: 08           EX AF,AF'
+1a9f: c0           RET nz
+1aa0: d3 03        OUT (0x0003),A
+1aa2: bb           CP E
+1aa3: 05           DEC B
+1aa4: b1           OR C
+1aa5: 21 0a b0     LD HL,0xb00a
+1aa8: b1           OR C
+1aa9: 21 0e 50     LD HL,0x500e
+1aac: ab           XOR E
+1aad: 03           INC BC
+1aae: a1           AND C
+1aaf: 3e 12        LD A,0x12
+1ab1: 90           SUB B
+1ab2: 9d           SBC A,L
+1ab3: 3e 14        LD A,0x14
+1ab5: 70           LD (HL),B
+1ab6: 99           SBC A,C
+1ab7: 40           LD B,B
+1ab8: 16 50        LD D,0x50
+1aba: 95           SUB L
+1abb: 3e 18        LD A,0x18
+1abd: 30 93        JR nc,0x1a52
+1abf: 05           DEC B
+1ac0: 8d           ADC A,L
+1ac1: 40           LD B,B
+1ac2: 1a           LD A,(DE)
+1ac3: 50           LD D,B
+1ac4: 89           ADC A,C
+1ac5: 3e 1c        LD A,0x1c
+1ac7: 70           LD (HL),B
+1ac8: 85           ADD A,L
+1ac9: 3e 1e        LD A,0x1e
+1acb: 90           SUB B
+1acc: 81           ADD A,C
+1acd: 3e 04        LD A,4
+1acf: b0           OR B
+1ad0: 7b           LD A,E
+1ad1: 03           INC BC
+1ad2: 71           LD (HL),C
+1ad3: 1f           RRA
+1ad4: 06 d0        LD B,0xd0
+1ad6: 6f           LD L,A
+1ad7: 26 08        LD H,8
+1ad9: c0           RET nz
+1ada: 6d           LD L,L
+1adb: 1f           RRA
+1adc: 0a           LD A,(BC)
+1add: b0           OR B
+1ade: 6b           LD L,E
+1adf: 26 0c        LD H,12
+1ae1: a0           AND B
+1ae2: 69           LD L,C
+1ae3: 1f           RRA
+1ae4: 0e 90        LD C,0x90
+1ae6: 63           LD H,E
+1ae7: 05           DEC B
+1ae8: 5f           LD E,A
+1ae9: 57           LD D,A
+1aea: 5b           LD E,E
+1aeb: 02           LD (BC),A
+1aec: ec 43 05     CALL pe,0x0543
+1aef: 40           LD B,B
+1af0: 1d           DEC E
+1af1: 10 30        DJNZ 0x1b23
+1af3: 40           LD B,B
+1af4: 1d           DEC E
+1af5: 12           LD (DE),A
+1af6: 20 3b        JR nz,0x1b33
+1af8: 03           INC BC
+1af9: 36 1b        LD (HL),0x1b
+1afb: 14           INC D
+1afc: c0           RET nz
+1afd: 25           DEC H
+1afe: 2e 16        LD L,0x16
+1b00: e0           RET po
+1b01: 02           LD (BC),A
+1b02: c0           RET nz
+1b03: 18 c0        JR 0x1ac5
+1b05: 08           EX AF,AF'
+1b06: 25           DEC H
+1b07: 2e 18        LD L,0x18
+1b09: 10 02        DJNZ 0x1b0d
+1b0b: c0           RET nz
+1b0c: 08           EX AF,AF'
+1b0d: c0           RET nz
+1b0e: 18 23        JR 0x1b33
+1b10: 2e 1a        LD L,0x1a
+1b12: d0           RET nc
+1b13: 02           LD (BC),A
+1b14: a0           AND B
+1b15: 18 a0        JR 0x1ab7
+1b17: 08           EX AF,AF'
+1b18: 23           INC HL
+1b19: 2e 1c        LD L,0x1c
+1b1b: 20 02        JR nz,0x1b1f
+1b1d: a0           AND B
+1b1e: 08           EX AF,AF'
+1b1f: a0           AND B
+1b20: 18 23        JR 0x1b45
+1b22: 05           DEC B
+1b23: 1b           DEC DE
+1b24: 02           LD (BC),A
+1b25: e6 0e        AND 14
+1b27: 05           DEC B
+1b28: 0d           DEC C
+1b29: ff           RST 0x38
+1b2a: 02           LD (BC),A
+1b2b: 6d           LD L,L
+1b2c: f7           RST 0x30
+1b2d: 05           DEC B
+1b2e: f3           DI
+1b2f: 22 02 e7     LD (0xe702),HL
+1b32: 23           INC HL
+1b33: e7           RST 0x20
+1b34: 4e           LD C,(HL)
+1b35: 0f           RRCA
+1b36: e7           RST 0x20
+1b37: 02           LD (BC),A
+1b38: f1           POP AF
+1b39: e3           EX (SP),HL
+1b3a: 4c           LD C,H
+1b3b: df           RST 0x18
+1b3c: 05           DEC B
+1b3d: db 02        IN A,(0x0002)
+1b3f: 34           INC (HL)
+1b40: d5           PUSH DE
+1b41: 05           DEC B
+1b42: cb 02        RLC D
+1b44: 49           LD C,C
+1b45: c5           PUSH BC
+1b46: 05           DEC B
+1b47: bb           CP E
+1b48: 02           LD (BC),A
+1b49: 3e bb        LD A,0xbb
+1b4b: 4d           LD C,L
+1b4c: ab           XOR E
+1b4d: 05           DEC B
+1b4e: a1           AND C
+1b4f: 33           INC SP
+1b50: 8f           ADC A,A
+1b51: 34           INC (HL)
+1b52: 7f           LD A,A
+1b53: 02           LD (BC),A
+1b54: 46           LD B,(HL)
+1b55: 77           LD (HL),A
+1b56: 05           DEC B
+1b57: 73           LD (HL),E
+1b58: 18 76        JR 0x1bd0
+1b5a: 67           LD H,A
+1b5b: 4c           LD C,H
+1b5c: 67           LD H,A
+1b5d: 02           LD (BC),A
+1b5e: 66           LD H,(HL)
+1b5f: 65           LD H,L
+1b60: 05           DEC B
+1b61: 5b           LD E,E
+1b62: 02           LD (BC),A
+1b63: 21 55 05     LD HL,0x555
+1b66: 4b           LD C,E
+1b67: 03           INC BC
+1b68: 3b           DEC SP
+1b69: 05           DEC B
+1b6a: 37           SCF
+1b6b: 57           LD D,A
+1b6c: 33           INC SP
+1b6d: 4d           LD C,L
+1b6e: 33           INC SP
+1b6f: 03           INC BC
+1b70: 23           INC HL
+1b71: 05           DEC B
+1b72: 1b           DEC DE
+1b73: 03           INC BC
+1b74: 1f           RRA
+1b75: 05           DEC B
+1b76: 0d           DEC C
+1b77: ff           RST 0x38
+1b78: 02           LD (BC),A
+1b79: 08           EX AF,AF'
+1b7a: f3           DI
+1b7b: 05           DEC B
+1b7c: ef           RST 0x28
+1b7d: 2e 04        LD L,4
+1b7f: 3c           INC A
+1b80: 05           DEC B
+1b81: 80           ADD A,B
+1b82: 00           NOP
+1b83: 80           ADD A,B
+1b84: 10 70        DJNZ 0x1bf6
+1b86: 00           NOP
+1b87: 70           LD (HL),B
+1b88: 10 70        DJNZ 0x1bfa
+1b8a: 00           NOP
+1b8b: ee 1d        XOR 0x1d
+1b8d: 06 d0        LD B,0xd0
+1b8f: ee 26        XOR 0x26
+1b91: 08           EX AF,AF'
+1b92: 80           ADD A,B
+1b93: e6 2e        AND 0x2e
+1b95: 0a           LD A,(BC)
+1b96: 3c           INC A
+1b97: 03           INC BC
+1b98: 70           LD (HL),B
+1b99: 00           NOP
+1b9a: 70           LD (HL),B
+1b9b: 10 70        DJNZ 0x1c0d
+1b9d: 00           NOP
+1b9e: e5           PUSH HL
+1b9f: 1f           RRA
+1ba0: 0c           INC C
+1ba1: 80           ADD A,B
+1ba2: de 2e        SBC A,0x2e
+1ba4: 0e 3c        LD C,0x3c
+1ba6: 03           INC BC
+1ba7: 60           LD H,B
+1ba8: 00           NOP
+1ba9: 60           LD H,B
+1baa: 10 60        DJNZ 0x1c0c
+1bac: 00           NOP
+1bad: d7           RST 0x10
+1bae: 1f           RRA
+1baf: 10 c0        DJNZ 0x1b71
+1bb1: d7           RST 0x10
+1bb2: 2e 12        LD L,0x12
+1bb4: 26 06        LD H,6
+1bb6: 50           LD D,B
+1bb7: 02           LD (BC),A
+1bb8: 78           LD A,B
+1bb9: 12           LD (DE),A
+1bba: 18 10        JR 0x1bcc
+1bbc: 18 00        JR 0x1bbe
+1bbe: 80           ADD A,B
+1bbf: 02           LD (BC),A
+1bc0: 20 00        JR nz,0x1bc2
+1bc2: d5           PUSH DE
+1bc3: 1f           RRA
+1bc4: 14           INC D
+1bc5: d0           RET nc
+1bc6: d2 26 16     JP nc,0x1626
+1bc9: 50           LD D,B
+1bca: cd 2e 18     CALL 0x182e
+1bcd: 1c           INC E
+1bce: 04           INC B
+1bcf: 40           LD B,B
+1bd0: 00           NOP
+1bd1: a0           AND B
+1bd2: 10 d8        DJNZ 0x1bac
+1bd4: 00           NOP
+1bd5: 20 02        JR nz,0x1bd9
+1bd7: c6 1f        ADD A,0x1f
+1bd9: 04           INC B
+1bda: 50           LD D,B
+1bdb: c2 2e 1a     JP nz,0x1a2e
+1bde: 1c           INC E
+1bdf: 03           INC BC
+1be0: 80           ADD A,B
+1be1: 00           NOP
+1be2: a0           AND B
+1be3: 00           NOP
+1be4: 20 02        JR nz,0x1be8
+1be6: be           CP (HL)
+1be7: 35           DEC (HL)
+1be8: 1c           INC E
+1be9: 1c           INC E
+1bea: ba           CP D
+1beb: 3b           DEC SP
+1bec: 1e 1c        LD E,0x1c
+1bee: b6           OR (HL)
+1bef: 1f           RRA
+1bf0: 06 d0        LD B,0xd0
+1bf2: b6           OR (HL)
+1bf3: 26 08        LD H,8
+1bf5: c0           RET nz
+1bf6: b6           OR (HL)
+1bf7: 1d           DEC E
+1bf8: 0a           LD A,(BC)
+1bf9: 50           LD D,B
+1bfa: b3           OR E
+1bfb: 03           INC BC
+1bfc: a9           XOR C
+1bfd: 1d           DEC E
+1bfe: 0c           INC C
+1bff: b0           OR B
+1c00: a3           AND E
+1c01: 03           INC BC
+1c02: a0           AND B
+1c03: 26 0e        LD H,14
+1c05: a0           AND B
+1c06: a0           AND B
+1c07: 1f           RRA
+1c08: 10 90        DJNZ 0x1b9a
+1c0a: 93           SUB E
+1c0b: 05           DEC B
+1c0c: 8b           ADC A,E
+1c0d: 03           INC BC
+1c0e: 7b           LD A,E
+1c0f: 05           DEC B
+1c10: 78           LD A,B
+1c11: 21 12 c8     LD HL,0xc812
+1c14: 76           HALT
+1c15: 2e 16        LD L,0x16
+1c17: 78           LD A,B
+1c18: 08           EX AF,AF'
+1c19: 50           LD D,B
+1c1a: 14           INC D
+1c1b: 50           LD D,B
+1c1c: 04           INC B
+1c1d: 50           LD D,B
+1c1e: 14           INC D
+1c1f: 50           LD D,B
+1c20: 04           INC B
+1c21: 50           LD D,B
+1c22: 14           INC D
+1c23: 50           LD D,B
+1c24: 04           INC B
+1c25: 50           LD D,B
+1c26: 14           INC D
+1c27: 50           LD D,B
+1c28: 04           INC B
+1c29: 76           HALT
+1c2a: 2e 18        LD L,0x18
+1c2c: 18 08        JR 0x1c36
+1c2e: 50           LD D,B
+1c2f: 0c           INC C
+1c30: 50           LD D,B
+1c31: 1c           INC E
+1c32: 50           LD D,B
+1c33: 0c           INC C
+1c34: 50           LD D,B
+1c35: 1c           INC E
+1c36: 50           LD D,B
+1c37: 0c           INC C
+1c38: 50           LD D,B
+1c39: 1c           INC E
+1c3a: 50           LD D,B
+1c3b: 0c           INC C
+1c3c: 50           LD D,B
+1c3d: 1c           INC E
+1c3e: 6b           LD L,E
+1c3f: 2e 1a        LD L,0x1a
+1c41: 70           LD (HL),B
+1c42: 09           ADD HL,BC
+1c43: 40           LD B,B
+1c44: 1c           INC E
+1c45: 50           LD D,B
+1c46: 0c           INC C
+1c47: 50           LD D,B
+1c48: 1c           INC E
+1c49: 50           LD D,B
+1c4a: 0c           INC C
+1c4b: 50           LD D,B
+1c4c: 1c           INC E
+1c4d: 50           LD D,B
+1c4e: 0c           INC C
+1c4f: 50           LD D,B
+1c50: 1c           INC E
+1c51: 50           LD D,B
+1c52: 0c           INC C
+1c53: 50           LD D,B
+1c54: 1c           INC E
+1c55: 6b           LD L,E
+1c56: 2e 1c        LD L,0x1c
+1c58: 20 09        JR nz,0x1c63
+1c5a: 40           LD B,B
+1c5b: 04           INC B
+1c5c: 50           LD D,B
+1c5d: 14           INC D
+1c5e: 50           LD D,B
+1c5f: 04           INC B
+1c60: 50           LD D,B
+1c61: 14           INC D
+1c62: 50           LD D,B
+1c63: 04           INC B
+1c64: 50           LD D,B
+1c65: 14           INC D
+1c66: 50           LD D,B
+1c67: 04           INC B
+1c68: 50           LD D,B
+1c69: 14           INC D
+1c6a: 50           LD D,B
+1c6b: 04           INC B
+1c6c: 61           LD H,C
+1c6d: 2e 1e        LD L,0x1e
+1c6f: a4           AND H
+1c70: 07           RLCA
+1c71: 18 00        JR 0x1c73
+1c73: 10 1c        DJNZ 0x1c91
+1c75: 60           LD H,B
+1c76: 18 38        JR 0x1cb0
+1c78: 14           INC D
+1c79: 40           LD B,B
+1c7a: 16 60        LD D,0x60
+1c7c: 1e 20        LD E,0x20
+1c7e: 1c           INC E
+1c7f: 5f           LD E,A
+1c80: 1f           RRA
+1c81: 04           INC B
+1c82: 80           ADD A,B
+1c83: 5b           LD E,E
+1c84: 26 06        LD H,6
+1c86: 60           LD H,B
+1c87: 5b           LD E,E
+1c88: 1d           DEC E
+1c89: 08           EX AF,AF'
+1c8a: 20 57        JR nz,0x1ce3
+1c8c: 1f           RRA
+1c8d: 0a           LD A,(BC)
+1c8e: 40           LD B,B
+1c8f: 4e           LD C,(HL)
+1c90: 2e 14        LD L,0x14
+1c92: ac           XOR H
+1c93: 06 50        LD B,0x50
+1c95: 00           NOP
+1c96: a8           XOR B
+1c97: 10 10        DJNZ 0x1ca9
+1c99: 08           EX AF,AF'
+1c9a: e0           RET po
+1c9b: 18 a0        JR 0x1c3d
+1c9d: 10 c0        DJNZ 0x1c5f
+1c9f: 00           NOP
+1ca0: 48           LD C,B
+1ca1: 2e 12        LD L,0x12
+1ca3: d4 06 08     CALL nc,0x0806
+1ca6: 00           NOP
+1ca7: 90           SUB B
+1ca8: 18 10        JR 0x1cba
+1caa: 08           EX AF,AF'
+1cab: a0           AND B
+1cac: 18 e0        JR 0x1c8e
+1cae: 10 c0        DJNZ 0x1c70
+1cb0: 00           NOP
+1cb1: 47           LD B,A
+1cb2: 2e 10        LD L,0x10
+1cb4: 44           LD B,H
+1cb5: 06 18        LD B,0x18
+1cb7: 00           NOP
+1cb8: 70           LD (HL),B
+1cb9: 08           EX AF,AF'
+1cba: 70           LD (HL),B
+1cbb: 18 c0        JR 0x1c7d
+1cbd: 10 f0        DJNZ 0x1caf
+1cbf: 10 20        DJNZ 0x1ce1
+1cc1: 18 3b        JR 0x1cfe
+1cc3: 26 16        LD H,0x16
+1cc5: b0           OR B
+1cc6: 37           SCF
+1cc7: 1f           RRA
+1cc8: 18 90        JR 0x1c5a
+1cca: 1f           RRA
+1ccb: 1b           DEC DE
+1ccc: 1a           LD A,(DE)
+1ccd: 90           SUB B
+1cce: 1f           RRA
+1ccf: 1b           DEC DE
+1cd0: 1c           INC E
+1cd1: 70           LD (HL),B
+1cd2: 1f           RRA
+1cd3: 1b           DEC DE
+1cd4: 1e 50        LD E,0x50
+1cd6: 1b           DEC DE
+1cd7: 1b           DEC DE
+1cd8: 04           INC B
+1cd9: 70           LD (HL),B
+1cda: 1b           DEC DE
+1cdb: 35           DEC (HL)
+1cdc: 06 24        LD B,0x24
+1cde: 1b           DEC DE
+1cdf: 02           LD (BC),A
+1ce0: 3f           CCF
+1ce1: 17           RLA
+1ce2: 3b           DEC SP
+1ce3: 08           EX AF,AF'
+1ce4: 24           INC H
+1ce5: 15           DEC D
+1ce6: 21 0a c0     LD HL,0xc00a
+1ce9: 13           INC DE
+1cea: 3b           DEC SP
+1ceb: 0e 24        LD C,0x24
+1ced: 0f           RRCA
+1cee: 05           DEC B
+1cef: 0d           DEC C
+1cf0: 01 57 ff     LD BC,0xff57
+1cf3: 03           INC BC
+1cf4: f3           DI
+1cf5: 1d           DEC E
+1cf6: 14           INC D
+1cf7: 20 ef        JR nz,0x1ce8
+1cf9: 05           DEC B
+1cfa: e7           RST 0x20
+1cfb: 2e 16        LD L,0x16
+1cfd: 9c           SBC A,H
+1cfe: 03           INC BC
+1cff: 40           LD B,B
+1d00: 00           NOP
+1d01: 38 1c        JR c,0x1d1f
+1d03: 40           LD B,B
+1d04: 18 e5        JR 0x1ceb
+1d06: 1b           DEC DE
+1d07: 18 60        JR 0x1d69
+1d09: e1           POP HL
+1d0a: 2e 1a        LD L,0x1a
+1d0c: 24           INC H
+1d0d: 03           INC BC
+1d0e: 80           ADD A,B
+1d0f: 00           NOP
+1d10: 80           ADD A,B
+1d11: 10 80        DJNZ 0x1c93
+1d13: 00           NOP
+1d14: dd 2e 1c     LD IXL,0x1c
+1d17: 9c           SBC A,H
+1d18: 03           INC BC
+1d19: 80           ADD A,B
+1d1a: 00           NOP
+1d1b: 80           ADD A,B
+1d1c: 10 80        DJNZ 0x1c9e
+1d1e: 00           NOP
+1d1f: d7           RST 0x10
+1d20: 1b           DEC DE
+1d21: 1e 78        LD E,0x78
+1d23: d7           RST 0x10
+1d24: 1b           DEC DE
+1d25: 04           INC B
+1d26: 48           LD C,B
+1d27: d7           RST 0x10
+1d28: 2e 06        LD L,6
+1d2a: 24           INC H
+1d2b: 03           INC BC
+1d2c: 80           ADD A,B
+1d2d: 00           NOP
+1d2e: 80           ADD A,B
+1d2f: 10 80        DJNZ 0x1cb1
+1d31: 00           NOP
+1d32: d3 2e        OUT (0x002e),A
+1d34: 08           EX AF,AF'
+1d35: 9c           SBC A,H
+1d36: 03           INC BC
+1d37: 80           ADD A,B
+1d38: 00           NOP
+1d39: 80           ADD A,B
+1d3a: 10 80        DJNZ 0x1cbc
+1d3c: 00           NOP
+1d3d: d3 1b        OUT (0x001b),A
+1d3f: 0a           LD A,(BC)
+1d40: 60           LD H,B
+1d41: cd 2e 0c     CALL 0x0c2e
+1d44: 24           INC H
+1d45: 03           INC BC
+1d46: 80           ADD A,B
+1d47: 00           NOP
+1d48: 80           ADD A,B
+1d49: 10 80        DJNZ 0x1ccb
+1d4b: 00           NOP
+1d4c: cb 26        SLA (HL)
+1d4e: 0e c8        LD C,0xc8
+1d50: cb 26        SLA (HL)
+1d52: 10 60        DJNZ 0x1db4
+1d54: c5           PUSH BC
+1d55: 2e 12        LD L,0x12
+1d57: 9c           SBC A,H
+1d58: 08           EX AF,AF'
+1d59: 60           LD H,B
+1d5a: 00           NOP
+1d5b: 78           LD A,B
+1d5c: 10 20        DJNZ 0x1d7e
+1d5e: 12           LD (DE),A
+1d5f: f8           RET m
+1d60: 10 58        DJNZ 0x1dba
+1d62: 10 50        DJNZ 0x1db4
+1d64: 18 50        JR 0x1db6
+1d66: 08           EX AF,AF'
+1d67: 20 00        JR nz,0x1d69
+1d69: c5           PUSH BC
+1d6a: 2e 14        LD L,0x14
+1d6c: 24           INC H
+1d6d: 08           EX AF,AF'
+1d6e: 60           LD H,B
+1d6f: 00           NOP
+1d70: 90           SUB B
+1d71: 10 20        DJNZ 0x1d93
+1d73: 0c           INC C
+1d74: e0           RET po
+1d75: 10 58        DJNZ 0x1dcf
+1d77: 10 50        DJNZ 0x1dc9
+1d79: 08           EX AF,AF'
+1d7a: 50           LD D,B
+1d7b: 18 20        JR 0x1d9d
+1d7d: 00           NOP
+1d7e: c5           PUSH BC
+1d7f: 57           LD D,A
+1d80: c3 03 bb     JP 0xbb03
+1d83: 3b           DEC SP
+1d84: 16 70        LD D,0x70
+1d86: bb           CP E
+1d87: 3b           DEC SP
+1d88: 18 50        JR 0x1dda
+1d8a: b7           OR A
+1d8b: 3c           INC A
+1d8c: 1a           LD A,(DE)
+1d8d: 70           LD (HL),B
+1d8e: b7           OR A
+1d8f: 3b           DEC SP
+1d90: 1c           INC E
+1d91: 50           LD D,B
+1d92: b3           OR E
+1d93: 03           INC BC
+1d94: a3           AND E
+1d95: 03           INC BC
+1d96: 95           SUB L
+1d97: 1f           RRA
+1d98: 1e 80        LD E,0x80
+1d9a: 93           SUB E
+1d9b: 05           DEC B
+1d9c: 93           SUB E
+1d9d: 1f           RRA
+1d9e: 04           INC B
+1d9f: 70           LD (HL),B
+1da0: 91           SUB C
+1da1: 1f           RRA
+1da2: 06 60        LD B,0x60
+1da4: 8f           ADC A,A
+1da5: 1f           RRA
+1da6: 08           EX AF,AF'
+1da7: 50           LD D,B
+1da8: 85           ADD A,L
+1da9: 03           INC BC
+1daa: 7d           LD A,L
+1dab: 26 0a        LD H,10
+1dad: e0           RET po
+1dae: 7d           LD A,L
+1daf: 26 0c        LD H,12
+1db1: 88           ADC A,B
+1db2: 7d           LD A,L
+1db3: 26 0e        LD H,14
+1db5: 50           LD D,B
+1db6: 79           LD A,C
+1db7: 26 10        LD H,0x10
+1db9: c0           RET nz
+1dba: 79           LD A,C
+1dbb: 26 12        LD H,0x12
+1dbd: 6c           LD L,H
+1dbe: 79           LD A,C
+1dbf: 26 14        LD H,0x14
+1dc1: 18 6f        JR 0x1e32
+1dc3: 21 16 80     LD HL,0x8016
+1dc6: 6f           LD L,A
+1dc7: 3b           DEC SP
+1dc8: 1a           LD A,(DE)
+1dc9: 34           INC (HL)
+1dca: 6b           LD L,E
+1dcb: 3b           DEC SP
+1dcc: 1c           INC E
+1dcd: 34           INC (HL)
+1dce: 6b           LD L,E
+1dcf: 05           DEC B
+1dd0: 67           LD H,A
+1dd1: 1d           DEC E
+1dd2: 1e b0        LD E,0xb0
+1dd4: 65           LD H,L
+1dd5: 1d           DEC E
+1dd6: 04           INC B
+1dd7: a0           AND B
+1dd8: 63           LD H,E
+1dd9: 03           INC BC
+1dda: 53           LD D,E
+1ddb: 05           DEC B
+1ddc: 4f           LD C,A
+1ddd: 26 06        LD H,6
+1ddf: 80           ADD A,B
+1de0: 4c           LD C,H
+1de1: 1f           RRA
+1de2: 08           EX AF,AF'
+1de3: 68           LD L,B
+1de4: 4b           LD C,E
+1de5: 2e 0a        LD L,10
+1de7: 34           INC (HL)
+1de8: 02           LD (BC),A
+1de9: a0           AND B
+1dea: 04           INC B
+1deb: 20 06        JR nz,0x1df3
+1ded: 44           LD B,H
+1dee: 1b           DEC DE
+1def: 0c           INC C
+1df0: 70           LD (HL),B
+1df1: 3e 1b        LD A,0x1b
+1df3: 0e c0        LD C,0xc0
+1df5: 3e 1d        LD A,0x1d
+1df7: 10 70        DJNZ 0x1e69
+1df9: 3e 1b        LD A,0x1b
+1dfb: 12           LD (DE),A
+1dfc: 18 38        JR 0x1e36
+1dfe: 1b           DEC DE
+1dff: 14           INC D
+1e00: 70           LD (HL),B
+1e01: 37           SCF
+1e02: 2e 16        LD L,0x16
+1e04: a4           AND H
+1e05: 03           INC BC
+1e06: 70           LD (HL),B
+1e07: 00           NOP
+1e08: 70           LD (HL),B
+1e09: 10 70        DJNZ 0x1e7b
+1e0b: 00           NOP
+1e0c: 37           SCF
+1e0d: 2e 04        LD L,4
+1e0f: 34           INC (HL)
+1e10: 03           INC BC
+1e11: 70           LD (HL),B
+1e12: 00           NOP
+1e13: 70           LD (HL),B
+1e14: 10 70        DJNZ 0x1e86
+1e16: 00           NOP
+1e17: 33           INC SP
+1e18: 02           LD (BC),A
+1e19: e6 23        AND 0x23
+1e1b: 05           DEC B
+1e1c: 22 2e 06     LD (0x062e),HL
+1e1f: 48           LD C,B
+1e20: 02           LD (BC),A
+1e21: b8           CP B
+1e22: 04           INC B
+1e23: 20 08        JR nz,0x1e2d
+1e25: 22 2e 08     LD (0x082e),HL
+1e28: 34           INC (HL)
+1e29: 01 20 00     LD BC,0x20
+1e2c: 1b           DEC DE
+1e2d: 2e 0a        LD L,10
+1e2f: 48           LD C,B
+1e30: 08           EX AF,AF'
+1e31: 30 00        JR nc,0x1e33
+1e33: a0           AND B
+1e34: 04           INC B
+1e35: a0           AND B
+1e36: 10 80        DJNZ 0x1db8
+1e38: 0c           INC C
+1e39: 40           LD B,B
+1e3a: 10 80        DJNZ 0x1dbc
+1e3c: 18 a0        JR 0x1dde
+1e3e: 18 20        JR 0x1e60
+1e40: 00           NOP
+1e41: 17           RLA
+1e42: 21 18 90     LD HL,0x9018
+1e45: 17           RLA
+1e46: 21 1c 70     LD HL,0x701c
+1e49: 17           RLA
+1e4a: 02           LD (BC),A
+1e4b: 7e           LD A,(HL)
+1e4c: 0f           RRCA
+1e4d: 05           DEC B
+1e4e: 0f           RRCA
+1e4f: 30 1f        JR nc,0x1e70
+1e51: 0d           DEC C
+1e52: ff           RST 0x38
+1e53: ff           RST 0x38
+1e54: ff           RST 0x38
+1e55: ff           RST 0x38
+1e56: ff           RST 0x38
+1e57: ff           RST 0x38
+1e58: ff           RST 0x38
+1e59: ff           RST 0x38
+1e5a: ff           RST 0x38
+1e5b: ff           RST 0x38
+1e5c: ff           RST 0x38
+1e5d: ff           RST 0x38
+1e5e: ff           RST 0x38
+1e5f: ff           RST 0x38
+1e60: ff           RST 0x38
+1e61: ff           RST 0x38
+1e62: ff           RST 0x38
+1e63: ff           RST 0x38
+1e64: ff           RST 0x38
+1e65: ff           RST 0x38
+1e66: ff           RST 0x38
+1e67: ff           RST 0x38
+1e68: ff           RST 0x38
+1e69: ff           RST 0x38
+1e6a: ff           RST 0x38
+1e6b: ff           RST 0x38
+1e6c: ff           RST 0x38
+1e6d: ff           RST 0x38
+1e6e: ff           RST 0x38
+1e6f: ff           RST 0x38
+1e70: ff           RST 0x38
+1e71: ff           RST 0x38
+1e72: ff           RST 0x38
+1e73: ff           RST 0x38
+1e74: ff           RST 0x38
+1e75: ff           RST 0x38
+1e76: ff           RST 0x38
+1e77: ff           RST 0x38
+1e78: ff           RST 0x38
+1e79: ff           RST 0x38
+1e7a: ff           RST 0x38
+1e7b: ff           RST 0x38
+1e7c: ff           RST 0x38
+1e7d: ff           RST 0x38
+1e7e: ff           RST 0x38
+1e7f: ff           RST 0x38
+1e80: ff           RST 0x38
+1e81: ff           RST 0x38
+1e82: ff           RST 0x38
+1e83: ff           RST 0x38
+1e84: ff           RST 0x38
+1e85: ff           RST 0x38
+1e86: ff           RST 0x38
+1e87: ff           RST 0x38
+1e88: ff           RST 0x38
+1e89: ff           RST 0x38
+1e8a: ff           RST 0x38
+1e8b: ff           RST 0x38
+1e8c: ff           RST 0x38
+1e8d: ff           RST 0x38
+1e8e: ff           RST 0x38
+1e8f: ff           RST 0x38
+1e90: ff           RST 0x38
+1e91: ff           RST 0x38
+1e92: ff           RST 0x38
+1e93: ff           RST 0x38
+1e94: ff           RST 0x38
+1e95: ff           RST 0x38
+1e96: ff           RST 0x38
+1e97: ff           RST 0x38
+1e98: ff           RST 0x38
+1e99: ff           RST 0x38
+1e9a: ff           RST 0x38
+1e9b: ff           RST 0x38
+1e9c: ff           RST 0x38
+1e9d: ff           RST 0x38
+1e9e: ff           RST 0x38
+1e9f: ff           RST 0x38
+1ea0: ff           RST 0x38
+1ea1: ff           RST 0x38
+1ea2: ff           RST 0x38
+1ea3: ff           RST 0x38
+1ea4: ff           RST 0x38
+1ea5: ff           RST 0x38
+1ea6: ff           RST 0x38
+1ea7: ff           RST 0x38
+1ea8: ff           RST 0x38
+1ea9: ff           RST 0x38
+1eaa: ff           RST 0x38
+1eab: ff           RST 0x38
+1eac: ff           RST 0x38
+1ead: ff           RST 0x38
+1eae: ff           RST 0x38
+1eaf: ff           RST 0x38
+1eb0: ff           RST 0x38
+1eb1: ff           RST 0x38
+1eb2: ff           RST 0x38
+1eb3: ff           RST 0x38
+1eb4: ff           RST 0x38
+1eb5: ff           RST 0x38
+1eb6: ff           RST 0x38
+1eb7: ff           RST 0x38
+1eb8: ff           RST 0x38
+1eb9: ff           RST 0x38
+1eba: ff           RST 0x38
+1ebb: ff           RST 0x38
+1ebc: ff           RST 0x38
+1ebd: ff           RST 0x38
+1ebe: ff           RST 0x38
+1ebf: ff           RST 0x38
+1ec0: ff           RST 0x38
+1ec1: ff           RST 0x38
+1ec2: ff           RST 0x38
+1ec3: ff           RST 0x38
+1ec4: ff           RST 0x38
+1ec5: ff           RST 0x38
+1ec6: ff           RST 0x38
+1ec7: ff           RST 0x38
+1ec8: ff           RST 0x38
+1ec9: ff           RST 0x38
+1eca: ff           RST 0x38
+1ecb: ff           RST 0x38
+1ecc: ff           RST 0x38
+1ecd: ff           RST 0x38
+1ece: ff           RST 0x38
+1ecf: ff           RST 0x38
+1ed0: ff           RST 0x38
+1ed1: ff           RST 0x38
+1ed2: ff           RST 0x38
+1ed3: ff           RST 0x38
+1ed4: ff           RST 0x38
+1ed5: ff           RST 0x38
+1ed6: ff           RST 0x38
+1ed7: ff           RST 0x38
+1ed8: ff           RST 0x38
+1ed9: ff           RST 0x38
+1eda: ff           RST 0x38
+1edb: ff           RST 0x38
+1edc: ff           RST 0x38
+1edd: ff           RST 0x38
+1ede: ff           RST 0x38
+1edf: ff           RST 0x38
+1ee0: ff           RST 0x38
+1ee1: ff           RST 0x38
+1ee2: ff           RST 0x38
+1ee3: ff           RST 0x38
+1ee4: ff           RST 0x38
+1ee5: ff           RST 0x38
+1ee6: ff           RST 0x38
+1ee7: ff           RST 0x38
+1ee8: ff           RST 0x38
+1ee9: ff           RST 0x38
+1eea: ff           RST 0x38
+1eeb: ff           RST 0x38
+1eec: ff           RST 0x38
+1eed: ff           RST 0x38
+1eee: ff           RST 0x38
+1eef: ff           RST 0x38
+1ef0: ff           RST 0x38
+1ef1: ff           RST 0x38
+1ef2: ff           RST 0x38
+1ef3: ff           RST 0x38
+1ef4: ff           RST 0x38
+1ef5: ff           RST 0x38
+1ef6: ff           RST 0x38
+1ef7: ff           RST 0x38
+1ef8: ff           RST 0x38
+1ef9: ff           RST 0x38
+1efa: ff           RST 0x38
+1efb: ff           RST 0x38
+1efc: ff           RST 0x38
+1efd: ff           RST 0x38
+1efe: ff           RST 0x38
+1eff: ff           RST 0x38
+1f00: ff           RST 0x38
+1f01: ff           RST 0x38
+1f02: ff           RST 0x38
+1f03: ff           RST 0x38
+1f04: ff           RST 0x38
+1f05: ff           RST 0x38
+1f06: ff           RST 0x38
+1f07: ff           RST 0x38
+1f08: ff           RST 0x38
+1f09: ff           RST 0x38
+1f0a: ff           RST 0x38
+1f0b: ff           RST 0x38
+1f0c: ff           RST 0x38
+1f0d: ff           RST 0x38
+1f0e: ff           RST 0x38
+1f0f: ff           RST 0x38
+1f10: ff           RST 0x38
+1f11: ff           RST 0x38
+1f12: ff           RST 0x38
+1f13: ff           RST 0x38
+1f14: ff           RST 0x38
+1f15: ff           RST 0x38
+1f16: ff           RST 0x38
+1f17: ff           RST 0x38
+1f18: ff           RST 0x38
+1f19: ff           RST 0x38
+1f1a: ff           RST 0x38
+1f1b: ff           RST 0x38
+1f1c: ff           RST 0x38
+1f1d: ff           RST 0x38
+1f1e: ff           RST 0x38
+1f1f: ff           RST 0x38
+1f20: ff           RST 0x38
+1f21: ff           RST 0x38
+1f22: ff           RST 0x38
+1f23: ff           RST 0x38
+1f24: ff           RST 0x38
+1f25: ff           RST 0x38
+1f26: ff           RST 0x38
+1f27: ff           RST 0x38
+1f28: ff           RST 0x38
+1f29: ff           RST 0x38
+1f2a: ff           RST 0x38
+1f2b: ff           RST 0x38
+1f2c: ff           RST 0x38
+1f2d: ff           RST 0x38
+1f2e: ff           RST 0x38
+1f2f: ff           RST 0x38
+1f30: ff           RST 0x38
+1f31: ff           RST 0x38
+1f32: ff           RST 0x38
+1f33: ff           RST 0x38
+1f34: ff           RST 0x38
+1f35: ff           RST 0x38
+1f36: ff           RST 0x38
+1f37: ff           RST 0x38
+1f38: ff           RST 0x38
+1f39: ff           RST 0x38
+1f3a: ff           RST 0x38
+1f3b: ff           RST 0x38
+1f3c: ff           RST 0x38
+1f3d: ff           RST 0x38
+1f3e: ff           RST 0x38
+1f3f: ff           RST 0x38
+1f40: ff           RST 0x38
+1f41: ff           RST 0x38
+1f42: ff           RST 0x38
+1f43: ff           RST 0x38
+1f44: ff           RST 0x38
+1f45: ff           RST 0x38
+1f46: ff           RST 0x38
+1f47: ff           RST 0x38
+1f48: ff           RST 0x38
+1f49: ff           RST 0x38
+1f4a: ff           RST 0x38
+1f4b: ff           RST 0x38
+1f4c: ff           RST 0x38
+1f4d: ff           RST 0x38
+1f4e: ff           RST 0x38
+1f4f: ff           RST 0x38
+1f50: ff           RST 0x38
+1f51: ff           RST 0x38
+1f52: ff           RST 0x38
+1f53: ff           RST 0x38
+1f54: ff           RST 0x38
+1f55: ff           RST 0x38
+1f56: ff           RST 0x38
+1f57: ff           RST 0x38
+1f58: ff           RST 0x38
+1f59: ff           RST 0x38
+1f5a: ff           RST 0x38
+1f5b: ff           RST 0x38
+1f5c: ff           RST 0x38
+1f5d: ff           RST 0x38
+1f5e: ff           RST 0x38
+1f5f: ff           RST 0x38
+1f60: ff           RST 0x38
+1f61: ff           RST 0x38
+1f62: ff           RST 0x38
+1f63: ff           RST 0x38
+1f64: ff           RST 0x38
+1f65: ff           RST 0x38
+1f66: ff           RST 0x38
+1f67: ff           RST 0x38
+1f68: ff           RST 0x38
+1f69: ff           RST 0x38
+1f6a: ff           RST 0x38
+1f6b: ff           RST 0x38
+1f6c: ff           RST 0x38
+1f6d: ff           RST 0x38
+1f6e: ff           RST 0x38
+1f6f: ff           RST 0x38
+1f70: ff           RST 0x38
+1f71: ff           RST 0x38
+1f72: ff           RST 0x38
+1f73: ff           RST 0x38
+1f74: ff           RST 0x38
+1f75: ff           RST 0x38
+1f76: ff           RST 0x38
+1f77: ff           RST 0x38
+1f78: ff           RST 0x38
+1f79: ff           RST 0x38
+1f7a: ff           RST 0x38
+1f7b: ff           RST 0x38
+1f7c: ff           RST 0x38
+1f7d: ff           RST 0x38
+1f7e: ff           RST 0x38
+1f7f: ff           RST 0x38
+1f80: ff           RST 0x38
+1f81: ff           RST 0x38
+1f82: ff           RST 0x38
+1f83: ff           RST 0x38
+1f84: ff           RST 0x38
+1f85: ff           RST 0x38
+1f86: ff           RST 0x38
+1f87: ff           RST 0x38
+1f88: ff           RST 0x38
+1f89: ff           RST 0x38
+1f8a: ff           RST 0x38
+1f8b: ff           RST 0x38
+1f8c: ff           RST 0x38
+1f8d: ff           RST 0x38
+1f8e: ff           RST 0x38
+1f8f: ff           RST 0x38
+1f90: ff           RST 0x38
+1f91: ff           RST 0x38
+1f92: ff           RST 0x38
+1f93: ff           RST 0x38
+1f94: ff           RST 0x38
+1f95: ff           RST 0x38
+1f96: ff           RST 0x38
+1f97: ff           RST 0x38
+1f98: ff           RST 0x38
+1f99: ff           RST 0x38
+1f9a: ff           RST 0x38
+1f9b: ff           RST 0x38
+1f9c: ff           RST 0x38
+1f9d: ff           RST 0x38
+1f9e: ff           RST 0x38
+1f9f: ff           RST 0x38
+1fa0: ff           RST 0x38
+1fa1: ff           RST 0x38
+1fa2: ff           RST 0x38
+1fa3: ff           RST 0x38
+1fa4: ff           RST 0x38
+1fa5: ff           RST 0x38
+1fa6: ff           RST 0x38
+1fa7: ff           RST 0x38
+1fa8: ff           RST 0x38
+1fa9: ff           RST 0x38
+1faa: ff           RST 0x38
+1fab: ff           RST 0x38
+1fac: ff           RST 0x38
+1fad: ff           RST 0x38
+1fae: ff           RST 0x38
+1faf: ff           RST 0x38
+1fb0: ff           RST 0x38
+1fb1: ff           RST 0x38
+1fb2: ff           RST 0x38
+1fb3: ff           RST 0x38
+1fb4: ff           RST 0x38
+1fb5: ff           RST 0x38
+1fb6: ff           RST 0x38
+1fb7: ff           RST 0x38
+1fb8: ff           RST 0x38
+1fb9: ff           RST 0x38
+1fba: ff           RST 0x38
+1fbb: ff           RST 0x38
+1fbc: ff           RST 0x38
+1fbd: ff           RST 0x38
+1fbe: ff           RST 0x38
+1fbf: ff           RST 0x38
+1fc0: ff           RST 0x38
+1fc1: ff           RST 0x38
+1fc2: ff           RST 0x38
+1fc3: ff           RST 0x38
+1fc4: ff           RST 0x38
+1fc5: ff           RST 0x38
+1fc6: ff           RST 0x38
+1fc7: ff           RST 0x38
+1fc8: ff           RST 0x38
+1fc9: ff           RST 0x38
+1fca: ff           RST 0x38
+1fcb: ff           RST 0x38
+1fcc: ff           RST 0x38
+1fcd: ff           RST 0x38
+1fce: ff           RST 0x38
+1fcf: ff           RST 0x38
+1fd0: ff           RST 0x38
+1fd1: ff           RST 0x38
+1fd2: ff           RST 0x38
+1fd3: ff           RST 0x38
+1fd4: ff           RST 0x38
+1fd5: ff           RST 0x38
+1fd6: ff           RST 0x38
+1fd7: ff           RST 0x38
+1fd8: ff           RST 0x38
+1fd9: ff           RST 0x38
+1fda: ff           RST 0x38
+1fdb: ff           RST 0x38
+1fdc: ff           RST 0x38
+1fdd: ff           RST 0x38
+1fde: ff           RST 0x38
+1fdf: ff           RST 0x38
+1fe0: ff           RST 0x38
+1fe1: ff           RST 0x38
+1fe2: ff           RST 0x38
+1fe3: ff           RST 0x38
+1fe4: ff           RST 0x38
+1fe5: ff           RST 0x38
+1fe6: ff           RST 0x38
+1fe7: ff           RST 0x38
+1fe8: ff           RST 0x38
+1fe9: ff           RST 0x38
+1fea: ff           RST 0x38
+1feb: ff           RST 0x38
+1fec: ff           RST 0x38
+1fed: ff           RST 0x38
+1fee: ff           RST 0x38
+1fef: ff           RST 0x38
+1ff0: ff           RST 0x38
+1ff1: ff           RST 0x38
+1ff2: ff           RST 0x38
+1ff3: ff           RST 0x38
+1ff4: ff           RST 0x38
+1ff5: ff           RST 0x38
+1ff6: ff           RST 0x38
+1ff7: ff           RST 0x38
+1ff8: ff           RST 0x38
+1ff9: ff           RST 0x38
+1ffa: ff           RST 0x38
+1ffb: ff           RST 0x38
+1ffc: ff           RST 0x38
+1ffd: ff           RST 0x38
+1ffe: ff           RST 0x38
+1fff: 68           LD L,B
