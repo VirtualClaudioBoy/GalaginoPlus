@@ -15,11 +15,11 @@ python ./cpu_conv.py
 python ./audio_conv.py
 if errorlevel 1 goto :error
 
-echo Peno Tiles
+echo Pengo Tiles
 python ./tiles_fg_conv.py
 if errorlevel 1 goto :error
 
-echo Peno Sprites
+echo Pengo Sprites
 python ./sprites_conv.py
 if errorlevel 1 goto :error
 
