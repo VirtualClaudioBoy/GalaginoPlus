@@ -3,6 +3,7 @@
 The main new feature of this version, besides the new games added, is the permanent saving of high scores and player names.
 
 This repo is a port of Speckhoiler version of [Galagino](https://github.com/speckhoiler/galagino) which in turn is a port of Till Harbaum's [Galagino](https://github.com/harbaum/galagino) ported to platformio.
+
 This port is NOT by the original authors, so please do not bother them with issues.
 
 I used and modified the games 1942, Dig dug, Donkey Kong, Frogger, Galaga and Pac Man from [Till Harbaum's Galagino](https://github.com/harbaum/galagino).
