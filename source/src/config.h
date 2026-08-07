@@ -2,8 +2,8 @@
 #define _CONFIG_H_
 
 // game config
-#define MASTER_ATTRACT_MENU_TIMEOUT  10000      // start games while sitting idle in menu for 20 seconds, undefine to disable
-#define MASTER_ATTRACT_GAME_TIMEOUT  60000 * 2  // restart after 5 minutes
+#define MASTER_ATTRACT_MENU_TIMEOUT  1000 * 20  // start games while sitting idle in menu for 20 seconds, undefine to disable
+#define MASTER_ATTRACT_GAME_TIMEOUT  60000 * 5  // restart after 5 minutes
 
 // se definito, l'audio resta muto quando un gioco viene avviato da solo
 // dal master attract (demo automatica senza intervento dell'utente); il
