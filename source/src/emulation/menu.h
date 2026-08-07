@@ -1,0 +1,44 @@
+#ifndef MENU_H
+#define MENU_H
+
+#include <Arduino.h>
+#include "input.h"
+#include "../config.h"
+#include "../machines/machineBase.h"
+
+class Menu {
+public:
+  Menu() { }
+  ~Menu() { }
+
+  void init(Input *input, machineBase **machines, signed char machinesCount, unsigned short *framebuffer);
+  void attract_resetTimer();
+  bool attract_gameTimeout();
+  void render_row(short row);
+  void handle();
+  void show_menu();
+
+  signed char machineIndexPreselection();
+  signed char machineIndexSelected();
+  bool startMachine();
+  bool machineIndexIsMenu();
+  bool isAttractPlay();
+private:
+  void menu_logo(short row, const unsigned short *logo, char active);
+  unsigned short convert_RGB565_to_greyscale(unsigned short in);
+
+  Input *input;
+  signed char machinesCount;
+  machineBase *currentMachine;
+  machineBase **machines;
+  unsigned short *frame_buffer;
+  unsigned char last_mask;
+  bool menuWasSelected;
+  unsigned long master_attract_timeout; // menu timeout for master attract mode which randomly start games
+  bool attractPlay; // true se il gioco corrente e' stato avviato dal master attract (non da un input reale)
+  signed char machineIndexLast;
+  signed char machineIndex;
+  signed char menu_sel;  
+};
+
+#endif
