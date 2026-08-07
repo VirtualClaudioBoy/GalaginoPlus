@@ -37,6 +37,7 @@ Depending on the size of the individual games, approximately 30 games can be act
 You can select the games in the machines.h file.
 
 //#define ENABLE_1942 <-- Disabled
+
 #define ENABLE_ALIBABA <-- Enabled
 
 ![1942 screenshot](images/1942.png)
