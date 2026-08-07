@@ -74,43 +74,29 @@
 #endif
 
 #ifndef CHEAP_YELLOW_DISPLAY_CONF
+  #define TFT_CS          5
+  #define TFT_DC          4
+  #define TFT_RST         22
+  #define TFT_BL          15      // don't set if backlight is hard wired
+  #define TFT_BL_LEVEL    HIGH     // backlight on with low or high signal
+  #define TFT_ILI9341             // define for ili9341, otherwise st7789
+  //#define TFT_VFLIP               // define for upside down
 
   #define TFT_MISO 	      19
   #define TFT_MOSI 	      23
   #define TFT_SCLK 	      18
 
   // Pins used for buttons
+  //#define BTN_START_PIN   0
+  //#define BTN_COIN_PIN    21      // if this is not defined, then start will act as coin & start
 
   #ifndef NUNCHUCK_INPUT
-    #define TFT_CS          5
-    #define TFT_DC          32
-    #define TFT_RST         27
-    #define TFT_BL          13      // don't set if backlight is hard wired
-    #define TFT_BL_LEVEL    HIGH     // backlight on with low or high signal
-//  #define TFT_ILI9341             // define for ili9341, otherwise st7789
-    #define TFT_VFLIP               // define for upside down
-
-	  #define BTN_START_PIN   22
-	  #define BTN_COIN_PIN    21      // if this is not defined, then start will act as coin & start
-
     #define BTN_LEFT_PIN  33
     #define BTN_RIGHT_PIN 14
-    #define BTN_DOWN_PIN  15
-    #define BTN_UP_PIN    4
+    #define BTN_DOWN_PIN  16
+    #define BTN_UP_PIN    21
     #define BTN_FIRE_PIN  12
   #else
-    #define TFT_CS          5
-    #define TFT_DC          4
-    #define TFT_RST         22
-    #define TFT_BL          15      // don't set if backlight is hard wired
-    #define TFT_BL_LEVEL    HIGH    // backlight on with low or high signal
-    #define TFT_ILI9341             // define for ili9341, otherwise st7789
-//  #define TFT_VFLIP               // define for upside down
-
-//  Pins used for buttons
-//  #define BTN_START_PIN   0
-//  #define BTN_COIN_PIN    21      // if this is not defined, then start will act as coin & start
-
     #define NUNCHUCK_SDA  33
     #define NUNCHUCK_SCL  32
     #define NUNCHUCK_MOVE_THRESHOLD 30 // This is the dead-zone for where minor movements on the stick will not be considered valid movements
