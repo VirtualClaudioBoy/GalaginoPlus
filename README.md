@@ -24,7 +24,7 @@ Donkey Kong 3 sound cpus have been added by me.
 
 Graphical bugs have been fixed in Mr. Do!
 
-Pengo is not the Alby1970 version, but a conversion of mine, with the original "PopCorn" music and the creation of the labyrinth at the beginning of each level.
+Pengo is not the Alby1970 conversion, but a conversion of mine (also change the file containing the roms), with the original "PopCorn" music and the creation of the labyrinth at the beginning of each level.
 
 The new games added by me in this port are: Ali Baba and 40 Thieves, Amidar, Bump 'n' jump, Burger time, Circus Charlie, Gaplus, Mappy, Pooyan, Roc'n rope, Tower of Druaga, 
 Turtles, Van Van Car and Xevious.
