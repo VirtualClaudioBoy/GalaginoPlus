@@ -1,0 +1,121 @@
+#ifndef _CONFIG_H_
+#define _CONFIG_H_
+
+// game config
+#define MASTER_ATTRACT_MENU_TIMEOUT  10000      // start games while sitting idle in menu for 20 seconds, undefine to disable
+#define MASTER_ATTRACT_GAME_TIMEOUT  60000 * 2  // restart after 5 minutes
+
+// se definito, l'audio resta muto quando un gioco viene avviato da solo
+// dal master attract (demo automatica senza intervento dell'utente); il
+// volume normale riprende non appena l'utente preme un tasto reale (che
+// gia' interrompe il master attract). Commentare per sentire l'audio
+// anche durante l'attract automatico (comportamento precedente).
+#define MASTER_ATTRACT_MUTE_AUDIO
+
+// autofire: la maggior parte degli shoot-em-up spara solo sul fronte di
+// salita del pulsante FUOCO (bisogna rilasciare e ripremere per ogni
+// colpo, come sull'hardware originale). Se abilitato, tenendo premuto
+// FUOCO il segnale viene "pulsato" automaticamente ON/OFF cosi' il gioco
+// continua a sparare da solo. Commentare #define per disattivare.
+#define AUTOFIRE_ENABLED
+#define AUTOFIRE_ON_MS   40   // durata "premuto" di ogni impulso
+#define AUTOFIRE_OFF_MS  40   // durata "rilasciato" tra un impulso e l'altro
+                              // (40+40ms = 12.5 colpi/sec)
+
+// video config
+//#define TFT_SPICLK  40000000    // 40 Mhz. Some displays cope with 80 Mhz
+//#define TFT_SPICLK	80000000    // 80 Mhz. Some displays cope with 80 Mhz
+
+// max possible video rate:
+// 8*224 pixels = 8*224*16 = 28672 bits
+// 2790 char rows per sec at 40Mhz = max 38 fps
+#if TFT_SPICLK < 80000000
+  #define VIDEO_HALF_RATE
+#endif
+
+// x and y offset of 224x288 pixels inside the 240x320 screen
+#define TFT_X_OFFSET      8
+#define TFT_Y_OFFSET      16
+
+// led config
+//#define LED_PIN           18 // pin used for optional WS2812 stripe
+#define LED_BRIGHTNESS 	  50 // range 0..255
+
+// audio config
+//#define SND_DIFF   	 // set to output differential audio on GPIO25 _and_ inverted on GPIO26
+#define SND_LEFT_CHANNEL // Use GPIO 26 for audio
+
+// esp32 model config
+//#define CHEAP_YELLOW_DISPLAY_CONF
+
+#ifdef CHEAP_YELLOW_DISPLAY_CONF
+  #define TFT_CS          15
+  #define TFT_DC          2
+  #define TFT_RST         -1
+  #define TFT_BL          27   // don't set if backlight is hard wired
+  #define TFT_BL_LEVEL    HIGH  // backlight on with low or high signal
+  //#define TFT_ILI9341 // define for ili9341, otherwise st7789
+  //#define TFT_VFLIP   // define for upside down
+
+  #define TFT_MISO 	      12
+  #define TFT_MOSI 	      13
+  #define TFT_SCLK 	      14
+  //#define TFT_MAC  	    0x20  // some CYD need this to rotate properly and have correct colors
+
+  // Pins used for buttons
+  #define BTN_START_PIN	  35
+  //#define BTN_COIN_PIN    21   // if this is not defined, then start will act as coin & start
+
+  #define BTN_LEFT_PIN    21
+  #define BTN_RIGHT_PIN   22
+  #define BTN_DOWN_PIN    16
+  #define BTN_UP_PIN      17
+  #define BTN_FIRE_PIN    4
+#endif
+
+#ifndef CHEAP_YELLOW_DISPLAY_CONF
+
+  #define TFT_MISO 	      19
+  #define TFT_MOSI 	      23
+  #define TFT_SCLK 	      18
+
+  // Pins used for buttons
+
+  #ifndef NUNCHUCK_INPUT
+    #define TFT_CS          5
+    #define TFT_DC          32
+    #define TFT_RST         27
+    #define TFT_BL          13      // don't set if backlight is hard wired
+    #define TFT_BL_LEVEL    HIGH     // backlight on with low or high signal
+//  #define TFT_ILI9341             // define for ili9341, otherwise st7789
+    #define TFT_VFLIP               // define for upside down
+
+	  #define BTN_START_PIN   22
+	  #define BTN_COIN_PIN    21      // if this is not defined, then start will act as coin & start
+
+    #define BTN_LEFT_PIN  33
+    #define BTN_RIGHT_PIN 14
+    #define BTN_DOWN_PIN  15
+    #define BTN_UP_PIN    4
+    #define BTN_FIRE_PIN  12
+  #else
+    #define TFT_CS          5
+    #define TFT_DC          4
+    #define TFT_RST         22
+    #define TFT_BL          15      // don't set if backlight is hard wired
+    #define TFT_BL_LEVEL    HIGH    // backlight on with low or high signal
+    #define TFT_ILI9341             // define for ili9341, otherwise st7789
+//  #define TFT_VFLIP               // define for upside down
+
+//  Pins used for buttons
+//  #define BTN_START_PIN   0
+//  #define BTN_COIN_PIN    21      // if this is not defined, then start will act as coin & start
+
+    #define NUNCHUCK_SDA  33
+    #define NUNCHUCK_SCL  32
+    #define NUNCHUCK_MOVE_THRESHOLD 30 // This is the dead-zone for where minor movements on the stick will not be considered valid movements
+  #endif
+#endif
+
+
+#endif // _CONFIG_H_
