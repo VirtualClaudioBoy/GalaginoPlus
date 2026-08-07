@@ -1,4 +1,4 @@
-![Galagino Plus logo](images/galaginoplus.png)
+![Galagino Plus screenshot](images/galaginoplus.png)
 
 # Galagino Plus with 43 games and the ability to save the highest scores of each game !
 
