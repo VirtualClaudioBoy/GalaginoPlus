@@ -126,5 +126,3 @@ conv_tutankhm.bat
 conv_vanvan.bat
 
 conv_xevious.bat
-conv_tutankhm.bat
-conv_xevious.bat
