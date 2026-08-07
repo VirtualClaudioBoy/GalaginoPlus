@@ -30,6 +30,15 @@ The new games added by me in this port are: Ali Baba and 40 Thieves, Amidar, Bum
 
 Turtles, Van Van Car and Xevious.
 
+Not all games can be active at the same time.
+
+Depending on the size of the individual games, approximately 30 games can be active.
+
+You can select the games in the machines.h file.
+
+//#define ENABLE_1942 <-- Disabled
+#define ENABLE_ALIBABA <-- Enabled
+
 ![1942 screenshot](images/1942.png)
 ![Ali Baba and 40 Thieves screenshot](images/alibaba.png)
 ![Amidar screenshot](images/amidar.png)
