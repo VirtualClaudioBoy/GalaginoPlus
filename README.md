@@ -2,7 +2,7 @@
 
 # A new Galagino with 43 games and the ability to save the highest scores of each game !
 
-The main new feature of this version, besides the new games added, is the permanent saving of high scores and player names.
+The main new feature of this version, besides the new games added, is the permanent saving of high scores and player names. You can also configure auto-fire and audio mute in attract mode in config.h.
 
 This repo is a port of Speckhoiler version of [Galagino](https://github.com/speckhoiler/galagino) which in turn is a port of Till Harbaum's [Galagino](https://github.com/harbaum/galagino) ported to platformio.
 
@@ -89,6 +89,7 @@ You can select the games in the machines.h file.
 You can use the same hardware recommended by Till Harbaum or by Speckhoiler.
 I'll soon publish a project that allows 3D printer owners to assemble a new Galagino more easily than Till Harbaum's project, while still using the same hardware.
 
+
 ## Software
 
 Like in the original from Till Harbaum's Galaga emulator, download these files:
@@ -160,9 +161,11 @@ Like in the original:
 If you want to use a LED stripe, you have to download FastLED library.
 If you want to use a nunchuck, you need the NintendoExtensionCtrl library - emulation will be slower.
  
+
 ## Configuration
 
 The Galagino Plus code can be configured through the [config.h](./source/src/config.h), [machines.h](./source/src/machines.h) and [platformio.ini](./source/platformio.ini) file. 
+
 
 ## Controls
 
@@ -175,9 +178,23 @@ With the current configuration, the buttons have the following additional functi
 * Tutankham: Push coin button for the flash bomb.
 * Roc'n Rope: Push coin button to throw the rope.
 
+To disable auto fire, disable this line in config.h:
+
+#define AUTOFIRE_ENABLED
+
+
 ## Attract mode
 
 In Attract mode, the machine cycles through all games if you do not touch the joystick. The games end after 5 minutes (you can change this value inside config.h).
+
+#define MASTER_ATTRACT_MENU_TIMEOUT  1000 * 10  // start games while sitting idle in menu for 10 seconds, undefine to disable
+
+#define MASTER_ATTRACT_GAME_TIMEOUT  60000 * 5  // restart after 5 minutes 
+
+Enable this for mute audio in attract mode
+
+#define MASTER_ATTRACT_MUTE_AUDIO
+
 
 ## Limitations
 
