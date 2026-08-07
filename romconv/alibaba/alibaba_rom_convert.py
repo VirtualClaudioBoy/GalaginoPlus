@@ -15,7 +15,7 @@
 
 import os
 
-ROM_DIR = os.path.normpath(os.path.join("..", "roms", "alibaba"))
+ROM_DIR = os.path.normpath(os.path.join("..", "roms"))
 OUT_DIR = os.path.normpath(os.path.join("..", "..", "source", "src", "machines", "alibaba"))
 
 
