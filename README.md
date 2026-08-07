@@ -6,16 +6,26 @@ This repo is a port of Speckhoiler version of [Galagino](https://github.com/spec
 This port is NOT by the original authors, so please do not bother them with issues.
 
 I used and modified the games 1942, Dig dug, Donkey Kong, Frogger, Galaga and Pac Man from [Till Harbaum's Galagino](https://github.com/harbaum/galagino).
+
 I used and modified the games Anteater, Bagman, Crush roller, Eyes, Lizard Wizard, Mr. TNT and The Glob from [Speckhoiler's Galagino](https://github.com/speckhoiler/galagino).
+
 I used and modified the games Bombjack, Mr. Do!, Donkey Kong Jr., Donkey Kong 3 and Starforce from [Alby1970](https://github.com/Alby1970).
+
 I used and modified the games Gyruss, Lady Bug, Ms. Pacman, Time Pilot, Tutankham, Space Invaders and Galaxian from [Galagino 3](https://github.com/SurvivalHacking/galagino3).
+
 I used and modified the game Phoenix from [Spinnerino](https://github.com/SurvivalHacking/spinnerino).
+
 I used and modified the games Moon Cresta, Scramble and Super Cobra from [Galagino](https://github.com/galagino/galagino)
 
 Donkey Kong 3 sound cpus have been added by me.
+
 Graphical bugs have been fixed in Mr. Do!
+
 Pengo is not the Alby1970 version, but a conversion of mine, with the original "PopCorn" music and the creation of the labyrinth at the beginning of each level.
-The new games added by me in this port are: Ali Baba and 40 Thieves, Amidar, Bump 'n' jump, Burger time, Circus Charlie, Gaplus, Mappy, Pooyan, Roc'n rope, Tower of Druaga, Turtles, Van Van Car and Xevious.
+
+The new games added by me in this port are: Ali Baba and 40 Thieves, Amidar, Bump 'n' jump, Burger time, Circus Charlie, Gaplus, Mappy, Pooyan, Roc'n rope, Tower of Druaga, 
+
+Turtles, Van Van Car and Xevious.
 
 ![1942 screenshot](images/1942.png)
 ![Ali Baba and 40 Thieves screenshot](images/alibaba.png)
