@@ -39,6 +39,10 @@ You can select the games in the machines.h file.
 
 #define ENABLE_ALIBABA <-- Enabled
 
+It's only possible to have all games running simultaneously on ESP32s with 8 GB or more.
+
+The current version is not currently compatible with other ESP32 models (such as the ESP32-S3), so I'm working on a version compatible with the ESP32-S3 N16R8 (the model I have).
+
 ![1942 screenshot](images/1942.png)
 ![Ali Baba and 40 Thieves screenshot](images/alibaba.png)
 ![Amidar screenshot](images/amidar.png)
