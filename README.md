@@ -29,7 +29,7 @@ Pengo is not the Alby1970 conversion, but a conversion of mine (also change the 
 The new games added by me in this port are: Ali Baba and 40 Thieves, Amidar, Bump 'n' jump, Burger time, Circus Charlie, Gaplus, Mappy, Pooyan, Roc'n rope, Tower of Druaga, 
 Turtles, Van Van Car and Xevious.
 
-Not all games can be active at the same time.
+Due to the limited memory available on the ESP32, it is not possible to have all the games active.
 
 Depending on the size of the individual games, approximately 30 games can be active.
 
@@ -41,7 +41,7 @@ You can select the games in the machines.h file.
 
 It's only possible to have all games running simultaneously on ESP32s with 8 GB or more.
 
-The current version is not currently compatible with other ESP32 models (such as the ESP32-S3), so I'm working on a version compatible with the ESP32-S3 N16R8 (the model I have).
+The current version is not currently compatible with other ESP32 models (such as the ESP32-S3), so I'm working on a version compatible with the ESP32-S3 N16R8.
 
 ![1942 screenshot](images/1942.png)
 ![Ali Baba and 40 Thieves screenshot](images/alibaba.png)
