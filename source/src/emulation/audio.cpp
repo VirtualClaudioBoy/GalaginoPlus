@@ -1270,8 +1270,8 @@ void Audio::valueToBuffer(int index, short value) {
 
 #ifdef SND_DIFF
   // generate differential output
-  snd_buffer[2 * index]   = 0x8000 + (volume / volumeSetting);    // positive signal on GPIO26
-  snd_buffer[2 * index + 1] = 0x8000 - (volume / volumeSetting);    // negatve signal on GPIO25 
+  snd_buffer[2 * index]   = 0x8000 + (value / volumeSetting);    // positive signal on GPIO26
+  snd_buffer[2 * index + 1] = 0x8000 - (value / volumeSetting);    // negatve signal on GPIO25 
 #else
   // work-around weird byte order bug, see 
   // https://github.com/espressif/arduino-esp32/issues/8467#issuecomment-1656616015
