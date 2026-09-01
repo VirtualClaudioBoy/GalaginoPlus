@@ -59,7 +59,8 @@ unsigned char galaga::rdZ80(unsigned short Addr) {
 	        retval = map71[namco_cnt];
 	      } else {
 	        static unsigned char prev_mask = 0;
-	        static unsigned char fire_timer = 0;
+          static unsigned char fire_pending = 0;          
+//	        static unsigned char fire_timer = 0;
           
 	        // byte 0 is credit in BCD, byte 1 and 2: ...FLURD 
 	        unsigned char mapb1[] = { (unsigned char)(16*(credit/10) + credit % 10), 0b11111111, 0b11111111 };
@@ -74,7 +75,8 @@ unsigned char galaga::rdZ80(unsigned short Addr) {
 	        if(keymask & BUTTON_DOWN)  mapb1[1] &= ~0x01;
 	  
 	        // report fire only when it was pressed
-	        if((keymask & BUTTON_FIRE) && !(prev_mask & BUTTON_FIRE)) {
+/*
+          if((keymask & BUTTON_FIRE) && !(prev_mask & BUTTON_FIRE)) {
 	          mapb1[1] &= ~0x10;
 	          fire_timer = 1;         // 0 is too short for score enter, 5 is too long
 	          // should probably be done via a global counter
@@ -82,7 +84,15 @@ unsigned char galaga::rdZ80(unsigned short Addr) {
 	          mapb1[1] &= ~0x10;
 	          fire_timer--;
 	        }
-	  
+*/
+          if ((keymask & BUTTON_FIRE) && !(prev_mask & BUTTON_FIRE)) {
+            fire_pending = 1;
+          }
+          if (fire_pending && namco_cnt == 1) {
+            mapb1[1] &= ~0x10;
+            fire_pending = 0;
+          }
+
 	        // 51xx leaves credit mode when user presses start? Nope ...
 	        if((keymask & BUTTON_START) && !(prev_mask & BUTTON_START) && credit)
 	          credit -= 1;
