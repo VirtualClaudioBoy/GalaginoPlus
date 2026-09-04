@@ -66,6 +66,7 @@ enum {
   MCH_DKONGJR,
   MCH_DKONG3,
   MCH_EYES,
+  MCH_FANTASY,
   MCH_FROGGER,
   MCH_GALAGA,
   MCH_GAPLUS,
@@ -78,9 +79,11 @@ enum {
   MCH_MAPPY,
   MCH_MRDO,
   MCH_MSPACMAN,
+  MCH_NIBBLER,
   MCH_PACMAN,
   MCH_PENGO,
   MCH_PHOENIX,
+  MCH_PBACTION,
   MCH_POOYAN,
   MCH_ROCNROPE,
   MCH_SCRAMBLE,
@@ -93,7 +96,9 @@ enum {
   MCH_TURTLES,
   MCH_TUTANKHM,
   MCH_VANVAN,
-  MCH_XEVIOUS
+  MCH_XEVIOUS,
+  MCH_SCREGG,
+  MCH_VANGUARD
 };
 
 // one inst at 3Mhz ~ 500k inst/sec = 500000/60 inst per frame
@@ -118,6 +123,7 @@ public:
      }
 
     virtual void start() { }
+    virtual bool audioAttractMute() { return false; }
     virtual void reset() {
       for(current_cpu = 0; current_cpu < sizeof(cpu) / sizeof(Z80); current_cpu++) {
         ResetZ80(&cpu[current_cpu]);
@@ -177,6 +183,14 @@ public:
     virtual void hiscoreRestored() { }
 
     virtual const signed char *waveRom(unsigned char value) { return 0; }
+    virtual unsigned char vanguardSoundRom(unsigned short addr) { return 0xff; }
+    virtual bool vanguardMusic0Muted() { return true; }
+    virtual void vanguardMusic0Ended() { }
+    virtual bool vanguardMusic1Muted() { return true; }
+    virtual bool vanguardMusic2Muted() { return true; }
+    virtual const signed char *vanguardSample(unsigned char index) { return 0; }
+    virtual unsigned long vanguardSampleLength(unsigned char index) { return 0; }
+    virtual unsigned char vanguardSampleDivider(unsigned char index) { return 1; }
     virtual const unsigned short *logo(void) { return 0; };
     virtual bool hasNamcoAudio() { return false; }
     // WSG 15XX a 8 voci (Mappy): layout registri diverso dal WSG 3 voci
