@@ -28,6 +28,12 @@ public:
   // BUTTON_FIRE o 0.
   unsigned char fire_raw(void) { return fire_raw_state; }
   char demoSoundsOff();
+#ifdef AUTOFIRE_ENABLED
+  void setAutofireDisabled(bool disabled) {
+    autofire_disabled = disabled;
+    autofire_timer = 0;
+  }
+#endif
 
   typedef std::function<void(bool up, bool down)> THandlerVolume;
   Input& onVolumeUpDown(THandlerVolume fn);
@@ -52,6 +58,7 @@ private:
   unsigned char fire_raw_state = 0;   // vedi fire_raw()
 #ifdef AUTOFIRE_ENABLED
   unsigned long autofire_timer;   // istante di inizio della sequenza on/off corrente
+  bool autofire_disabled = false;
 #endif
 #ifdef NUNCHUCK_INPUT
   Nunchuck nunchuck;

@@ -11,6 +11,7 @@ public:
 
   void begin(void);
   void write(uint16_t *colors, uint32_t len);
+  void setViewport(uint16_t width);
   void flip(char flipY, char flipX);
   void flipReset(char flipY, char flipX);
 
@@ -25,6 +26,7 @@ private:
   spi_transaction_t* r_trans;
   spi_transaction_t transaction;
   unsigned char *dma_buffer;  // use a second buffer for dma transfers
+  uint16_t viewport_width = 224;
 };
 
 #endif // VIDEO_H

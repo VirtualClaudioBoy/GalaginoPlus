@@ -13,7 +13,7 @@ void Menu::init(Input *input, machineBase **machines,  signed char machinesCount
   }
   else {
     machineIndex = MCH_MENU;
-    menu_sel = 2;
+    menu_sel = 1;
   }
 }
 

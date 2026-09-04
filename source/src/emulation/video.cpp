@@ -58,7 +58,7 @@ spi_bus_config_t bus_cfg{
     .mosi_io_num = TFT_MOSI,
     .miso_io_num = TFT_MISO,
     .sclk_io_num = TFT_SCLK,
-    .max_transfer_sz = 224 * 8 * 2, // one complete 8x8 tile row at 16 bpp
+    .max_transfer_sz = 240 * 8 * 2, // largest supported 8-line strip
     .flags = SPICOMMON_BUSFLAG_MASTER,
 };
 
@@ -122,7 +122,7 @@ Video::Video() {
   digitalWrite(TFT_DC, HIGH); // Data mode
 
   // allocate a background buffer which is kept untouched during DMA transfer
-  dma_buffer = (unsigned char*)heap_caps_malloc(224*8*2, MALLOC_CAP_DMA);
+  dma_buffer = (unsigned char*)heap_caps_malloc(240*8*2, MALLOC_CAP_DMA);
 
   // 40Mhz is max possible rate with esp32
   // 40Mhz = 2.5MPix/s. A frame has 64512 pixels
@@ -228,6 +228,32 @@ void Video::write(uint16_t *colors, uint32_t len) {
 
   if(!dma_active)
     dma_active = 1;
+}
+
+void Video::setViewport(uint16_t width) {
+  if(width != 240) width = 224;
+  if(width == viewport_width) return;
+
+  if(dma_active)
+    spi_device_get_trans_result(handle, &r_trans, portMAX_DELAY);
+
+  if(viewport_width == 240 && width == 224) {
+    memset(dma_buffer, 0, 8 * 8 * 2);
+    const uint16_t side_x[2] = { 0, 232 };
+    for(int side = 0; side < 2; side++) {
+      setAddrWindow(side_x[side], TFT_Y_OFFSET, 8, 288);
+      for(int strip = 0; strip < 36; strip++) {
+        transaction.flags = 0;
+        transaction.length = 8 * 8 * 16;
+        transaction.tx_buffer = dma_buffer;
+        spi_device_transmit(handle, &transaction);
+      }
+    }
+  }
+
+  setAddrWindow((240 - width) / 2, TFT_Y_OFFSET, width, 288);
+  viewport_width = width;
+  dma_active = 0;
 }
 
 void Video::sendCommand(uint8_t commandByte, uint8_t *dataBytes, uint8_t numDataBytes) {

@@ -36,11 +36,9 @@ unsigned char Input::buttons_get(void) {
 #if defined(NUNCHUCK_INPUT)
   input_states = nunchuck.getInput();
 #else
-  #ifdef BTN_COIN_PIN
-    input_states = (!digitalRead(BTN_COIN_PIN)) ? BUTTON_EXTRA : 0;
-  #else
-    input_states = (!digitalRead(BTN_START_PIN)) ? BUTTON_EXTRA : 0;
-  #endif
+  // BUTTON_EXTRA controls menu exit/reset and must always follow START.
+  // COIN remains available separately through startAndCoinState below.
+  input_states = (!digitalRead(BTN_START_PIN)) ? BUTTON_EXTRA : 0;
   input_states |=
     (digitalRead(BTN_LEFT_PIN) ? 0 : BUTTON_LEFT) |
     (digitalRead(BTN_RIGHT_PIN) ? 0 : BUTTON_RIGHT) |
@@ -116,7 +114,7 @@ unsigned char Input::buttons_get(void) {
       if(!reset_timer)
         reset_timer = millis();
     
-      // reset if coin (or start if no coin is configured) is held for more than 3 seconds
+      // return to the game menu when START is held for more than 3 seconds
       if(millis() - reset_timer > 3000) {
         reset_timer = millis();
         if (_doReset_callback)
@@ -146,7 +144,7 @@ unsigned char Input::buttons_get(void) {
   // tenendo FUOCO premuto, pulsa il bit ON/OFF cosi' i giochi che sparano
   // solo sul fronte di salita vedono pressioni ripetute senza bisogno di
   // rilasciare manualmente il pulsante
-  if (input_states & BUTTON_FIRE) {
+  if (!autofire_disabled && (input_states & BUTTON_FIRE)) {
     unsigned long now = millis();
     if (!autofire_timer) autofire_timer = now;
     unsigned long elapsed = (now - autofire_timer) % (AUTOFIRE_ON_MS + AUTOFIRE_OFF_MS);
