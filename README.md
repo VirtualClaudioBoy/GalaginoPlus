@@ -1,6 +1,6 @@
 ![Galagino Plus screenshot](images/galaginoplus.png)
 
-# A new Galagino with 43 games and the ability to save the highest scores of each game !
+# A new Galagino with 48 games and the ability to save the highest scores of each game !
 
 The main new feature of this version, besides the new games added, is the permanent saving of high scores and player names. You can also configure auto-fire and audio mute in attract mode in config.h.
 
@@ -20,16 +20,18 @@ I used and modified the game Phoenix from [Spinnerino](https://github.com/Surviv
 
 I used and modified the games Moon Cresta, Scramble and Super Cobra from [Galagino](https://github.com/galagino/galagino)
 
+I used and modified the game Pinball Action from [BaasPierre](https://github.com/BaasPierre)
+
 Donkey Kong 3 sound cpus have been added by me.
 
 Graphical bugs have been fixed in Mr. Do!
 
 Pengo is not the Alby1970 conversion, but a conversion of mine (also change the file containing the roms), with the original "PopCorn" music and the creation of the labyrinth at the beginning of each level.
 
-The new games added by me in this port are: Ali Baba and 40 Thieves, Amidar, Bump 'n' jump, Burger time, Circus Charlie, Gaplus, Mappy, Pooyan, Roc'n rope, Tower of Druaga, 
-Turtles, Van Van Car and Xevious.
+The new games added by me in this port are: Ali Baba and 40 Thieves, Amidar, Bump 'n' jump, Burger time, Circus Charlie, Fantasy, Gaplus, Mappy, Nibbler, Pooyan, Roc'n rope, Scrambled egg, Tower of Druaga, 
+Turtles, Van Van Car, Vanguard and Xevious.
 
-Due to the limited memory available on the ESP32, it is not possible to have all the games active.
+Not all games can be active at the same time.
 
 Depending on the size of the individual games, approximately 30 games can be active.
 
@@ -38,10 +40,6 @@ You can select the games in the machines.h file.
 //#define ENABLE_1942 <-- Disabled
 
 #define ENABLE_ALIBABA <-- Enabled
-
-It's only possible to have all games running simultaneously on ESP32s with 8 GB or more.
-
-The current version is not currently compatible with other ESP32 models (such as the ESP32-S3), so I'm working on a version compatible with the ESP32-S3 N16R8.
 
 ![1942 screenshot](images/1942.png)
 ![Ali Baba and 40 Thieves screenshot](images/alibaba.png)
@@ -58,6 +56,7 @@ The current version is not currently compatible with other ESP32 models (such as
 ![Donkey Kong 3 screenshot](images/dkong3.png)
 ![Donkey Kong Jr. screenshot](images/dkongjr.png)
 ![Eyes screenshot](images/eyes.png)
+![Fantasy screenshot](images/fantasy.png)
 ![Frogger screenshot](images/frogger.png)
 ![Galaga screencast](images/galaga.gif)
 ![Galaxian screenshot](images/galaxian.png)
@@ -70,12 +69,15 @@ The current version is not currently compatible with other ESP32 models (such as
 ![Mr. Do screenshot](images/mrdo.png)
 ![Mr. TNT screenshot](images/mrtnt.png)
 ![Ms. Pacman screenshot](images/mspacman.png)
+![Nibbler screenshot](images/nibbler.png)
 ![Pac-Man screenshot](images/pacman.gif)
 ![Pengo screenshot](images/pengo.png)
 ![Phoenix screenshot](images/phoenix.png)
+![Pinball Action screenshot](images/pbaction.png)
 ![Pooyan screenshot](images/pooyan.png)
 ![Roc'n rope screenshot](images/rocnrope.png)
 ![Scramble screenshot](images/scramble.png)
+![Scrambled egg screenshot](images/scregg.png)
 ![Space Invaders screenshot](images/invaders.png)
 ![Starforce screenshot](images/starforc.png)
 ![Super Cobra screenshot](images/scobra.png)
@@ -85,6 +87,7 @@ The current version is not currently compatible with other ESP32 models (such as
 ![Turtles screenshot](images/turtles.png)
 ![Tutankham screenshot](images/tutankham.png)
 ![Van Van Car screenshot](images/vanvan.png)
+![Vanguard screenshot](images/vanguard.png)
 ![Xevious screenshot](images/xevious.png)
 
 
@@ -116,6 +119,7 @@ Like in the original from Till Harbaum's Galaga emulator, download these files:
     * [Donkey Kong 3](https://www.google.com/search?q=dkong3.zip+arcade+rom)
     * [Donkey Kong Jr. (Japan)](https://www.google.com/search?q=dkongjrj.zip+arcade+rom) (Important: filename with "jrj")
     * [Eyes](https://www.google.com/search?q=eyes.zip+arcade+rom)
+    * [Fantasy](https://www.google.com/search?q=fantasy.zip+arcade+rom)
     * [Frogger](https://www.google.com/search?q=frogger.zip+arcade+rom)
     * [Galaga (Namco Rev. B ROM)](https://www.google.com/search?q=galaga.zip+arcade+rom)
     * [Galaxian](https://www.google.com/search?q=galaxian.zip+arcade+rom)
@@ -128,12 +132,15 @@ Like in the original from Till Harbaum's Galaga emulator, download these files:
     * [Mr. Do!](https://www.google.com/search?q=mrdo.zip+arcade+rom)
     * [Mr. TNT](https://www.google.com/search?q=mrtnt.zip+arcade+rom)
     * [Ms. Pacman](https://www.google.com/search?q=mspacman.zip+arcade+rom)
+    * [Nibbler](https://www.google.com/search?q=nibbler.zip+arcade+rom)
     * [Pac-Man (Midway)](https://www.google.com/search?q=pacman.zip+arcade+rom)
     * [Pengo](https://www.google.com/search?q=pengo.zip+arcade+rom) 
     * [Phoenix](https://www.google.com/search?q=phoenix.zip+arcade+rom)
+    * [Pinball Action](https://www.google.com/search?q=pbaction.zip+arcade+rom)
     * [Pooyan](https://www.google.com/search?q=pooyan.zip+arcade+rom)
     * [Roc'n Rope](https://www.google.com/search?q=rocnrope.zip+arcade+rom)
     * [Scramble](https://www.google.com/search?q=scramble.zip+arcade+rom)
+    * [Scrambled egg](https://www.google.com/search?q=scregg.zip+arcade+rom)
     * [Space Invaders](https://www.google.com/search?q=invaders.zip+arcade+rom)
     * [Starforce](https://www.google.com/search?q=starforc.zip+arcade+rom)
     * [Super Cobra](https://www.google.com/search?q=scobra.zip+arcade+rom)
@@ -143,6 +150,7 @@ Like in the original from Till Harbaum's Galaga emulator, download these files:
     * [Turtles](https://www.google.com/search?q=turtles.zip+arcade+rom)
     * [Tutankham](https://www.google.com/search?q=tutankhm.zip+arcade+rom)
     * [Van Van Car](https://www.google.com/search?q=vanvan.zip+arcade+rom)
+    * [Vanguard](https://www.google.com/search?q=vanguard.zip+arcade+rom)
     * [Xevious](https://www.google.com/search?q=xevious.zip+arcade+rom)
 
 
@@ -176,15 +184,18 @@ The Galagino Plus code can be configured through the [config.h](./source/src/con
 With the current configuration, the buttons have the following additional functions:
 * Volume up: Hold coin button and push the joystick up. Default setting is 3. 1 is the loudest.
 * Volume down: Hold coin button and push the joystick down.
-* Return back to menu: Hold the coin button for more than 3 seconds. Attract mode is then active again.
+* Return back to menu: Hold the start button for more than 3 seconds. Attract mode is then active again.
 * Demo sounds off: To disable the demo sounds of Galaga, Digdug, The Glob, Anteater, Bombjack and Pengo hold down the fire button while turning it on.
 * The Glob game: Push coin button to call the elevator.
 * Tutankham: Push coin button for the flash bomb.
 * Roc'n Rope: Push coin button to throw the rope.
+* Pinball Action: Push coin button for the left flipper, push the fire for right flipper, move down to start a ball, move up to tilt  
 
 To disable auto fire, disable this line in config.h:
 
 #define AUTOFIRE_ENABLED
+
+Autofire work only in the following games: 1942, Eyes, Galaga, Galaxian, Gaplus, Gyruss, Moon Cresta, Phoenix, Scramble, Space invaders, Star Force, Super Cobra, Time Pilot, Tutankham, Vanguard and Xevious.
 
 
 ## Attract mode
@@ -204,5 +215,5 @@ Enable this for mute audio in attract mode
 
 Known game issues:
 * Gyruss: The sound cpu I8039 is missing - so there is no drum sound. Sometimes sprites appear that are no longer in use.
-* Tutankham: Some sounds are not playable in galagino. 
-* Super Cobra: The helicopter doesn't sound like a helicopter. It sounds very unpleasant — I’ve turned down the volume.
+* Tutankham: Some sounds are not playable. 
+* Super Cobra: The helicopter doesn't sound like a helicopter. It sounds very unpleasant — Volume was turned down.
