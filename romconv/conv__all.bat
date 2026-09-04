@@ -36,12 +36,15 @@ call conv_mooncresta.bat
 call conv_mrdo.bat
 call conv_mrtnt.bat
 call conv_mspacman.bat
+call conv_nibbler.bat
 call conv_pacman.bat
+call conv_pbaction.bat
 call conv_pengo.bat
 call conv_phoenix.bat
 call conv_pooyan.bat
 call conv_rocnrope.bat
 call conv_scramble.bat
+call conv_scregg.bat
 call conv_starforce.bat
 call conv_supercobra.bat
 call conv_theglob.bat
@@ -50,6 +53,8 @@ call conv_todruaga.bat
 call conv_turtles.bat
 call conv_tutankhm.bat
 call conv_vanvan.bat
+call conv_vanguard.bat
+call conv_fantasy.bat
 call conv_xevious.bat
 
 
