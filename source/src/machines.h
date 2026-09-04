@@ -8,33 +8,37 @@
 //#define ENABLE_ANTEATER
 //#define ENABLE_BAGMAN
 #define ENABLE_BNJ
-#define ENABLE_BOMBJACK
+//#define ENABLE_BOMBJACK
 #define ENABLE_BTIME
 #define ENABLE_CIRCUSC
 //#define ENABLE_CRUSH
 //#define ENABLE_DIGDUG
 //#define ENABLE_DKONG
-#define ENABLE_DKONGJR
+//#define ENABLE_DKONGJR
 #define ENABLE_DKONG3
- //#define ENABLE_EYES
+//#define ENABLE_EYES
+#define ENABLE_FANTASY
 //#define ENABLE_FROGGER
 //#define ENABLE_GALAGA
 //#define ENABLE_GALAXIAN
 #define ENABLE_GAPLUS
 //#define ENABLE_GYRUSS
-#define ENABLE_LADYBUG
+//#define ENABLE_LADYBUG
 //#define ENABLE_LIZWIZ
 #define ENABLE_MAPPY
-#define ENABLE_MOONCRESTA
+//#define ENABLE_MOONCRESTA
 #define ENABLE_MRDO
-#define ENABLE_MSPACMAN
+//#define ENABLE_MSPACMAN
 //#define ENABLE_MRTNT
-#define ENABLE_PACMAN
+//#define ENABLE_PACMAN
+#define ENABLE_NIBBLER
 #define ENABLE_PENGO
 #define ENABLE_PHOENIX
+#define ENABLE_PBACTION
 #define ENABLE_POOYAN
 #define ENABLE_ROCNROPE
-#define ENABLE_SCRAMBLE
+//#define ENABLE_SCRAMBLE
+#define ENABLE_SCREGG
 //#define ENABLE_SPACE
 //#define ENABLE_STARFORCE
 //#define ENABLE_SUPERCOBRA
@@ -44,6 +48,7 @@
 #define ENABLE_TURTLES
 //#define ENABLE_TUTANKHM
 #define ENABLE_VANVAN
+#define ENABLE_VANGUARD
 #define ENABLE_XEVIOUS
 
 #ifdef ENABLE_1942
@@ -106,6 +111,10 @@
   #include "machines/eyes/eyes.h"
 #endif
 
+#ifdef ENABLE_FANTASY
+  #include "machines/fantasy/fantasy.h"
+#endif
+
 #ifdef ENABLE_FROGGER
   #include "machines/frogger/frogger.h"
 #endif
@@ -154,6 +163,10 @@
   #include "machines/mspacman/mspacman.h"
 #endif
 
+#ifdef ENABLE_NIBBLER
+  #include "machines/nibbler/nibbler.h"
+#endif
+
 #ifdef ENABLE_PACMAN
   #include "machines/pacman/pacman.h"
 #endif
@@ -166,6 +179,10 @@
   #include "machines/phoenix/phoenix.h"
 #endif
 
+#ifdef ENABLE_PBACTION
+  #include "machines/pbaction/pbaction.h"
+#endif
+
 #ifdef ENABLE_POOYAN
   #include "machines/pooyan/pooyan.h"
 #endif
@@ -176,6 +193,10 @@
 
 #ifdef ENABLE_SCRAMBLE
   #include "machines/scramble/scramble.h"
+#endif
+
+#ifdef ENABLE_SCREGG
+  #include "machines/scregg/scregg.h"
 #endif
 
 #ifdef ENABLE_SPACE 
@@ -212,6 +233,9 @@
 
 #ifdef ENABLE_VANVAN
   #include "machines/vanvan/vanvan.h"
+#endif
+#ifdef ENABLE_VANGUARD
+  #include "machines/vanguard/vanguard.h"
 #endif
 
 #ifdef ENABLE_XEVIOUS
@@ -266,6 +290,9 @@ machineBase *machines[] = {
 #ifdef ENABLE_EYES  
   new eyes(), 
 #endif  
+#ifdef ENABLE_FANTASY
+  new fantasy(),
+#endif  
 #ifdef ENABLE_FROGGER  
   new frogger(), 
 #endif  
@@ -301,6 +328,9 @@ machineBase *machines[] = {
 #endif  
 #ifdef ENABLE_MSPACMAN  
   new mspacman(),
+#endif  
+#ifdef ENABLE_NIBBLER
+  new nibbler(),
 #endif
 #ifdef ENABLE_PACMAN  
   new pacman(),
@@ -311,6 +341,9 @@ machineBase *machines[] = {
 #ifdef ENABLE_PHOENIX
   new Phoenix(),
 #endif
+#ifdef ENABLE_PBACTION
+  new pbaction(),
+#endif
 #ifdef ENABLE_POOYAN
   new pooyan(),
 #endif
@@ -319,6 +352,9 @@ machineBase *machines[] = {
 #endif
 #ifdef ENABLE_SCRAMBLE
   new scramble(),
+#endif
+#ifdef ENABLE_SCREGG
+  new scregg(),
 #endif
 #ifdef ENABLE_SPACE 
   new spaceinvaders(),
@@ -346,6 +382,9 @@ machineBase *machines[] = {
 #endif
 #ifdef ENABLE_VANVAN
   new vanvan(),
+#endif
+#ifdef ENABLE_VANGUARD
+  new vanguard(),
 #endif
 #ifdef ENABLE_XEVIOUS
   new xevious()
