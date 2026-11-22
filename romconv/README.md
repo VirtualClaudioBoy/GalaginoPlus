@@ -89,6 +89,8 @@ conv_lizwiz.bat
 
 conv_mappy.bat
 
+conv_motos.bat
+
 conv_mooncresta.bat
 
 conv_mrdo.bat
