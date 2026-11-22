@@ -47,6 +47,7 @@ call conv_scramble.bat
 call conv_scregg.bat
 call conv_starforce.bat
 call conv_supercobra.bat
+call conv_superpac.bat
 call conv_theglob.bat
 call conv_timeplt.bat
 call conv_todruaga.bat

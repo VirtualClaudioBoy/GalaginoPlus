@@ -113,6 +113,8 @@ conv_starforce.bat
 
 conv_supercobra.bat
 
+conv_superpac.bat
+
 conv_theglob.bat
 
 conv_timeplt.bat
