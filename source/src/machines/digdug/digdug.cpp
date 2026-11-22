@@ -259,10 +259,15 @@ void digdug::prepare_frame(void) {
       	spr.code = (spr.code & 0xc0) | ((spr.code & ~0xc0) << 2);
       }
 
+      // where this sprite's left halves went (-1: off screen), for the hflip swaps below: swapping with
+      // sprite[active_sprites-2] when the left half was not added took another sprite's code, or, for the frame's
+      // first sprite, wrote before the start of the sprite buffer (and broke the heap)
+      int left = -1, bottom_left = -1;
       if((spr.y > -16) && (spr.y < 288) &&
-      	 (spr.x > -16) && (spr.x < 224)) {      
+      	 (spr.x > -16) && (spr.x < 224)) {
 
       	// save sprite in list of active sprites
+      	left = active_sprites;
       	sprite[active_sprites] = spr;
 	      // for horizontally doubled sprites, this one becomes the code + 2 part
 	      if(spr.flags & 0x08) sprite[active_sprites].code += 2;	
@@ -280,9 +285,12 @@ void digdug::prepare_frame(void) {
 
       	// on hflip swap both halfs
 	      if(spr.flags & 2) {
-	        int tmp = sprite[active_sprites-1].code;
-	        sprite[active_sprites-1].code = sprite[active_sprites-2].code;
-	        sprite[active_sprites-2].code = tmp;
+	        if(left >= 0) {
+	          int tmp = sprite[active_sprites-1].code;
+	          sprite[active_sprites-1].code = sprite[left].code;
+	          sprite[left].code = tmp;
+	        } else
+	          sprite[active_sprites-1].code += 2;   // what the swap would have given it
       	}
       }
 
@@ -292,6 +300,7 @@ void digdug::prepare_frame(void) {
       	 ((spr.y+16) > -16) && ((spr.y+16) < 288) &&
 	        (spr.x > -16) && (spr.x < 224)) {      
 	      // place a copy below the current one
+	      bottom_left = active_sprites;
 	      sprite[active_sprites] = spr;
 	      sprite[active_sprites].code += 3;
 	      sprite[active_sprites].y += 16;
@@ -311,9 +320,12 @@ void digdug::prepare_frame(void) {
 	
 	      // on hflip swap both bottom halfs
 	      if(spr.flags & 2) {
-	        int tmp = sprite[active_sprites-1].code;
-	        sprite[active_sprites-1].code = sprite[active_sprites-2].code;
-	        sprite[active_sprites-2].code = tmp;
+	        if(bottom_left >= 0) {
+	          int tmp = sprite[active_sprites-1].code;
+	          sprite[active_sprites-1].code = sprite[bottom_left].code;
+	          sprite[bottom_left].code = tmp;
+	        } else
+	          sprite[active_sprites-1].code += 2;   // code + 3, as the swap would have given it
       	}
       }
     }
