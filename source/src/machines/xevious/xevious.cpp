@@ -101,7 +101,15 @@ unsigned char xevious::rdZ80(unsigned short Addr) {
     // (carry=bit0=1 -> niente bomba). Come Scramble (laser+bomba sullo
     // stesso tasto, richiesta utente bring-up #28): FIRE spara e bombarda
     // insieme; il gioco ha comunque il suo cooldown interno (0x7940).
+    // XEVIOUS_BOMB_ON_EXTRA: a build with a real second button (B on a gamepad)
+    // puts the bomb there, as on the cabinet, and FIRE only zaps. Not the
+    // default: on the boards BUTTON_EXTRA is the START pin, and without a coin
+    // pin every press of it also inserts a virtual coin.
+#ifdef XEVIOUS_BOMB_ON_EXTRA
+    if (bit == 0 && (input->buttons_get() & BUTTON_EXTRA))
+#else
     if (bit == 0 && (input->buttons_get() & BUTTON_FIRE))
+#endif
       b0 = 0;
     return b0 | (b1 << 1);
   }

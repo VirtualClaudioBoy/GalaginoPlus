@@ -65,7 +65,7 @@ unsigned char _1942::rdZ80(unsigned short Addr) {
       if(keymask & BUTTON_DOWN)  retval &= ~0x04;
       if(keymask & BUTTON_UP)    retval &= ~0x08;
       if(keymask & BUTTON_FIRE)  retval &= ~0x10;
-      if(keymask & BUTTON_START) retval &= ~0x20;
+      if(keymask & BUTTON_EXTRA) retval &= ~0x20;  // B2: loop (EXTRA follows START where there is no second button)
       return retval;
     }
     
