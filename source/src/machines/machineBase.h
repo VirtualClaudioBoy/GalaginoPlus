@@ -98,7 +98,8 @@ enum {
   MCH_VANVAN,
   MCH_XEVIOUS,
   MCH_SCREGG,
-  MCH_VANGUARD
+  MCH_VANGUARD,
+  MCH_MOTOS
 };
 
 // one inst at 3Mhz ~ 500k inst/sec = 500000/60 inst per frame
@@ -207,6 +208,10 @@ public:
     virtual void gameLeds(CRGB *leds) { memcpy(leds, menu_leds, NUM_LEDS*sizeof(CRGB)); };
 #endif
     char game_started;	
+    // A second player's stick and buttons (BUTTON_* bits), for the boards that have two sets and the games that
+    // play both at once. Whatever runs the machine sets it where there is a second pad; 0 otherwise.
+    unsigned char buttons_p2 = 0;
+    virtual bool usesSecondPlayer() { return false; }
     unsigned char soundregs[80];
     
     //Mr.Do!

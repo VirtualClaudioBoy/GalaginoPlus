@@ -32,6 +32,7 @@ call conv_invaders.bat
 call conv_ladybug.bat
 call conv_lizwiz.bat
 call conv_mappy.bat
+call conv_motos.bat
 call conv_mooncresta.bat
 call conv_mrdo.bat
 call conv_mrtnt.bat

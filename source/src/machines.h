@@ -26,6 +26,7 @@
 //#define ENABLE_LADYBUG
 //#define ENABLE_LIZWIZ
 #define ENABLE_MAPPY
+//#define ENABLE_MOTOS
 //#define ENABLE_MOONCRESTA
 #define ENABLE_MRDO
 //#define ENABLE_MSPACMAN
@@ -145,6 +146,10 @@
 
 #ifdef ENABLE_MAPPY
   #include "machines/mappy/mappy.h"
+#endif
+
+#ifdef ENABLE_MOTOS
+  #include "machines/motos/motos.h"
 #endif
 
 #ifdef ENABLE_MOONCRESTA
@@ -316,6 +321,9 @@ machineBase *machines[] = {
 #endif  
 #ifdef ENABLE_MAPPY
   new mappy(),
+#endif
+#ifdef ENABLE_MOTOS
+  new motos(),
 #endif
 #ifdef ENABLE_MOONCRESTA
   new mooncresta(),
