@@ -42,6 +42,7 @@
 //#define ENABLE_SPACE
 //#define ENABLE_STARFORCE
 //#define ENABLE_SUPERCOBRA
+//#define ENABLE_SUPERPAC
 //#define ENABLE_THEGLOB
 //#define ENABLE_TIMEPLT
 #define ENABLE_TODRUAGA
@@ -211,6 +212,10 @@
   #include "machines/supercobra/supercobra.h"
 #endif
 
+#ifdef ENABLE_SUPERPAC
+  #include "machines/superpac/superpac.h"
+#endif
+
 #ifdef ENABLE_THEGLOB
   #include "machines/theglob/theglob.h"
 #endif
@@ -364,6 +369,9 @@ machineBase *machines[] = {
 #endif
 #ifdef ENABLE_SUPERCOBRA
   new supercobra(),
+#endif
+#ifdef ENABLE_SUPERPAC
+  new superpac(),
 #endif
 #ifdef ENABLE_THEGLOB 
   new theglob(),
